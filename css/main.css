@@ -266,8 +266,8 @@ img[srcset] {
 }
 :root {
   --color-mode: 'light';
-  --body-bg-color: #eee;
-  --board-bg-color: #fff;
+  --body-bg-color: #cfd8dc;
+  --board-bg-color: #eceff1;
   --text-color: #3c4858;
   --sec-text-color: #718096;
   --post-text-color: #2c3e50;
@@ -275,7 +275,7 @@ img[srcset] {
   --post-link-color: #0366d6;
   --link-hover-color: #30a9de;
   --link-hover-bg-color: #f8f9fa;
-  --navbar-bg-color: #2f4154;
+  --navbar-bg-color: #90a4ae;
   --navbar-text-color: #fff;
 }
 @media (prefers-color-scheme: dark) {
@@ -283,8 +283,8 @@ img[srcset] {
     --color-mode: 'dark';
   }
   :root:not([data-user-color-scheme]) {
-    --body-bg-color: #181c27;
-    --board-bg-color: #252d38;
+    --body-bg-color: #263238;
+    --board-bg-color: #455a64;
     --text-color: #c4c6c9;
     --sec-text-color: #a7a9ad;
     --post-text-color: #c4c6c9;
@@ -292,7 +292,7 @@ img[srcset] {
     --post-link-color: #1589e9;
     --link-hover-color: #30a9de;
     --link-hover-bg-color: #364151;
-    --navbar-bg-color: #1f3144;
+    --navbar-bg-color: #607d8b;
     --navbar-text-color: #d0d0d0;
   }
   :root:not([data-user-color-scheme]) img,
@@ -353,8 +353,8 @@ img[srcset] {
   }
 }
 [data-user-color-scheme='dark'] {
-  --body-bg-color: #181c27;
-  --board-bg-color: #252d38;
+  --body-bg-color: #263238;
+  --board-bg-color: #455a64;
   --text-color: #c4c6c9;
   --sec-text-color: #a7a9ad;
   --post-text-color: #c4c6c9;
@@ -362,7 +362,7 @@ img[srcset] {
   --post-link-color: #1589e9;
   --link-hover-color: #30a9de;
   --link-hover-bg-color: #364151;
-  --navbar-bg-color: #1f3144;
+  --navbar-bg-color: #607d8b;
   --navbar-text-color: #d0d0d0;
 }
 [data-user-color-scheme='dark'] img,
