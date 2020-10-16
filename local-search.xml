@@ -4,7 +4,26 @@
   
   
   <entry>
-    <title>android11</title>
+    <title>进制转换</title>
+    <link href="/2020/10/16/base-conversion/"/>
+    <url>/2020/10/16/base-conversion/</url>
+    
+    <content type="html"><![CDATA[<h1 id="进制转换"><a href="#进制转换" class="headerlink" title="进制转换"></a>进制转换</h1><p>（无数的人已经写过这篇了）</p><p>首先介绍一下相关英文：</p><p>进制 Base</p><p>二进制 Binary</p><p>八进制 Octal</p><p>十进制 Decimal</p><p>十六进制 Hexadecimal</p><p>接下来探讨一下其转换。</p><h2 id="Part-1-整数部分"><a href="#Part-1-整数部分" class="headerlink" title="Part 1 整数部分"></a>Part 1 整数部分</h2><p>进制虽然不同，但其表示思想类似，即每一数位上的数字均代表进位的 n 次幂的倍数。因此，我们把其余数制转为十进制是直观容易的：</p><p>FEC (base 16) → 15×16²+14×16+12 (base 10)</p><p>如何将十进制转为其他进制呢？只需逆向以上过程：</p><p>1492 (base 10) → 512×2+64×7+8×2+1×4 (base 10) →2724 (base 8)</p><p>这样，以十进制为桥梁，可以实现进制转换。</p><p>针对十进制转二进制，可以使用长除法，应用“先余为低，后余为高”：（最先得出的余数可以认为代表低数位）</p><p><img src="https://raw.githubusercontent.com/zhaozihanzzh/zhaozihanzzh.github.io/master/images/image-20201016232042673.png" alt="image-20201016232042673"></p><p>将 13 转为二进制，结果为 1101。</p><p>此外，由于除了十进制外的十六进制、八进制的进制数都是 2 的幂，我们也可以从二进制直接转至十六进制或八进制。举个例子，对于 111110110 (base 2) = 766 (base 8)，由于 2³=8 ，从右向左三位三位地分节，将每一节所对应的三位二进制数转为一位八进制后按原节次序排列即可。十六进制同理。</p><p>同样地，也可以用此方法将十六进制、八进制转为二进制，记得补 0 以占位。</p><h2 id="Part-2-小数部分"><a href="#Part-2-小数部分" class="headerlink" title="Part 2 小数部分"></a>Part 2 小数部分</h2><p>一个数的小数部分实质上是当 n 的指数为负数时对整数部分的扩展，对于其他进制转为十进制，这不难理解。但十进制往外转时，除以 n 的负数次幂再取余这一过程可以转成不断对小数部分乘以进制数且按照“先整为高，后整为低”原则取出商数：对于 0.375 (base 10) 转成二进制：</p><p>0.375×2=0.75 -&gt; 0</p><p>0.75×2=1.5     -&gt; 1</p><p>0.5×2=1          -&gt; 1</p><p>化为 0.011 (base 2)。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机杂谈</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Android Studio 模拟器体验 Android Q</title>
     <link href="/2020/10/11/android11/"/>
     <url>/2020/10/11/android11/</url>
     
