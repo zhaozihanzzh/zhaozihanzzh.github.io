@@ -176,7 +176,7 @@
     
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2020/10/24/local-variable-pr/">local_variable_pr</a>
+        <a href="/2020/10/24/local-variable-pr/">C++ 返回局部变量的引用与地址</a>
       </h1>
 
       <p class="index-excerpt">
@@ -186,7 +186,14 @@
             
           
           C++ 返回局部变量的引用与地址听说 2020 - 1024 = 996？
-#include &lt;iostream&gt; using namespace std; int&amp; refer(int&amp; arg) &#123;     int inter_var = 1024;     return inter_var;     // 返回局部变量的引用 &#125; int* po
+#include &lt;iostream&gt;
+using namespace std;
+int&amp; refer(int&amp; arg) &#123;
+	int inter_var = 1024;
+	return inter_var;
+	// 返回局部变量的引用
+&#125;
+int* pointer(con
         </a>
       </p>
 
