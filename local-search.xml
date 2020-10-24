@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>local_variable_pr</title>
+    <link href="/2020/10/24/local-variable-pr/"/>
+    <url>/2020/10/24/local-variable-pr/</url>
+    
+    <content type="html"><![CDATA[<h1 id="C-返回局部变量的引用与地址"><a href="#C-返回局部变量的引用与地址" class="headerlink" title="C++ 返回局部变量的引用与地址"></a>C++ 返回局部变量的引用与地址</h1><p>听说 2020 - 1024 = 996？</p><p><code>#include &lt;iostream&gt; using namespace std; int&amp; refer(int&amp; arg) &#123;     int inter_var = 1024;     return inter_var;     // 返回局部变量的引用 &#125; int* pointer(const int&amp; arg) &#123;     int var = 0;     return &amp;var;     // 返回指向局部变量的指针 &#125; int main() &#123;     int number = 996;     // cout &lt;&lt; refer(2020); 错误，不是常引用的引用作形参，实参只能是变量（或常量）。     cout &lt;&lt; &amp;refer(number) &lt;&lt; &quot; &quot; &lt;&lt; refer(number)&lt;&lt; endl; // 局部变量被销毁     const int a_const_int = 2020;     // cout &lt;&lt; refer(a_const_int); 错误，形参访问限制不能弱于实参。     cout &lt;&lt; pointer(2020 - number) &lt;&lt; &quot; &quot; &lt;&lt; *pointer(number) &lt;&lt; endl; // 形参为常引用，实参可以为常量，变量，表达式，数值。     void* v = (void*)pointer(number);     cout &lt;&lt; *(int*)v &lt;&lt; endl;     return 0; &#125;</code></p><p><img src="https://raw.githubusercontent.com/zhaozihanzzh/zhaozihanzzh.github.io/master/images/image-20201025001237263.png" alt="image-20201025001237263"></p><p>在 Visual Studio 中用 debug 编译，从外部试图访问局部变量时出现了 -858993460。让我们看一下：-858993460 的二进制表示在补码方案下其实是 -858993460 -(-2^31) + 2^31 = 3435973836 的二进制表示，转成 16 进制正是大名鼎鼎的 0xCCCCCCCC 。</p><p><img src="https://raw.githubusercontent.com/zhaozihanzzh/zhaozihanzzh.github.io/master/images/image-20201025003653131.png" alt="image-20201025003653131"></p><p>以上代码在 TDM-GCC 4.9.2 上编译，发现正常读取。不论哪种编译器，使用 void 指针间接访问均可行，这反映系统并不会在局部变量生命周期结束后便急着将它写入新的值，短时间内内存上的值还是不变的。</p><p><img src="https://raw.githubusercontent.com/zhaozihanzzh/zhaozihanzzh.github.io/master/images/image-20201025005648503.png" alt="image-20201025005648503"></p><p>不过在 Ubuntu 下用 gcc 9.3.0 编译就不一样了……</p><p>总之，这种操作应当避免……</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C++</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>进制转换</title>
     <link href="/2020/10/16/base-conversion/"/>
     <url>/2020/10/16/base-conversion/</url>
