@@ -216,7 +216,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021-01-19 10:06
+                  本文最后更新于：2021-01-19 10:36
                 
               </p>
             
@@ -283,6 +283,7 @@
 <p><img src="https://zhaozihanzzh.github.io/images/image-20201121008.jpg" srcset="/img/loading.gif" alt="image-20201121008"></p>
 <p>10.到这里可能就可以重启了，可能最好在此之前安装联网相关的软件包，但我已经不记得当时进行了什么操作。按 Ctrl + C 退出 chroot，之后 <code>umount -R 挂载点</code> 以卸载分区，使用 reboot 以重启。</p>
 <p><img src="https://zhaozihanzzh.github.io/images/image-20201121009.jpg" srcset="/img/loading.gif" alt="image-20201121009"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121011.jpg" srcset="/img/loading.gif" alt="image-20201121011"></p>
 <p>Part 3 锦上添花</p>
 <p>1.电脑时间问题</p>
 <p><a target="_blank" rel="noopener" href="https://sspai.com/post/55983">Linux Windows 双系统时间不一致 - 少数派</a></p>
@@ -291,6 +292,7 @@
 <p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/General_recommendations">General recommendations - ArchWiki</a></p>
 <p>3.安装桌面环境（DE）</p>
 <p>在这里，我选择 SDDM 作为显示管理器， KDE 作为桌面环境。但是，我安装 KDE 时选择的是 plasma-desktop 这一“最小化安装”，导致安装出来竟然在图形界面没有提供终端模拟器，最后按 Ctrl + Alt + F2 登录进另一个 tty 后手动安装了 konsole 软件包才得以解决。事后我还安装了 dolphin 和 ark。</p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121012.jpg" srcset="/img/loading.gif" alt="image-20201121012"></p>
 <p>4.安装字体</p>
 <p>5.NVIDIA 独显驱动</p>
 <p>我的 Intel Graphics UHD 630集成显卡一开始使用的是 mesa 软件包，希望使用 bumblebee 来实现双显卡切换，最终我的机器不仅无法启动图形界面，连其他的 tty 都无法开启，只好又插上了 ArchISO，卸载了 bumblebee，决定使用 PRIME 方案，结果，Arch wiki 里面nvidia-xconfig 的配置直接让我无法进入 KDE。我发现我的情况似乎与 wiki 上不一致，后来的一些研究为我提供了帮助：<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/archlinux-nvidia-settings-error-unable-to-load-info-from-any-available-system/111170">ArchLinux nvidia-settings ERROR: Unable to load info from any available system</a> 。以下网页说，现代系统不需要 nvidia-xconfig 了。</p>
@@ -324,6 +326,12 @@
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/02/02/flexicharger/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">FlexiCharger 减少笔记本电脑电池损耗</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
