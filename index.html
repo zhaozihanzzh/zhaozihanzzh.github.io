@@ -169,6 +169,48 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/31/assignmentoverride/">C++ 重载赋值运算符</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/31/assignmentoverride/">
+          
+          
+            
+          
+          C++ 重载赋值运算符如果在含有指针数据成员的类中没有重载赋值运算符，赋值时进行浅复制，导致被赋值对象与赋值对象指向同一地址，析构、操作数据成员时会出现不符合期望的结果，因此需要进行深复制。但仅进行深复制仍然是不够完善的。
+12345Demo &amp; Demo::operator=(const Demo &amp; obj) &#123;	delete ptr;	ptr = new strin
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-31 17:09" pubdate>
+              2021-03-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/C/">C++</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/02/02/flexicharger/">FlexiCharger 减少笔记本电脑电池损耗</a>
       </h1>
 
@@ -550,56 +592,6 @@ Part 1 准备工作
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/C/">C++</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/16/base-conversion/">进制转换</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/16/base-conversion/">
-          
-          
-            
-          
-          进制转换（无数的人已经写过这篇了）
-首先介绍一下相关英文：
-进制 Base
-二进制 Binary
-八进制 Octal
-十进制 Decimal
-十六进制 Hexadecimal
-接下来探讨一下其转换。
-Part 1 整数部分进制虽然不同，但其表示思想类似，即每一数位上的数字均代表进位的 n 次幂的倍数。因此，我们把其余数制转为十进制是直观容易的：
-FEC (base 16) → 15×16²+14×
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-16 22:15" pubdate>
-              2020-10-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
             
           </div>
         
