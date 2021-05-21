@@ -169,6 +169,93 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/05/21/cpp-private/">C++ 类的成员函数访问该类的私有数据成员</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/21/cpp-private/">
+          
+          
+            
+          
+          C++ 类的成员函数访问该类的私有数据成员知乎有同款问题。
+类的成员函数访问该类的私有数据成员时，不因为该私有数据成员不是 this 指针指向的对象持有的而禁止访问。这种控制是基于类的，而不是对象层面的。
+这样的代码将是可以编译的。
+12345678910class Object &#123;    public:        Object(int arg):num(arg) &#123;&#1
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-21 21:13" pubdate>
+              2021-05-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/C/">C++</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/05/01/multivarintegral/">多元函数积分学</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/01/multivarintegral/">
+          
+          
+            
+          
+          多元函数积分学零、定积分个人的总结先从定积分开始：定积分形如 \int_{a}^{b}f(x)dx ，积分域是一条线段，被积函数 f(x) 是要沿着这条线段（积分域中微小的量）积累的量的函数。如：所谓“曲边梯形的面积”问题中，可以把竖直方向上的长度看成是要被积累的量，沿着线段（x 轴）积累所得。
+计算方法：牛顿-莱布尼茨公式。
+一、二重积分对于被积函数是二元函数的情况，使用二重积分来将微小量（小区
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-01 15:00" pubdate>
+              2021-05-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%B7%A5%E7%A7%91%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/">工科数学分析</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/03/31/assignmentoverride/">C++ 重载赋值运算符</a>
       </h1>
 
@@ -506,92 +593,6 @@ Part 1 准备工作
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/25/matrix/">初探矩阵</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/25/matrix/">
-          
-          
-            
-          
-          初探矩阵一、矩阵定义1. 数域对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。
-2. 矩阵矩阵是指某一数域中的 m × n 个数排成 m 行 n 列的表。可记为 A = (aij)mn，或 Amn，或 Am×n。如果没有特殊说明，我们讨论的是复矩阵。
-两矩阵行列分别相等，称为同型矩阵。
-当 m 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-25 23:07" pubdate>
-              2020-10-25
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/">线性代数与解析几何</a>
-            
-          </div>
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/10/24/local-variable-pr/">C++ 返回局部变量的引用与地址</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/10/24/local-variable-pr/">
-          
-          
-            
-          
-          C++ 返回局部变量的引用与地址听说 2020 - 1024 = 996？
-1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int&amp; refer(int&amp; arg) &#123;	int inter_var = 1024;	return inter_var;	// 返
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-10-24 23:59" pubdate>
-              2020-10-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/C/">C++</a>
             
           </div>
         
