@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
-  <link rel="icon" type="image/png" href="/images/res/avatar.png">
+  <link rel="icon" href="/images/res/avatar.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,9 +17,10 @@
   <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
   <title>概率论 - Blogs of mefailedcoder</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
@@ -29,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
     
   
 
@@ -55,11 +56,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -129,13 +130,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -216,7 +217,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021-06-09 17:58
+                  本文最后更新于：2021-06-29 09:37
                 
               </p>
             
@@ -233,7 +234,7 @@
 <p>全概率公式：先化整为零，再聚零为整：<script type="math/tex">B_i</script> 为 <script type="math/tex">B</script> 的一个划分，则当 <script type="math/tex">A\subset B</script> ，<script type="math/tex">B_i</script> 是 <script type="math/tex">B</script> 的一个划分，此时有 <script type="math/tex">P(A) = \sum\limits_{i=1}^{n}P(B_i)P(A|B_i)</script> 。(6 个黑球，4 个白球，第二次摸到的是白球的概率？)</p>
 <p>贝叶斯公式：若 <script type="math/tex">P(B_i)>0</script> ，<script type="math/tex">B_iB_j = \emptyset</script>，<script type="math/tex">A\subset{\bigcup\limits_{i=1}^{\infty}B_i}</script> ，<script type="math/tex">P(A)>0</script> ，则 <script type="math/tex">P(B_j|A) = \frac{P(B_j)P(A|B_j)}{\sum\limits_{i=1}^{\infty}P(B_i)P(A|B_i)}</script>。（甲乙丙三车间产量占比已知，次品率已知，现在查出一个次品，是甲车间生产的概率？）</p>
 <h3 id="4-事件独立性"><a href="#4-事件独立性" class="headerlink" title="4.事件独立性"></a>4.事件独立性</h3><p>若 <script type="math/tex">P(AB) = P(A)P(B)</script>，则 A、B 相互独立。</p>
-<p>三个时间相互独立（<script type="math/tex">P(AB) = P(A)P(B)</script>，<script type="math/tex">P(BC) = P(B)P(C)</script>，<script type="math/tex">P(AC) = P(A)P(C)</script>，<script type="math/tex">P(ABC) = P(A)P(B)P(C)</script>）强于两两独立。</p>
+<p>三个事件相互独立（<script type="math/tex">P(AB) = P(A)P(B)</script>，<script type="math/tex">P(BC) = P(B)P(C)</script>，<script type="math/tex">P(AC) = P(A)P(C)</script>，<script type="math/tex">P(ABC) = P(A)P(B)P(C)</script>）强于两两独立。</p>
 <h3 id="5-独立实验"><a href="#5-独立实验" class="headerlink" title="5.独立实验"></a>5.独立实验</h3><p>n 重伯努利试验：试验只有两种可能结果，重复 n 次。</p>
 <p>伯努利定理：成功概率 p 时成功 k 次概率 <script type="math/tex">b(k;n,p)=C^{k}_{n}p^{k}(1-p)^{n-k}</script> ，称为伯努利数。</p>
 <h2 id="二、一维随机变量及其分布"><a href="#二、一维随机变量及其分布" class="headerlink" title="二、一维随机变量及其分布"></a>二、一维随机变量及其分布</h2><h3 id="1-随机变量"><a href="#1-随机变量" class="headerlink" title="1.随机变量"></a>1.随机变量</h3><p>对实数集上的任意 x ，有 <script type="math/tex">\{\omega|X(\omega)\leq{x}\}\in{F}</script> ，称 <script type="math/tex">X(\omega)</script> 为随机变量。（这个事件必须在事件域 F 中）</p>
@@ -286,7 +287,7 @@
 <h3 id="2-随机向量边缘分布函数与边缘密度函数（连续型）"><a href="#2-随机向量边缘分布函数与边缘密度函数（连续型）" class="headerlink" title="2.随机向量边缘分布函数与边缘密度函数（连续型）"></a>2.随机向量边缘分布函数与边缘密度函数（连续型）</h3><p>二维随机向量边缘分布为其中某个随机变量取某个值的概率（相当于在表格“边缘”的那一栏），对于离散型二维随机向量，有<script type="math/tex">P(Y=y_j)=\sum\limits_ip_{ij}</script>；对于连续型二维随机变量，其边缘分布函数为 <script type="math/tex">F_X(x)=F(x, +\infty)=\lim\limits_{y\rightarrow+\infty}F(x,y)</script>，其边缘密度函数为 <script type="math/tex">f_X(x)=\int_{-\infty}^{+\infty}f_{X,Y}(x,y)dy</script> 。（由联合分布确定其边缘分布，但反之不一定，要考虑其独立性）</p>
 <h3 id="3-随机变量的相互独立性"><a href="#3-随机变量的相互独立性" class="headerlink" title="3.随机变量的相互独立性"></a>3.随机变量的相互独立性</h3><p>若可判断 X、Y 取值互不影响，或对任意 x, y ，有 <script type="math/tex">F(x,y)=F(x)F(y)</script>，或离散型有 <script type="math/tex">p_{ij}=p_{i\cdot}p_{\cdot{j}}</script>，或连续型有 <script type="math/tex">f(x,y)=f_X(x)f_Y(y)</script>，那么 X、Y 相互独立。此时边缘分布可确定联合分布。</p>
 <h3 id="4-二维均匀分布"><a href="#4-二维均匀分布" class="headerlink" title="4.二维均匀分布"></a>4.二维均匀分布</h3><p>有界区域 D 的面积为 <script type="math/tex">S_D</script>，<script type="math/tex">f(x,y)=\left\{\begin{matrix}\frac{1}{S_D},(x,y)\in{D}\\0,(x,y)\notin{D}\end{matrix}\right.</script>。可以用画图辅助。</p>
-<h3 id="5-二维正态分布"><a href="#5-二维正态分布" class="headerlink" title="5.二维正态分布"></a>5.二维正态分布</h3><p>$(X,Y)\sim{N(\mu_1,\mu_2,\sigma^2_1,\sigma^2_2,\rho)}$，其边缘分布是一维正态分布，<script type="math/tex">\rho</script> 为两变量的相关系数。</p>
+<h3 id="5-二维正态分布"><a href="#5-二维正态分布" class="headerlink" title="5.二维正态分布"></a>5.二维正态分布</h3><p>$(X,Y)\sim{N(\mu_1,\mu_2,\sigma^2_1,\sigma^2_2,\rho)}$，其边缘分布是一维正态分布，<script type="math/tex">\rho</script> 为两变量的相关系数。（“物以类聚”，$\mu$ 在一起，$\sigma$ 在一起）</p>
 <h3 id="6-二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）"><a href="#6-二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）" class="headerlink" title="6.二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）"></a>6.二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）</h3><p>$Z=g(x,y)$ 为一个二元函数，研究其分布：</p>
 <p>离散型与一维类似，其概率分布函数直接将每个可能的 <script type="math/tex">(X,Y)</script> 概率累加。</p>
 <p>对于连续型，有 <script type="math/tex">F_Z(z)=P(g(X,Y)\leq{Z})=\iint\limits_{g(x,y)\leq{z}}f(x,y)dxdy</script>，但我们在这里只讨论随机向量函数为两随机变量之和的情况：令 <script type="math/tex">y=u-x</script>，则上式可写成 <script type="math/tex">\iint\limits_{x+y\leq{z}}f(x,y)dxdy=\int_{-\infty}^{+\infty}\int_{-\infty}^{z-x}f(x,y)dydx=\int_{-\infty}^{+\infty}\int_{-\infty}^{z}f(x,u-x)dudx=\int_{-\infty}^{z}\int_{-\infty}^{+\infty}f(x,u-x)dxdu</script>，求导得 <script type="math/tex">f_Z(z)=\int_{-\infty}^{+\infty}f(x, z-x)dx</script>。同理，<script type="math/tex">f_Z(z)=\int_{-\infty}^{+\infty}f(z-y, y)dy</script>。</p>
@@ -306,15 +307,16 @@
 <p>d.数学期望的部分性质</p>
 <p>如果 <script type="math/tex">\xi</script> 与 <script type="math/tex">\eta</script> 相互独立，<script type="math/tex">E(\xi\eta)=E(\xi)E(\eta)</script>；但反之不一定。</p>
 <h3 id="2-随机变量的矩"><a href="#2-随机变量的矩" class="headerlink" title="2.随机变量的矩"></a>2.随机变量的矩</h3><p>a.相关定义</p>
-<p>记 <script type="math/tex">E[(X-c)^k]</script> 为 X 关于 c 的 k 阶矩，当 c = 0 时为 k 阶原点矩 <script type="math/tex">a_k</script>，<script type="math/tex">c=E(X)</script> 时为 k 阶中心矩 <script type="math/tex">\mu_k</script>。</p>
+<p>记 <script type="math/tex">E[(X-c)^k]</script> 为 X 关于 c 的 k 阶矩，当 c = 0 时为 k 阶原点矩 <script type="math/tex">a_k</script>，<script type="math/tex">c=E(X)</script> 时为 k 阶中心矩 <script type="math/tex">\mu_k</script>。（$\mu$ 有些像以中心为轴左右对称）</p>
 <p>记 <script type="math/tex">\mu_2</script> 为方差。（X 必须有有限的期望）</p>
 <p>$\frac{\mu_3}{\mu^{\frac{3}{2}}_2}$ 为偏度系数，正态分布偏度系数为 0，绝对值越大，离正态分布偏差越大，大于 0 说明右偏。</p>
-<p>$\frac{\mu_4}{\mu^{2}_2}$ 为峰度系数，正态分布为 3。</p>
+<p>$\frac{\mu_4}{\mu^{2}_2}$ 为峰度系数，正态分布为 3。（“偏锋”，从 3 到 4）</p>
 <p>b.随机变量的方差的计算</p>
 <p>$Var(X)=E(X^2)-[E(X)]^2$ （“由内而外”）</p>
 <script type="math/tex; mode=display">Var(cX)=c^2Var(X)</script><p>对于二项分布，其方差有 <script type="math/tex">Var(X)=np(1-p)=npq</script>；泊松分布方差 <script type="math/tex">Var(X)=\lambda</script>；几何分布方差 <script type="math/tex">Var(X)=\frac{q}{p^2}</script>；均匀分布方差 <script type="math/tex">Var(X)=\frac{(b-a)^2}{12}</script>；正态分布方差 <script type="math/tex">Var(X)=\sigma^2</script>；指数分布方差 <script type="math/tex">Var(X)=\frac{1}{\lambda^2}</script> 。</p>
 <h3 id="3-二维随机向量的协方差"><a href="#3-二维随机向量的协方差" class="headerlink" title="3.二维随机向量的协方差"></a>3.二维随机向量的协方差</h3><p>定义 <script type="math/tex">Cov(X,Y)=E\{[X-E(X)][Y-E(Y)]\}</script>，则有 <script type="math/tex">Var(X)=Cov(X,X)</script>，<script type="math/tex">Cov(aX+bY,Z)=aCov(X,Z)+bCov(Y,Z)</script>；若 X、Y 独立，那么其协方差为 0，但反之不一定。</p>
-<script type="math/tex; mode=display">Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)</script><h3 id="4-相关系数"><a href="#4-相关系数" class="headerlink" title="4.相关系数"></a>4.相关系数</h3><p>当 <script type="math/tex">Var(X)>0</script>，<script type="math/tex">Var(Y)>0</script> 时，定义相关系数 <script type="math/tex">r(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}</script> （也可用 <script type="math/tex">\rho</script>），其绝对值总是小于等于 1。当 <script type="math/tex">\rho=0</script> 时，两变量无线性关系；当 <script type="math/tex">\rho=1</script> 时严格正相关，当 <script type="math/tex">\rho=-1</script> 时严格负相关。</p>
+<script type="math/tex; mode=display">Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)</script><p>注意 $Cov(X,-Y)=-Cov(X,Y)$，有 $Var(X-Y)=Var(X)+Var(Y)-2Cov(X,Y)$。</p>
+<h3 id="4-相关系数"><a href="#4-相关系数" class="headerlink" title="4.相关系数"></a>4.相关系数</h3><p>当 <script type="math/tex">Var(X)>0</script>，<script type="math/tex">Var(Y)>0</script> 时，定义相关系数 <script type="math/tex">r(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}</script> （也可用 <script type="math/tex">\rho</script>），其绝对值总是小于等于 1。当 <script type="math/tex">\rho=0</script> 时，两变量无线性关系；当 <script type="math/tex">\rho=1</script> 时严格正相关，当 <script type="math/tex">\rho=-1</script> 时严格负相关。</p>
 <p>由协方差的性质，当 X、Y 独立时，其相关系数等于 0，但反之不一定成立。也就是说，X、Y 独立，则两者一定不相关，但反之不一定。不过，<script type="math/tex">(X,Y)</script> 服从二维正态分布时，反之也成立。</p>
 <h6 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h6><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/261961315">https://zhuanlan.zhihu.com/p/261961315</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6ee90ba47b4a">https://www.jianshu.com/p/6ee90ba47b4a</a></p>
@@ -336,7 +338,11 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
                 <div class="post-prevnext">
@@ -424,8 +430,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -438,9 +445,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -448,7 +454,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -457,7 +463,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
@@ -465,18 +471,22 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -485,20 +495,6 @@
       typing(title)
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
   </script>
 
 
@@ -540,7 +536,7 @@
       };
     </script>
 
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
 
   
 
@@ -556,7 +552,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>

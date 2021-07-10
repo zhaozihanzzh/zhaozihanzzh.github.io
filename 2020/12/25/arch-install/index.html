@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
-  <link rel="icon" type="image/png" href="/images/res/avatar.png">
+  <link rel="icon" href="/images/res/avatar.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -17,9 +17,10 @@
   <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
   <title>神船 TX6 安装 ArchLinux - Blogs of mefailedcoder</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
@@ -29,7 +30,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
     
   
 
@@ -55,11 +56,11 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 <body>
@@ -129,13 +130,13 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
                 class="iconfont icon-search"></i>&nbsp;</a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" href="javascript:">&nbsp;<i
+            <a class="nav-link" target="_self">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -228,18 +229,18 @@
 <p>虽然安装 ArchLinux 和 WinPE 没啥关系，但为了防止哪天 Win 出问题，我打算顺便创建一个 WinPE 的启动盘。</p>
 <p>在这里，我选择使用 U 盘安装。参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31361497">macOS、Windows 10、GParted Live、WinPE 多种操作系统，用一个 U 盘搞定 - 知乎</a>，选择使用 DiskGenius 为 U 盘创建两个 FAT32 的文件分区，第一个分区 3.1GiB，第二个 4.1GiB，用来实现 ArchLinux Live Install 和启动 WinPE。为了方便，可以设置不同的卷标。为了省事，我没有格式化，而是把原有的文件扔进了 PE 的分区。分区后，从 ArchLinux 网站（<a target="_blank" rel="noopener" href="https://archlinux.org/download">https://archlinux.org/download</a> ）下载 x86_64 的安装 ISO，用资源管理器装载后把文件复制进第一个分区。下载安装 AOMEI PE Builder，安装，生成 ISO 文件后用同样的方法复制进第二个分区。</p>
 <p>需要注意的是，如果 AOMEI PE Builder 下载缓慢的话，可以用我分享的版本：链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1C3O-OAkBika2yj4UGAU1xw">https://pan.baidu.com/s/1C3O-OAkBika2yj4UGAU1xw</a> 提取码: mfi5，将里面的目录复制到你的下载目录，这个目录在 PE Builder 安装位置的 DownloadPath.ini 文件中有指定。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/aomei_prog.jpg" srcset="/img/loading.gif" alt="aomei_prog"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/aomei_prog.jpg" srcset="/img/loading.gif" lazyload alt="aomei_prog"></p>
 <p>之后插入 U 盘，在 BIOS 里面 Boot Manager 可以选择 EFI Boot Devices 了，可以进入 AOMEI PE Builder，发现一切正常，也可以进入 ArchISO 看一看。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/sel_boot.jpg" srcset="/img/loading.gif" alt="sel_boot"></p>
-<p><img src="https://zhaozihanzzh.github.io/images/aomei_desktop.jpg" srcset="/img/loading.gif" alt="aomei_desktop"></p>
-<p><img src="https://zhaozihanzzh.github.io/images/archiso_menu.jpg" srcset="/img/loading.gif" alt="archiso_menu"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/sel_boot.jpg" srcset="/img/loading.gif" lazyload alt="sel_boot"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/aomei_desktop.jpg" srcset="/img/loading.gif" lazyload alt="aomei_desktop"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/archiso_menu.jpg" srcset="/img/loading.gif" lazyload alt="archiso_menu"></p>
 <p>然后，尴尬的事情发生了。一直出现</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">Waiting <span class="hljs-number">30</span> <span class="hljs-built_in">seconds</span> <span class="hljs-keyword">for</span> device /dev/disk/<span class="hljs-keyword">by</span>-label/ARCH_202011 ...<br><br>ERROR: <span class="hljs-string">&#x27;/dev/disk/by-label/ARCH_202011&#x27;</span> device did <span class="hljs-keyword">not</span> show up <span class="hljs-keyword">after</span> <span class="hljs-number">30</span> <span class="hljs-built_in">seconds</span>...<br><br>​	Falling back <span class="hljs-built_in">to</span> interactive prompt<br><br>​	You can <span class="hljs-keyword">try</span> <span class="hljs-built_in">to</span> fix <span class="hljs-keyword">the</span> problem manually, <span class="hljs-built_in">log</span> out when you are finished<br><br>sh: can<span class="hljs-string">&#x27;t access tty: job control turned off</span><br></code></pre></td></tr></table></figure>
-<p><img src="https://zhaozihanzzh.github.io/images/starterr.jpg" srcset="/img/loading.gif" alt="starterr"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/starterr.jpg" srcset="/img/loading.gif" lazyload alt="starterr"></p>
 <p>不得已，我只好格式化 U 盘，这次用 DiskGenius 来往分区里写文件，一番操作后，终于成功启动 LiveCD 了。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/copyiso.png" srcset="/img/loading.gif" alt="copyiso"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/copyiso.png" srcset="/img/loading.gif" lazyload alt="copyiso"></p>
 <p>为了避免需要在浏览器中登录 WiFi，我使用手机连接 WiFi 后开启 WLAN 信号桥，中继出一个不需要浏览器认证的网络。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/WLANBridge.jpg" srcset="/img/loading.gif" alt="WLANBridge"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/WLANBridge.jpg" srcset="/img/loading.gif" lazyload alt="WLANBridge"></p>
 <p>Part 2 安装</p>
 <p>整个安装过程，参考以下文章，请以官方 Wiki 为准：<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Installation guide (简体中文) - ArchWiki</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99448314">ArchLinux安装(UEFI) - 知乎</a></p>
@@ -251,22 +252,22 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ls /sys/firmware/efi/efivars<br></code></pre></td></tr></table></figure>
 <p>目录被正常显示，说明我使用的是 UEFI 模式启动。</p>
 <p>接下来我们使用 iwctl 连接 WiFi，键入 <code>iwctl</code> 后使用 <code>device list</code> 命令列出可用的无线网卡，使用 <code>station 网卡名 scan</code> 来扫描后用 <code>station 网卡名 get-networks</code> 列出扫描到的热点，使用 <code>iwctl --passphrase 密码 station 网卡名 connect SSID</code> 连接，之后按 CtrlD 退出 iwctl。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121001.jpg" srcset="/img/loading.gif" alt="image-20201121001"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121001.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121001"></p>
 <p>2.使用 <code>ping archlinux.org</code> 检查能否连接 archlinux 网站，之后使用 <code>timedatectl set-ntp true</code> 命令确保系统时间准确（我当时好像没有检查时间，有些图片缺失）</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121002.jpg" srcset="/img/loading.gif" alt="image-20201121002"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121002.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121002"></p>
 <p>3.使用 <code>fdisk -l</code> 命令查看块设备，发现我们的目标磁盘块设备文件为 /dev/nvme0n1（Linux 中有“一切都是文件”一说），使用 gpt 磁盘分区表，接下来确定分区方案。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121003.jpg" srcset="/img/loading.gif" alt="image-20201121003"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121003.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121003"></p>
 <p>分区参考了 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25118984/answer/567568759">Linux 桌面用户是否有对 /boot 单独分区的必要？ - 知乎</a>、<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Partitioning_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Partitioning (简体中文) - ArchWiki</a>，为了简便选择不设立 swap 分区，选择使用 cfdisk 工具（应该是？）：<code>cfdisk 块设备路径</code> 后会进入一个互动式的界面，在这里我给剩余空间分出 2GiB 留作 EFI 引导和 boot 用（这块硬盘上原来是没有 EFI 分区的），分出 32GiB 作为根目录所需，另外在结尾预留 1.9 GiB 以备以后扩展或修正等后其余容量留给主目录，分区类型分别为 EFI System，Linux root (x86-64)，Linux filesystem，确认磁盘上原有的分区没有被错误地修改后即可写入新的分区，注意要记住你创建的分区的块设备文件，在本例中是屏幕最左侧的那一列。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121004.jpg" srcset="/img/loading.gif" alt="image-20201121004"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121004.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121004"></p>
 <p>4.创建分区完毕后对其进行格式化，Linux 有许多不同的文件系统，但由于本人对文件系统不甚了解，最终为根目录和主目录选择较老的 ext4 文件系统：<code>mkfs.ext4 块设备文件</code>，而根据 Wiki，UEFI 推荐使用 FAT32 文件系统：<code>mkfs.fat -F32 块设备文件</code>。之后进行挂载分区，在这里我把根目录的块设备挂载到 /mnt（<code>mount 块设备 挂载点</code>），之后执行 <code>mkdir /mnt/efi</code>、<code>mkdir /mnt/home</code> 为 EFI 和主目录创建挂载点并挂载。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121005.jpg" srcset="/img/loading.gif" alt="image-20201121005"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121005.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121005"></p>
 <p>5.使用 pacstrap 安装脚本安装 base 软件包、Linux 内核和常规硬件的固件（这里我没有使用 LTS 内核之类的），这里 <code>/mnt</code> 是根目录的挂载点：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pacstrap /mnt base linux linux-firmware<br></code></pre></td></tr></table></figure>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121006.jpg" srcset="/img/loading.gif" alt="image-20201121006"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121006.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121006"></p>
 <p>注意，这里日志中输出的几个关于 aic94xx，wd719x，xhci_pci 的 WARNING 可以参见 Wiki 说明：<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Mkinitcpio#Possibly_missing_firmware_for_module_XXXX">mkinitcpio - ArchWiki</a>。</p>
 <p>接下来创建分区表（/mnt 仍然是根目录挂载点）： </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab<br></code></pre></td></tr></table></figure>
-<p>接着检查一下创建的分区表 /mnt/etc/fstab：<img src="https://zhaozihanzzh.github.io/images/image-20201121007.jpg" srcset="/img/loading.gif" alt="image-20201121007"></p>
+<p>接着检查一下创建的分区表 /mnt/etc/fstab：<img src="https://zhaozihanzzh.github.io/images/image-20201121007.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121007"></p>
 <p>6.chroot 进安装的系统环境：<code>arch-chroot /mnt</code>（/mnt 为根目录挂载点），之后执行 <code>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</code> 设置为上海（东八区）时间，执行 <code>hwclock --systohc</code> 命令，到此时间设置完毕。 </p>
 <p>7.编辑 /etc/locale.gen 这个文本文件，在此我通过取消对应行前面的注释（即删除 # 号）来将 locale 设置为 en_US.UTF-8，不设置为中文的理由可以见官方 Wiki，据说会使 tty 乱码。之后，在终端执行 locale-gen 命令，然后，同样地创建 /etc/locale.conf，写入：</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">LANG</span>=en_US.UTF-<span class="hljs-number">8</span><br></code></pre></td></tr></table></figure>
@@ -280,10 +281,10 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pacman -S grub efibootmgr<br></code></pre></td></tr></table></figure>
 <p>如果你想让 GRUB 自动检测到 Windows 的存在并自动配置好 Windows 的启动条目的话，还需要安装 os-prober 和 ntfs-3g。</p>
 <p>之后执行  <code>grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB</code>。这里的 /efi 是我为 EFI 系统选择的挂载点，最后的 grub 是启动引导器标识，详见 wik，这一步将把 GRUB EFI 安装到 挂载点/EFI/启动引导器标识 路径。之后，执行 <code>grub-mkconfig -o /boot/grub/grub.cfg</code> 来生成配置文件。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121008.jpg" srcset="/img/loading.gif" alt="image-20201121008"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121008.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121008"></p>
 <p>10.到这里可能就可以重启了，可能最好在此之前安装联网相关的软件包，但我已经不记得当时进行了什么操作。按 Ctrl + C 退出 chroot，之后 <code>umount -R 挂载点</code> 以卸载分区，使用 reboot 以重启。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121009.jpg" srcset="/img/loading.gif" alt="image-20201121009"></p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121011.jpg" srcset="/img/loading.gif" alt="image-20201121011"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121009.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121009"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121011.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121011"></p>
 <p>Part 3 锦上添花</p>
 <p>1.电脑时间问题</p>
 <p><a target="_blank" rel="noopener" href="https://sspai.com/post/55983">Linux Windows 双系统时间不一致 - 少数派</a></p>
@@ -292,16 +293,16 @@
 <p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/General_recommendations">General recommendations - ArchWiki</a></p>
 <p>3.安装桌面环境（DE）</p>
 <p>在这里，我选择 SDDM 作为显示管理器， KDE 作为桌面环境。但是，我安装 KDE 时选择的是 plasma-desktop 这一“最小化安装”，导致安装出来竟然在图形界面没有提供终端模拟器，最后按 Ctrl + Alt + F2 登录进另一个 tty 后手动安装了 konsole 软件包才得以解决。事后我还安装了 dolphin 和 ark。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121012.jpg" srcset="/img/loading.gif" alt="image-20201121012"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121012.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121012"></p>
 <p>4.安装字体</p>
 <p>5.NVIDIA 独显驱动</p>
 <p>我的 Intel Graphics UHD 630集成显卡一开始使用的是 mesa 软件包，希望使用 bumblebee 来实现双显卡切换，最终我的机器不仅无法启动图形界面，连其他的 tty 都无法开启，只好又插上了 ArchISO，卸载了 bumblebee，决定使用 PRIME 方案，结果，Arch wiki 里面nvidia-xconfig 的配置直接让我无法进入 KDE。我发现我的情况似乎与 wiki 上不一致，后来的一些研究为我提供了帮助：<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/archlinux-nvidia-settings-error-unable-to-load-info-from-any-available-system/111170">ArchLinux nvidia-settings ERROR: Unable to load info from any available system</a> 。以下网页说，现代系统不需要 nvidia-xconfig 了。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201121010.jpg" srcset="/img/loading.gif" alt="image-20201121010"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201121010.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121010"></p>
 <p>6.键盘背光</p>
 <p>根据网络上的提示，我成功地为 NK60SB 开启了键盘背光，编译了<a target="_blank" rel="noopener" href="https://github.com/zhaozihanzzh/clevo-xsm-wmi/commit/5d855522fbd18ddd6b2e3ba91632df909189c9dd">相关驱动</a>。</p>
 <p>7.续航测试</p>
 <p>某日，在图书馆没有能充电的位置了，顺便进行测试：屏幕亮度 20%，连接 WiFi，关闭蓝牙，开启独显（如果我没有配置错误的话）。机器电池 47 WHr，采用 Intel i5-10400 CPU，NVIDIA GeForce GTX1650 独显，16.1吋 60Hz 1080P 屏幕，进行少量网页浏览，主要是 WPS PDF 浏览和 WPS 文字编辑。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/image-20201128001.png" srcset="/img/loading.gif" alt="image-20201128001"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/image-20201128001.png" srcset="/img/loading.gif" lazyload alt="image-20201128001"></p>
 <p>8.开启蓝牙</p>
 <p><a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Bluetooth_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Wiki</a> 中提供了步骤，注意我的机器需要疑难解答中的步骤才能与手机配对。</p>
 
@@ -320,7 +321,11 @@
                 
               </div>
               
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
               
               
                 <div class="post-prevnext">
@@ -414,8 +419,9 @@
   
 </footer>
 
-<!-- SCRIPTS -->
 
+  <!-- SCRIPTS -->
+  
   <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
@@ -428,9 +434,8 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/debouncer.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
@@ -438,7 +443,7 @@
 
 
   
-    <script  src="/js/lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -447,7 +452,7 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
 
 
 
@@ -455,18 +460,22 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
 
 
 
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -475,20 +484,6 @@
       typing(title)
       
     })(window, document);
-  </script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-  <script>
-    (function () {
-      var path = "/local-search.xml";
-      var inputArea = document.querySelector("#local-search-input");
-      inputArea.onclick = function () {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-        this.onclick = null
-      }
-    })()
   </script>
 
 
@@ -507,7 +502,6 @@
 
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
-
 
 
 </body>
