@@ -217,15 +217,14 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021-01-19 10:36
+                  本文最后更新于：2021-08-10 16:49
                 
               </p>
             
             <div class="markdown-body">
               <h1 id="神船-TX6-安装-ArchLinux"><a href="#神船-TX6-安装-ArchLinux" class="headerlink" title="神船 TX6 安装 ArchLinux"></a>神船 TX6 安装 ArchLinux</h1><p>警告！本文可能有大量图片，流量消耗大。</p>
 <p>本文为安装完毕一个多月后撰写，部分回忆可能与事实有所出入，仅供参考。</p>
-<p>Part 1 准备工作</p>
-<p>由于原装 SSD 使用的是被认为较差的群联 PS3111 主控且运行在 SATA 速率下，我选择加装一条 NVMe 的 SSD。蓝天的 NK60SB 模具拥有第二个 M.2 2280 硬盘位，且为 PCIe 3.0 × 4 速率。（在这里补充一下，固件里面可能写的模具是 NKx0Sx，其中 NK50、NK60、NK70 分别对应 15.6 吋、16.1 吋、17.3 吋的屏幕，NK50SZ 无独显，NK50S5 搭载 NVIDIA GeForce MX350 独显，NK50/60/70 后缀 SB 对应 GTX1650，SE 对应 GTX1650Ti，但可能识别是 NKx0Sx）为了管理方便，NVMe 固态“象征性地”在 Windows 下分出 5GiB，其余容量全部不分配。</p>
+<h2 id="Part-1-准备工作"><a href="#Part-1-准备工作" class="headerlink" title="Part 1 准备工作"></a>Part 1 准备工作</h2><p>由于原装 SSD 使用的是被认为较差的群联 PS3111 主控且运行在 SATA 速率下，我选择加装一条 NVMe 的 SSD。蓝天的 NK60SB 模具拥有第二个 M.2 2280 硬盘位，且为 PCIe 3.0 × 4 速率。（在这里补充一下，固件里面可能写的模具是 NKx0Sx，其中 NK50、NK60、NK70 分别对应 15.6 吋、16.1 吋、17.3 吋的屏幕，NK50SZ 无独显，NK50S5 搭载 NVIDIA GeForce MX350 独显，NK50/60/70 后缀 SB 对应 GTX1650，SE 对应 GTX1650Ti，但可能识别是 NKx0Sx，参考神舟的<a target="_blank" rel="noopener" href="http://kfgl.hasee.com/lookup/book/bblist.asp">网站</a>）为了管理方便，NVMe 固态“象征性地”在 Windows 下分出 5GiB，其余容量全部不分配。</p>
 <p>虽然安装 ArchLinux 和 WinPE 没啥关系，但为了防止哪天 Win 出问题，我打算顺便创建一个 WinPE 的启动盘。</p>
 <p>在这里，我选择使用 U 盘安装。参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31361497">macOS、Windows 10、GParted Live、WinPE 多种操作系统，用一个 U 盘搞定 - 知乎</a>，选择使用 DiskGenius 为 U 盘创建两个 FAT32 的文件分区，第一个分区 3.1GiB，第二个 4.1GiB，用来实现 ArchLinux Live Install 和启动 WinPE。为了方便，可以设置不同的卷标。为了省事，我没有格式化，而是把原有的文件扔进了 PE 的分区。分区后，从 ArchLinux 网站（<a target="_blank" rel="noopener" href="https://archlinux.org/download">https://archlinux.org/download</a> ）下载 x86_64 的安装 ISO，用资源管理器装载后把文件复制进第一个分区。下载安装 AOMEI PE Builder，安装，生成 ISO 文件后用同样的方法复制进第二个分区。</p>
 <p>需要注意的是，如果 AOMEI PE Builder 下载缓慢的话，可以用我分享的版本：链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1C3O-OAkBika2yj4UGAU1xw">https://pan.baidu.com/s/1C3O-OAkBika2yj4UGAU1xw</a> 提取码: mfi5，将里面的目录复制到你的下载目录，这个目录在 PE Builder 安装位置的 DownloadPath.ini 文件中有指定。</p>
@@ -241,8 +240,7 @@
 <p><img src="https://zhaozihanzzh.github.io/images/copyiso.png" srcset="/img/loading.gif" lazyload alt="copyiso"></p>
 <p>为了避免需要在浏览器中登录 WiFi，我使用手机连接 WiFi 后开启 WLAN 信号桥，中继出一个不需要浏览器认证的网络。</p>
 <p><img src="https://zhaozihanzzh.github.io/images/WLANBridge.jpg" srcset="/img/loading.gif" lazyload alt="WLANBridge"></p>
-<p>Part 2 安装</p>
-<p>整个安装过程，参考以下文章，请以官方 Wiki 为准：<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Installation guide (简体中文) - ArchWiki</a></p>
+<h2 id="Part-2-安装"><a href="#Part-2-安装" class="headerlink" title="Part 2 安装"></a>Part 2 安装</h2><p>整个安装过程，参考以下文章，请以官方 Wiki 为准：<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/Installation_guide_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29">Installation guide (简体中文) - ArchWiki</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/99448314">ArchLinux安装(UEFI) - 知乎</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21427410/answer/171867330">Arch Linux 怎么安装？ - 知乎</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/202914804">Arch Linux 安装指南 2020.08 - 知乎</a></p>
@@ -285,8 +283,7 @@
 <p>10.到这里可能就可以重启了，可能最好在此之前安装联网相关的软件包，但我已经不记得当时进行了什么操作。按 Ctrl + C 退出 chroot，之后 <code>umount -R 挂载点</code> 以卸载分区，使用 reboot 以重启。</p>
 <p><img src="https://zhaozihanzzh.github.io/images/image-20201121009.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121009"></p>
 <p><img src="https://zhaozihanzzh.github.io/images/image-20201121011.jpg" srcset="/img/loading.gif" lazyload alt="image-20201121011"></p>
-<p>Part 3 锦上添花</p>
-<p>1.电脑时间问题</p>
+<h2 id="Part-3-锦上添花"><a href="#Part-3-锦上添花" class="headerlink" title="Part 3 锦上添花"></a>Part 3 锦上添花</h2><p>1.电脑时间问题</p>
 <p><a target="_blank" rel="noopener" href="https://sspai.com/post/55983">Linux Windows 双系统时间不一致 - 少数派</a></p>
 <p>2.添加用户及 sudo</p>
 <p>以下大部分内容可以在这里找到答案：</p>
