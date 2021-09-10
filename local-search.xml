@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Python3 整除的浅思</title>
+    <link href="/2021/09/10/python-exact-division/"/>
+    <url>/2021/09/10/python-exact-division/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Python3-整除的浅思"><a href="#Python3-整除的浅思" class="headerlink" title="Python3 整除的浅思"></a>Python3 整除的浅思</h1><p>Python 3 中，采用 <code>//</code> 来实现整除，两个整型变量整除后得到的变量依然是整型。而采用普通的除号 <code>/</code> 得到的却是浮点型。</p><p>Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点型没有这样的实现机制。为了保留相对完整的大整数运算能力支持，需要整除的存在来避开对浮点的依赖。</p><p>那么，为什么两个整型采用除号运算，得到的却是浮点型？</p><p>可以参考：<a href="https://www.zhihu.com/question/473479381/answer/2015056944">pansz的回答</a>。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>计算机杂谈</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>神船 TX6 BIOS 开关独显</title>
     <link href="/2021/08/10/bios-gpu-switch/"/>
     <url>/2021/08/10/bios-gpu-switch/</url>
