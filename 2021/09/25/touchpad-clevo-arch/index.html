@@ -18,7 +18,7 @@
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
   
-  <title>博客相关问题 - Blogs of mefailedcoder</title>
+  <title>神船 TX6 修复 ArchLinux 下触摸板问题 - Blogs of mefailedcoder</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -151,7 +151,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="博客相关问题">
+            <span class="h2" id="subtitle" title="神船 TX6 修复 ArchLinux 下触摸板问题">
               
             </span>
 
@@ -161,8 +161,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-11-01 23:57" pubdate>
-        2020-11-01 23:57
+      <time datetime="2021-09-25 17:00" pubdate>
+        2021-09-25 17:00
       </time>
     </span>
   
@@ -173,7 +173,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      256 字
+      494 字
     </span>
   
 
@@ -183,7 +183,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      7
        分钟
     </span>
   
@@ -213,23 +213,17 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">博客相关问题</h1>
+            <h1 style="display: none">神船 TX6 修复 ArchLinux 下触摸板问题</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021-06-10 02:00
+                  本文最后更新于：2021-09-25 17:37
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="博客相关问题"><a href="#博客相关问题" class="headerlink" title="博客相关问题"></a>博客相关问题</h1><p>1.使用 GFM 时发现，加粗、斜体格式用 *** 表示时在某些场景下会出现无法正确解析的问题。<img src="https://zhaozihanzzh.github.io/images/image-20201102210643027.png" srcset="/img/loading.gif" lazyload alt="image-20201102210643027"></p>
-<p>更换为 **_ 与 _** 后问题消失。</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.reinforce.cn/t/545.html">https://www.reinforce.cn/t/545.html</a></p>
-<p>2.开启 Typora 的行内公式支持：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30892763/article/details/98202815">https://blog.csdn.net/weixin_30892763/article/details/98202815</a></p>
-<p>3.在 Typora 里面直接粘贴图片会导致图片变成 png 格式，好像会重新编码，压缩过的 jpg 会变成特别大的 png，不清楚是 Windows “照片”还是剪贴板，亦或是 typora 的锅。如果直接从菜单里面“插入本地图片”就会原封不动地插进来。</p>
-<p>4.URL 中的括号等特殊字符需要用转义字符表达以防止解析错误：左括号用 %28，右括号用 %29。</p>
-<p>5.关于 raw.githubusercontent 无法加载图片：将 raw.githubusercontent.com/用户名/用户名.github.io/master/ 替换为 用户名.github.io/</p>
-<p>6.行内公式下划线解析错误时，改用两个 dollar 符号括起来。</p>
+              <h1 id="神船-TX6-修复-ArchLinux-下触摸板问题"><a href="#神船-TX6-修复-ArchLinux-下触摸板问题" class="headerlink" title="神船 TX6 修复 ArchLinux 下触摸板问题"></a>神船 TX6 修复 ArchLinux 下触摸板问题</h1><h2 id="Part-1-背景"><a href="#Part-1-背景" class="headerlink" title="Part 1 背景"></a>Part 1 背景</h2><p>在 Arch Linux 刚刚<a href="https://zhaozihanzzh.github.io/2020/12/25/arch-install/">安装好</a>时，这台神船 TX6（蓝天 NK60SB 模具）的触摸板是正常的。然而，2021 年 2 月 26 日系统更新之后的重启改变了这一切——触摸板不能用了。我按照 wiki 上的各种方法，安装了 <code>xf86-input-synaptics</code>，调整了 <code>/etc/X11/xorg.conf.d/70-synaptics.conf</code>、<code>/usr/share/X11/xorg.conf.d/70-synaptics.conf</code>等配置文件 ，查了 <code>journalctl</code>、<code>/var/log/Xorg.0.log</code> 等各种日志，追踪了 <code>/proc/bus/input/devices</code>等，甚至安装了 GNOME、切换 wayland，无果。求助了一些大佬，仍然没有解决问题。由于当时更新了 nvidia 驱动，切换 nvidia 驱动仍然无果。后来，尝试<a href="https://zhaozihanzzh.github.io/2021/08/10/bios-gpu-switch/">禁用独显</a>，仍然没用，说明可能不是 nvidia 的原因……</p>
+<h2 id="Part-2-解决"><a href="#Part-2-解决" class="headerlink" title="Part 2 解决"></a>Part 2 解决</h2><p>事发 6 个月后，通过在 Bing 上搜索 “dev/input/mouse touchpad” ，成功找到 <a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?pid=1927097#p1927097">archlinux 的 bbs</a>，在 <code>/etc/default/grub</code> 中 <code>GRUB_CMDLINE_LINUX_DEFAULT</code> 条目加入 <code>pci=nocrs</code>，之后执行<code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code>（根据自己 grub 安装情况调整，这里我在 <code>/etc/default/grub</code> 里加入了 <code>GRUB_DISABLE_OS_PROBER=false</code> 来检测到 Windows），重启，触摸板可以用了，并且执行 <code>sudo dmesg | grep i2c</code> 可以看到这样的输出：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs gradle">[    <span class="hljs-number">3.028457</span>] input: ELAN0413:<span class="hljs-number">00</span> <span class="hljs-number">04</span>F3:<span class="hljs-number">3161</span> Mouse as <span class="hljs-regexp">/devices/</span>pci0000:<span class="hljs-number">00</span><span class="hljs-regexp">/0000:00:15.0/i</span>2c_designware.<span class="hljs-number">0</span><span class="hljs-regexp">/i2c-0/i</span>2c-ELAN0413:<span class="hljs-number">00</span><span class="hljs-regexp">/0018:04F3:3161.0001/i</span>nput/input11<br>[    <span class="hljs-number">3.028517</span>] input: ELAN0413:<span class="hljs-number">00</span> <span class="hljs-number">04</span>F3:<span class="hljs-number">3161</span> Touchpad as <span class="hljs-regexp">/devices/</span>pci0000:<span class="hljs-number">00</span><span class="hljs-regexp">/0000:00:15.0/i</span>2c_designware.<span class="hljs-number">0</span><span class="hljs-regexp">/i2c-0/i</span>2c-ELAN0413:<span class="hljs-number">00</span><span class="hljs-regexp">/0018:04F3:3161.0001/i</span>nput/input13<br>[    <span class="hljs-number">3.028561</span>] hid-generic <span class="hljs-number">0018</span>:<span class="hljs-number">04</span>F3:<span class="hljs-number">3161.0001</span>: input,hidraw0: I2C HID v1.<span class="hljs-number">00</span> Mouse [ELAN0413:<span class="hljs-number">00</span> <span class="hljs-number">04</span>F3:<span class="hljs-number">3161</span>] on i2c-ELAN0413:<span class="hljs-number">00</span><br>[    <span class="hljs-number">3.033612</span>] i2c i2c-<span class="hljs-number">2</span>: <span class="hljs-number">2</span>/<span class="hljs-number">2</span> memory slots populated (<span class="hljs-keyword">from</span> DMI)<br>[    <span class="hljs-number">3.034104</span>] i2c i2c-<span class="hljs-number">2</span>: Successfully instantiated SPD at <span class="hljs-number">0</span>x50<br>[    <span class="hljs-number">3.504030</span>] input: ELAN0413:<span class="hljs-number">00</span> <span class="hljs-number">04</span>F3:<span class="hljs-number">3161</span> Mouse as <span class="hljs-regexp">/devices/</span>pci0000:<span class="hljs-number">00</span><span class="hljs-regexp">/0000:00:15.0/i</span>2c_designware.<span class="hljs-number">0</span><span class="hljs-regexp">/i2c-0/i</span>2c-ELAN0413:<span class="hljs-number">00</span><span class="hljs-regexp">/0018:04F3:3161.0001/i</span>nput/input18<br>[    <span class="hljs-number">3.504075</span>] input: ELAN0413:<span class="hljs-number">00</span> <span class="hljs-number">04</span>F3:<span class="hljs-number">3161</span> Touchpad as <span class="hljs-regexp">/devices/</span>pci0000:<span class="hljs-number">00</span><span class="hljs-regexp">/0000:00:15.0/i</span>2c_designware.<span class="hljs-number">0</span><span class="hljs-regexp">/i2c-0/i</span>2c-ELAN0413:<span class="hljs-number">00</span><span class="hljs-regexp">/0018:04F3:3161.0001/i</span>nput/input20<br>[    <span class="hljs-number">3.504118</span>] hid-multitouch <span class="hljs-number">0018</span>:<span class="hljs-number">04</span>F3:<span class="hljs-number">3161.0001</span>: input,hidraw0: I2C HID v1.<span class="hljs-number">00</span> Mouse [ELAN0413:<span class="hljs-number">00</span> <span class="hljs-number">04</span>F3:<span class="hljs-number">3161</span>] on i2c-ELAN0413:<span class="hljs-number">00</span><br></code></pre></td></tr></table></figure></p>
 
             </div>
             <hr>
@@ -239,7 +233,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
                     
                   </div>
                 
@@ -257,18 +251,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/02/relations-functions/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关系和函数</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/25/matrix/">
-                        <span class="hidden-mobile">初探矩阵</span>
+                      <a href="/2021/09/19/algo-tortoiseandhare/">
+                        <span class="hidden-mobile">龟兔赛跑算法</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

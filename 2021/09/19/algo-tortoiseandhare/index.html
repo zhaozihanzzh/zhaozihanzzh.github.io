@@ -18,7 +18,7 @@
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
   
-  <title>多元函数积分学 - Blogs of mefailedcoder</title>
+  <title>龟兔赛跑算法 - Blogs of mefailedcoder</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -151,7 +151,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="多元函数积分学">
+            <span class="h2" id="subtitle" title="龟兔赛跑算法">
               
             </span>
 
@@ -161,8 +161,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-05-01 15:00" pubdate>
-        2021-05-01 15:00
+      <time datetime="2021-09-19 23:55" pubdate>
+        2021-09-19 23:55
       </time>
     </span>
   
@@ -173,7 +173,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.7k 字
+      115 字
     </span>
   
 
@@ -183,7 +183,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      1
        分钟
     </span>
   
@@ -213,35 +213,19 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">多元函数积分学</h1>
+            <h1 style="display: none">龟兔赛跑算法</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021-05-22 05:54
+                  本文最后更新于：2021-09-19 23:55
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="多元函数积分学"><a href="#多元函数积分学" class="headerlink" title="多元函数积分学"></a>多元函数积分学</h1><h2 id="零、定积分"><a href="#零、定积分" class="headerlink" title="零、定积分"></a>零、定积分</h2><p>个人的总结先从定积分开始：定积分形如 <script type="math/tex">\int_{a}^{b}f(x)dx</script> ，积分域是一条线段，被积函数 <script type="math/tex">f(x)</script> 是要沿着这条线段（积分域中微小的量）积累的量的函数。如：所谓“曲边梯形的面积”问题中，可以把竖直方向上的长度看成是要被积累的量，沿着线段（x 轴）积累所得。</p>
-<p>计算方法：牛顿-莱布尼茨公式。</p>
-<h2 id="一、二重积分"><a href="#一、二重积分" class="headerlink" title="一、二重积分"></a>一、二重积分</h2><p>对于被积函数是二元函数的情况，使用二重积分来将微小量（小区域）上的被积函数值积累起来。二重积分形如<script type="math/tex">\iint\limits_{D}f(x, y)d\sigma</script>，一般在 <script type="math/tex">xOy</script> 平面内，由于是二重积分，书写成两个积分号。这里所有积分得出的都是一个数值，不是向量值。</p>
-<p>计算方法：看成 <script type="math/tex">x-</script> 型区域或 <script type="math/tex">y-</script> 型区域；换元积分；利用极坐标。需要注意的是，由于 <script type="math/tex">d\sigma = dxdy = dx(u, v)dy(u, v)</script> ，换元时要借助雅可比行列式。积分时最好画出被积区域的图像，把“固定”的一个变量书写在左侧的积分号处，把实质上先积分的变量放在右侧，从右往左积分时上下限的字母（积分的“维度”）越来越少，这是因为随着积分从右往左的进行，右侧的积分已经在上下限中包含了左侧上下限不写的字母的边界形状信息。</p>
-<p>如果积分域字母，以 <script type="math/tex">x</script> 为例，具有对称性，当 <script type="math/tex">f(-x, y)=f(x, y)</script> 时，可以把积分域缩减到右侧，将所得的值乘以 2 ；当 <script type="math/tex">f(-x, y)=-f(x, y)</script> 时，关于 <script type="math/tex">y</script> 轴对称的两侧积分域的积分值相抵消。</p>
-<h2 id="二、三重积分"><a href="#二、三重积分" class="headerlink" title="二、三重积分"></a>二、三重积分</h2><p>形如 <script type="math/tex">\iiint\limits_{\Omega}f(x, y, z)dV</script> ，被积函数是三元函数，需要遍历（三维）区域的每个微小的体积量.</p>
-<p>计算方法：直角坐标系：先单后重法（假设高度是用一根顶天花板立地板的竿子测量，把这竿子的高度用位置坐标 x、y 表示出来，再拿着竿子跑遍房间就行）；先重后单法（先积分出房间在高度 z 处的面积，即一层瓷砖覆盖房间的这个高度，再用瓷砖把房间填满）；换元，主要是球面坐标、柱坐标。</p>
-<h2 id="三、第一类曲线积分"><a href="#三、第一类曲线积分" class="headerlink" title="三、第一类曲线积分"></a>三、第一类曲线积分</h2><p>形如 <script type="math/tex">\int_{C}f(x, y, z)ds</script> ，相比定积分，被积函数是个三元函数，也就是空间的一个场，描述了要积累的属性在空间某点的值（定积分也可以看成是三元函数，但由于沿着坐标轴积分，把剩下两个维度忽略了），函数值还是数，但积分域从定积分的线段改成了曲线。</p>
-<p>计算方法：通过换元，把曲线变换成直的，再调用定积分。要注意换元时弧长微分 <script type="math/tex">ds=\sqrt{x'^2(t)+y'^2(t)+z'^2(t)} dt</script> ，无法把 s 分解，也不用再求导。</p>
-<h2 id="四、第二类曲线积分"><a href="#四、第二类曲线积分" class="headerlink" title="四、第二类曲线积分"></a>四、第二类曲线积分</h2><p>第二类曲线积分与第一类曲线积分有较大的差别。第二类曲线积分中被积分的函数是个向量值函数（有方向的场），积分所沿着的曲线也是有向的，沿曲线方向依次取得各点的向量值函数在累加时采用的不是矢量求和，而是与曲线方向的数量积的和，记作 <script type="math/tex">\int_{L}\pmb{f}\cdot{d\pmb{s}}</script> 。</p>
-<p>计算方法：由于被积函数、曲线通常在 <script type="math/tex">xOy</script> 坐标系中表示，可以将被积函数、曲线用 <script type="math/tex">\vec{i}</script>、<script type="math/tex">\vec{j}</script>、<script type="math/tex">\vec{k}</script> 三个分方向表示出来，由于 <script type="math/tex">{d\pmb{s}} = \pmb{e_T}ds = \frac{1}{\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}}\{x'(t), y'(t)\}\cdot{\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}dt} = \{x'(t), y'(t)\}</script> ，可得出对坐标的曲线积分 <script type="math/tex">\int_{L}P(x, y)dx+Q(x, y)dy</script> ，再进行换元即可。</p>
-<h2 id="五、第一类曲面积分"><a href="#五、第一类曲面积分" class="headerlink" title="五、第一类曲面积分"></a>五、第一类曲面积分</h2><p>二重积分是在 <script type="math/tex">xOy</script> 上进行积分的，而第一类曲面积分将积分域提升到了空间中的曲面。第一类曲面积分形如 <script type="math/tex">\iint\limits_{S}f(x, y, z)dS</script> ，被积函数是三元非向量值函数。</p>
-<p>计算方法：把曲面投影（“拍扁”）到一个平面上，如取 <script type="math/tex">xOy</script> 平面承接投影，则需要把 z 用 x 和 y 表示出来以正确表达原平面，即要有 <script type="math/tex">z=f(x, y)</script> ，移项可得 <script type="math/tex">f(x, y) - z = 0</script> ，求导得法向量 <script type="math/tex">\{f_x, f_y, -1\}</script> ，法向量与 z 轴夹角的余弦值 <script type="math/tex">\cos{\gamma}=\frac{1}{\sqrt{f_x^2+f_y^2+1}}</script> ，可得 <script type="math/tex">dS={\sqrt{f_x^2+f_y^2+1}}dxdy</script>，可化为投影到 <script type="math/tex">xOy</script> 平面的二重积分。</p>
-<h2 id="六、第二类曲面积分"><a href="#六、第二类曲面积分" class="headerlink" title="六、第二类曲面积分"></a>六、第二类曲面积分</h2><p>第二类曲面积分与第二类曲线积分有着某种联系，同样是向量值三元函数形成的场，但积分域是有向的空间曲面，其形如 <script type="math/tex">\iint\limits_{S}\vec{f}(x, y, z)d\vec{S}=\iint\limits_{S}(P\cos{\alpha}+Q\cos{\beta}+R\cos{\gamma})dS=\iint\limits_{S}Pdxdy+Qdydz+Rdzdx</script> ，流量可看成流量微元在指定方向曲面上的第二类曲面积分。</p>
-<p>计算方法：虽然与第一类曲面积分同属于曲面积分，但由于被积函数（场）是向量值的，不能仅仅投影到 <script type="math/tex">xOy</script> 等一个平面了事，那样另外两个方向上的分量 <script type="math/tex">Q\vec{j}</script>、<script type="math/tex">R\vec{k}</script> 无法计算。为了正确地处理，需要向 <script type="math/tex">xOy</script>、 <script type="math/tex">yOz</script>、<script type="math/tex">zOx</script>​ 三个平面分别投影，与第一类曲面积分一样，再把另一个变量用投影平面两个变量表达出来，代入被积函数，最后站在平面的上方，（如：<script type="math/tex">zOx</script> 平面站在 y 轴正半轴往下看）如果曲面方向指向被观察者，即为正号，否则是负号，即“一投二代三定向”。</p>
-<h2 id="七、格林公式"><a href="#七、格林公式" class="headerlink" title="七、格林公式"></a>七、格林公式</h2><p><script type="math/tex">\iint\limits_{D}(\frac{\partial{Q}}{\partial{x}}-\frac{\partial{P}}{\partial{y}})dxdy=\oint_{L}{Pdx+Qdy}</script> ，D 是以分段光滑的 L （L取正向）为边界的平面闭区域，且 <script type="math/tex">P(x, y)</script>、<script type="math/tex">Q(x, y)</script> 在 D 上有一阶连续偏导数。</p>
-<p>如果闭区域中间有一点使得 P 或 Q 函数无定义，要挖去。</p>
-<p>取 <script type="math/tex">P=-y</script>，<script type="math/tex">Q=x</script>，可以求出面积。</p>
-<p>格林公式相当于牛顿-莱布尼茨公式，将二重积分与第二类曲线积分联系起来。（在平面上）</p>
-<h2 id="八、保守场与势函数"><a href="#八、保守场与势函数" class="headerlink" title="八、保守场与势函数"></a>八、保守场与势函数</h2><h2 id="九、散度与高斯公式"><a href="#九、散度与高斯公式" class="headerlink" title="九、散度与高斯公式"></a>九、散度与高斯公式</h2><h2 id="十、旋度与斯托克斯公式"><a href="#十、旋度与斯托克斯公式" class="headerlink" title="十、旋度与斯托克斯公式"></a>十、旋度与斯托克斯公式</h2><p>未完待续</p>
+              <h1 id="龟兔赛跑算法"><a href="#龟兔赛跑算法" class="headerlink" title="龟兔赛跑算法"></a>龟兔赛跑算法</h1><h2 id="Part-1-背景"><a href="#Part-1-背景" class="headerlink" title="Part 1 背景"></a>Part 1 背景</h2><p>问题来自<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/linked-list-cycle/">力扣</a>：判断链表中是否有环？</p>
+<h2 id="Part-2-实现"><a href="#Part-2-实现" class="headerlink" title="Part 2 实现"></a>Part 2 实现</h2><p>准备两个指针，遍历时一个指针前进一次，另一个前进两次，如果两指针相遇或赶超，说明存在环。好比两人在操场上跑步，速度一快一慢，当时间足够时，总会“套圈”。</p>
+<p>时间复杂度：O(N)，N 为链表节点数。</p>
+<p>空间复杂度：O(1)。</p>
 
             </div>
             <hr>
@@ -251,7 +235,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E5%B7%A5%E7%A7%91%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/">工科数学分析</a>
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
                     
                   </div>
                 
@@ -269,9 +253,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/05/21/cpp-private/">
+                      <a href="/2021/09/25/touchpad-clevo-arch/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">C++ 类的成员函数访问该类的私有数据成员</span>
+                        <span class="hidden-mobile">神船 TX6 修复 ArchLinux 下触摸板问题</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -279,8 +263,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/31/assignmentoverride/">
-                        <span class="hidden-mobile">C++ 重载赋值运算符</span>
+                      <a href="/2021/09/10/python-exact-division/">
+                        <span class="hidden-mobile">Python3 整除的浅思</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -426,45 +410,6 @@
 
 
 
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
-
-  
 
 
 
