@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
+  <link rel="icon" href="/images/res/avatar.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#90a4ae">
+  <meta name="description" content="">
+  <meta name="author" content="zhaozihanzzh">
+  <meta name="keywords" content="">
+  
+  <title>同余与同余式 - Blogs of mefailedcoder</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/images/res/default.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="同余与同余式">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-14 09:02" pubdate>
+        2021-12-14 09:02
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">同余与同余式</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022-01-17 11:36
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="同余与同余式"><a href="#同余与同余式" class="headerlink" title="同余与同余式"></a>同余与同余式</h1><h2 id="一、概念及性质"><a href="#一、概念及性质" class="headerlink" title="一、概念及性质"></a>一、概念及性质</h2><ol>
+<li>同余的定义？“定义域”？P54 模 m 同余是等价关系吗？P55<br>同余的定义并不直接是其字面意义 ，而是“跨度”为模的整数倍。</li>
+<li><script type="math/tex">a_1\equiv{b_1}\pmod{m}</script>，<script type="math/tex">a_2\equiv{b_2}\pmod{m}</script>，则 a<sub>1</sub>+a<sub>2</sub>，b<sub>1</sub>+b<sub>2</sub> 和 a<sub>1</sub>a<sub>2</sub>，b<sub>1</sub>b<sub>2</sub> 之间存在怎样的关系？P56<br>由此，某天是星期三，这天后的 2<sup>2008</sup> 天是星期几？</li>
+<li><p>怎样快速判断某数是否能被 3 或 9 整除？如何借助同余来证明？P57 怎样利用 7×11×13=1001 判断某数是否能被 7，11，13 整除？</p>
+</li>
+<li><p><script type="math/tex">d\cdot{a}\equiv{d\cdot{b}}\pmod{m}</script>，什么条件下 <script type="math/tex">a\equiv{b}\pmod{m}</script>？怎么证明？P59<br>“可以直接除去与模互素的公因数”</p>
+</li>
+<li><p><script type="math/tex">a\equiv{b}\pmod{m}</script>，d&gt;0，那么 da 与 db 满足什么关系？P59 反过来，如果 <script type="math/tex">a\equiv{b}\pmod{m}</script>，且 a，b，m 有公因数 d，那么能得到怎样的关系？<br>“同余关系可以整体放大和缩小。换言之，在模和被取模的数中都含有的因数无影响”</p>
+</li>
+<li><p>模 m 同余可以推出模 m 的因数同余。模一组数同余可以推出模这一组数的最小公倍数同余。怎么证明？P60 因此，模一组素数同余相当于模这些素数的积同余。<br>证明利用作差可证，因为模谁同余实际上是说的两数之差的性质。</p>
+</li>
+<li><p><script type="math/tex">a\equiv{b}\pmod{m}</script>，那么(a, m) 和 (b, m) 有何关系？证明。<br>（欧几里得除法计算最大公因数）</p>
+</li>
+<li><p>设 m，n，a 都是正整数，如果 <script type="math/tex">n^{a}\not\equiv{0, 1}\pmod{m}</script>，那么对于 n 的素因数 p 有何要求？P61</p>
+</li>
+</ol>
+<h2 id="二、模运算"><a href="#二、模运算" class="headerlink" title="二、模运算"></a>二、模运算</h2><p>（笔记补充）</p>
+<ol>
+<li><p>模运算的定义？P61</p>
+</li>
+<li><p><script type="math/tex">a+b\pmod{n}=(a\pmod{n}+b\pmod{n})\pmod{n}</script>。</p>
+</li>
+</ol>
+<h2 id="三、剩余类与完全剩余系"><a href="#三、剩余类与完全剩余系" class="headerlink" title="三、剩余类与完全剩余系"></a>三、剩余类与完全剩余系</h2><ol>
+<li>模 m 的 a 的剩余类 C<sub>a</sub> 的定义？模 m 共有几个<strong>不同</strong>的剩余类？剩余类的剩余（代表元）？任一整数必包含在一个剩余类中吗？所有剩余类的集合怎么用符号表示？模为素数时这个符号还可以怎样表示？P62<br>（由 mZ 诱导的对 Z 的划分）（是<strong>模</strong> m，不要缺字）剩余类实际上是集合。</li>
+<li>什么是 <script type="math/tex">(\pmb{Z}/m\pmb{Z})^{*}</script>？对于<script type="math/tex">C_a, C_b\in(\pmb{Z}/m\pmb{Z})^*</script>，有<script type="math/tex">C_{a\cdot{b}}\in{(\pmb{Z}/m\pmb{Z})^*}</script>。P64<br>（简化剩余类集合）P69</li>
+<li><p>什么是完全剩余系？一个完全剩余系中有几个数？ P63 最小非负完全剩余系、最小正完全剩余系、最大非正完全剩余系、最大负完全剩余系？绝对值最小完全剩余系？P64</p>
+</li>
+<li><p>k 遍历模 m 的完全剩余系，(a, m)=1，经过怎样变换还能得到完全剩余系？证明。P65<br>“一个与模互素的数遍历相乘整个完全剩余系，得到的仍然是完全剩余系”。直接反证作差证明。</p>
+</li>
+<li><p>若 k<sub>1</sub>，k<sub>2</sub> 分别遍历模 m<sub>1</sub>，m<sub>2</sub> 的完全剩余系，且 m<sub>1</sub>，m<sub>2</sub> 满足<u>&#x2003;&#x2003;&#x2003;</u>，则<u>&#x2003;&#x2003;&#x2003;</u>遍历模<u>&#x2003;&#x2003;&#x2003;</u>的完全剩余系。证明？P65<br>（肯定是遍历模 m<sub>1</sub>m<sub>2</sub> 的完全剩余系，因为 k<sub>1</sub> 有 m<sub>1</sub> 个候选项，k<sub>2</sub> 有 m<sub>2</sub> 个候选项。）<br>想证遍历完全剩余系，只需要任取两个数，推导出这两个数不同余即可。<br>“对于互素的m<sub>1</sub>m<sub>2</sub>，m<sub>2</sub> 的完全剩余系中的数与 m<sub>1</sub> 之积和 m<sub>1</sub> 完全剩余系中的数与 m<sub>2</sub> 之积的和遍历 m<sub>1</sub>m<sub>2</sub> 的完全剩余系。”<br>推论：p，q 是两个不同的素数，对任意整数 c，能找出唯一的一对 x，y 使得<script type="math/tex">q\cdot{x}+p\cdot{y}\equiv{c}\pmod{p\cdot{q}}</script>。（任意小于两素数之积的整数都可以被这两个素数线性表出）P66</p>
+</li>
+</ol>
+<h2 id="四、简化剩余类、简化剩余系与逆元"><a href="#四、简化剩余类、简化剩余系与逆元" class="headerlink" title="四、简化剩余类、简化剩余系与逆元"></a>四、简化剩余类、简化剩余系与逆元</h2><ol>
+<li><p>简化剩余类、简化剩余的定义？P68 模 m 的简化剩余类的全体组成的集合怎么用符号表示？m 为素数时符号怎么表示？P69</p>
+</li>
+<li><p>若剩余类中的一个剩余与 m 互素，是不是整个剩余类中的剩余均与 m 互素？P68<br>（用欧几里得除法计算最大公因数证明）</p>
+</li>
+<li><p>简化剩余系的定义？P69</p>
+</li>
+<li><p>k 遍历模 m 的某个简化剩余系时，(a, m)=1，ak 也遍历模 m 的一个简化剩余系吗？（和完全剩余系中类似的性质作比较）证明。P70</p>
+</li>
+<li><p>设 m<sub>1</sub>，m<sub>2</sub> 是互素的两个正整数，如果 k<sub>1</sub>，k<sub>2</sub> 分别遍历模 m<sub>1</sub>，模 m<sub>2</sub> 的简化剩余系，则 m<sub>2</sub>k<sub>1</sub>+m<sub>1</sub>k<sub>2</sub> 遍历模 m<sub>1</sub>m<sub>2</sub> 的简化剩余系吗？P72（类似完全剩余系中的性质）证明。（P73引理）</p>
+</li>
+<li><p>逆元的定义？（逆元其实不是在这里定义的）“定义域”？具有唯一性吗？证明？（两种方法，一种是用简化剩余系证其存在性，再证其唯一性；另一种是构造性证明，即用广义欧几里得除法求 a 和 m 的最大公因数，在这个过程中就可以具体地求出逆元的值）</p>
+</li>
+</ol>
+<h2 id="五、欧拉函数、欧拉定理、费马小定理与-Wilson-定理"><a href="#五、欧拉函数、欧拉定理、费马小定理与-Wilson-定理" class="headerlink" title="五、欧拉函数、欧拉定理、费马小定理与 Wilson 定理"></a>五、欧拉函数、欧拉定理、费马小定理与 Wilson 定理</h2><ol>
+<li><p>欧拉函数的定义？p 为素数时 <script type="math/tex">\varphi(p^\alpha)</script> 如何计算？P68</p>
+</li>
+<li><p>模 m 的简化剩余系的元素个数为？P69 简化剩余系判别法？P70</p>
+</li>
+<li><p>欧拉函数的可乘性？证明？P73<br>（利用欧拉函数的值等于简化剩余系中元素的个数这一性质，把两个因数 m，n 的简化剩余系之积转化为类似两组简化剩余系“笛卡尔积”的形式作为 mn 的简化剩余系元素；需要证明这一关系是双射的，上面简化剩余系也要注意双射）</p>
+</li>
+<li><p>已知正整数 m 的标准分解式，如何求其欧拉函数？证明。P73<br>利用可乘性。“一个数的欧拉函数等于其本身连续乘上 1 减去素因子的倒数”。</p>
+</li>
+<li><p>欧拉定理的内容？证明。P77<br>（利用欧拉函数值等于简化剩余系中元素个数的性质，a 乘上最小正简化剩余系得一组简化剩余系，这组简化剩余系中所有元素乘积（构造出 <script type="math/tex">a^{\varphi(m)}</script>）与最小正简化剩余系是同余的，移项后把最小正简化剩余系去掉（和 m 互素）即可证明）</p>
+</li>
+<li><p>费马小定理内容，证明。P78<br>有点类似欧拉定理的素数情况。</p>
+</li>
+<li><p>Wilson 定理内容？证明。P79<br>“素数减一的阶乘加一能被素数整除。”（[1, p-1]两两配对，使得其互为逆元）</p>
+</li>
+</ol>
+<h2 id="六、RSA-公钥密码算法"><a href="#六、RSA-公钥密码算法" class="headerlink" title="六、RSA 公钥密码算法"></a>六、RSA 公钥密码算法</h2><p>执行步骤：</p>
+<ol>
+<li>选取两个不同的大素数 p，q；</li>
+<li>计算 n=pq，<script type="math/tex">\varphi(n)=(p-1)(q-1)</script>；</li>
+<li>随机选取正整数 e，<script type="math/tex">1<e<\varphi(n)</script>，满足<script type="math/tex">(e, \varphi(n))=1</script>；</li>
+<li>计算 d，满足 <script type="math/tex">de\equiv{1}\pmod{\varphi(n)}</script>；p、q、<script type="math/tex">\varphi(n)</script>、d 是保密的，丢弃 p、q、<script type="math/tex">\varphi(n)</script>，只保留 n、e、d，(n, e) 公开，(n, d) 为私钥，(n, e) 为公钥。</li>
+<li>加密变换：对明文 a，1&lt;a&lt;n，加密后的密文为 <script type="math/tex">c\equiv{a^e}\pmod{n}</script>；</li>
+<li>解密变换：对密文 c，1<c<n，解密后的明文为 $$a\equiv{c^d}\pmod{n}$$。
+（依次求解 p，q，n，e，d，c，a；注意公钥是 K<sub>e&lt;/sub&gt;=(n, e)，私钥是 K<sub>d</sub>=(n, d)）<br>如何证明？P77（a 与 n 互素好说，不互素时 a 只能是其中一个数 q 的倍数而不可能是公倍数，证出 a<sup>q-1</sup>=kq+1，则 a<sup>(p-1)(q-1)</sup>=k’q+1，同乘 a=bp 得证。）</li>
+</ol>
+<p>书写：设 RSA 公钥密码算法使用 26 字符集 {a, b, c …, x, y, z} = {0, 1, 2, …, 23, 24, 25}，明文信息空间是由 2 字符构成的集合 {aa, ab, ac, …,  zx, zy, zz}，以两字符一组对 “de” 进行编码。</p>
+<h2 id="七、模重复平方计算法"><a href="#七、模重复平方计算法" class="headerlink" title="七、模重复平方计算法"></a>七、模重复平方计算法</h2><p>可以用于计算大底数、相对小指数的模运算，例如 <script type="math/tex">12996^{227}\pmod{37909}</script>。<br>把指数 n 展开成 2 的幂之和，令 a<sub>i</sub> 表示已经取模乘到 b<sup>2<span style="vertical-align: text-top">i</span></sup> 的积；b<sub>i</sub> 表示 <script type="math/tex">b^{2^i}\pmod{m}</script>；a<sub>0</sub>=0，如果 2<sup>i</sup> 在 n 展开为 2 的幂的和的式子里系数为 0，那么 a<sub>i</sub>=a<sub>i-1</sub>，如果系数为 1 则 <script type="math/tex">a_i=a_{i-1}\cdot{b_i}\pmod{m}</script>；计算 <script type="math/tex">b_{i+1}=b_i^2\pmod{m}</script>，如此循环。<br>查看<a target="_blank" rel="noopener" href="https://github.com/zhaozihanzzh/Mathematical-Fundamentals-for-Information-Security/blob/master/FastModularExponentiation.py">参考代码</a>。</p>
+<p>但是，如果计算的是 <script type="math/tex">2^{20046118}\pmod{7}</script> 此类小底数、大指数的模运算，那么直接应用 $2^3\pmod{7}=1$ 更加合适。</p>
+<h2 id="八、同余式与中国剩余定理"><a href="#八、同余式与中国剩余定理" class="headerlink" title="八、同余式与中国剩余定理"></a>八、同余式与中国剩余定理</h2><ol>
+<li>同余式的定义？什么是次数 deg<em>f</em>（要满足什么条件）？什么是同余式的一个解？为什么同余式的解 a 常写成 <script type="math/tex">x\equiv{a}\pmod{m}</script> ？什么是同余式的解数？P91<br>（模 m 同余于 0 的 n 多项式；之所以要同余于 0 是因为这个多项式已经自带常数项了）</li>
+<li><p>模 m 的可逆元和逆元有何不同？P92</p>
+</li>
+<li><p>设 m<sub>1</sub>，m<sub>2</sub>，…，m<sub>k</sub> 是两两互素的正整数，那么同余式组</p>
+<script type="math/tex; mode=display">\begin{cases} \begin{align} x &\equiv{b_1}\pmod{m_1} \\ &\vdots \\ x &\equiv{b_k}\pmod{m_k} \end{align} \end{cases}</script><p>一定有唯一解吗？将其解用构造和递归两种方法表示。（背不过递归的话，可以从它的推导入手，现场推导）P97<br>给出其构造证明（先证明其是唯一的，即解必然位于同一剩余类中；再把已知的解代入方程组中，验证这个解是满足所有方程的）（P99）和递归证明（即“归纳构造”）（从 k=2 入手，关键是借助逆元求出 y<sub>1</sub>；然后假设 i-1 时命题成立，像对待 k=2 一样地求解，即可证明；每次把新一代的式子用上一代求出来的解和这次式子里已知的表示，这才起到递归的作用；注意 x≠x<sub>n-1</sub>，但 x=x<sub>n</sub>）（P101）。<br>查看<a target="_blank" rel="noopener" href="https://github.com/zhaozihanzzh/Mathematical-Fundamentals-for-Information-Security/blob/master/ChineseRemainderTheorem.py">参考代码</a>。</p>
+</li>
+</ol>
+<h2 id="九、二次同余式与平方剩余"><a href="#九、二次同余式与平方剩余" class="headerlink" title="九、二次同余式与平方剩余"></a>九、二次同余式与平方剩余</h2><ol>
+<li><p>二次同余式的一般形式？P125</p>
+</li>
+<li><p>a 是模 m 的平方剩余（二次剩余）是什么意思？a 是模 m 的平方非剩余呢（也要满足前式的“定义域”条件）？P125</p>
+</li>
+<li><p>什么是欧拉判别条件？要求 m 是什么样的数？P129</p>
+</li>
+<li><p>什么是勒让得符号？“定义域”？P131 欧拉判别法则可以用勒让得符号怎么改写？P132</p>
+</li>
+</ol>
+<h2 id="十、离散对数与-Diffie-Hellman-密钥共享算法"><a href="#十、离散对数与-Diffie-Hellman-密钥共享算法" class="headerlink" title="十、离散对数与 Diffie-Hellman 密钥共享算法"></a>十、离散对数与 Diffie-Hellman 密钥共享算法</h2><ol>
+<li>离散对数是什么？P79，P191<br>（为了实现在 [1, <script type="math/tex">\varphi(m)</script>]内唯一，需要满足原根和互素 ）</li>
+<li>Diffie-Hellman 密钥共享算法步骤：P79<br>Alice 选取素数 p 和正整数 g，1≤g≤p 且 (g, p)=1，公开 p 和 g。<br>Alice 选取 x∈{1, 2, …, p-1}，计算 <script type="math/tex">R_1=g^x\pmod{p}</script>，并将 R<sub>1</sub> 发送给 Bob。<br>Bob 选取 y∈{1, 2, …, p-1}，计算 <script type="math/tex">R_2=g^y\pmod{p}</script> 并将 R<sub>2</sub> 发送给 Alice。<br>Eve 可以获得 R<sub>1</sub> 和 R<sub>2</sub>，但很难计算出 x 或 y （离散对数求解困难）。<br>Alice 计算密钥 <script type="math/tex">k=R_2^x\pmod{p}=(g^y)^x\pmod{p}=g^{xy}\pmod{p}</script>，Bob 计算密钥 <script type="math/tex">k=R_1^y\pmod{p}=(g^x)^y\pmod{p}=g^{xy}\pmod{p}</script>。<br>（分别把 g<sup>x</sup>，g<sup>y</sup> 发送给对方，结合对方手里掌握的另一半信息，双方都能得到一样的密钥）<br>查看<a target="_blank" rel="noopener" href="https://github.com/zhaozihanzzh/Mathematical-Fundamentals-for-Information-Security/blob/master/Diffie-Hellman.py">参考代码</a>。</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">信息安全数学基础</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/12/15/hackermath-modernalgebraecc/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">群、环、域、椭圆曲线</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/06/hackermath-int-divisibility/">
+                        <span class="hidden-mobile">整数的可除性</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

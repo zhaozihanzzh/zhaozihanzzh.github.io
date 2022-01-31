@@ -170,6 +170,290 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2020/11/02/relations-functions/" target="_self">
+          关系和函数
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/02/relations-functions/" target="_self">
+          
+          
+            
+          
+          关系和函数简单辨析一些问题：
+有序对，有序 n 元组
+笛卡尔积（直积）
+关系（二元关系）及符号表示，从 A 到 B 的二元关系， A 上的二元关系，EA，IA，二元关系是一个有序对吗？
+二元关系与有序对构成的集合是否等价？
+二元关系的定义域（前域）、值域（后域）、域及其符号表示？
+关系的表示：集合，关系图（注意 A 到 B 上的与 A 上的），邻接矩阵
+关系的逆
+对关系的并，交，补，差，包含等的结
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-02 21:16" pubdate>
+              2020-11-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/11/01/gfm-error/" target="_self">
+          博客相关问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/11/01/gfm-error/" target="_self">
+          
+          
+            
+          
+          博客相关问题1.使用 GFM 时发现，加粗、斜体格式用 *** 表示时在某些场景下会出现无法正确解析的问题。（更新：按 6 的进一步参考链接做后使用这一条会导致下划线直接出现在文本中，需要换回原来的三星号）
+更换为 **_ 与 _** 后问题消失。
+参考：https://www.reinforce.cn/t/545.html
+2.开启 Typora 的行内公式支持：https://blog.csd
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-11-01 23:57" pubdate>
+              2020-11-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/25/matrix/" target="_self">
+          初探矩阵
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/25/matrix/" target="_self">
+          
+          
+            
+          
+          初探矩阵一、矩阵定义1. 数域对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。
+2. 矩阵矩阵是指某一数域中的 m × n 个数排成 m 行 n 列的表。可记为 A = (aij)mn，或 Amn，或 Am×n。如果没有特殊说明，我们讨论的是复矩阵。
+两矩阵行列分别相等，称为同型矩阵。
+当 m 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-25 23:07" pubdate>
+              2020-10-25
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/">线性代数与解析几何</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/24/local-variable-pr/" target="_self">
+          C++ 返回局部变量的引用与地址
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/24/local-variable-pr/" target="_self">
+          
+          
+            
+          
+          C++ 返回局部变量的引用与地址听说 2020 - 1024 = 996？
+1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int&amp; refer(int&amp; arg) &#123;	int inter_var = 1024;	return inter_var;	// 返
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-24 23:59" pubdate>
+              2020-10-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/C/">C++</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/16/base-conversion/" target="_self">
+          进制转换
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/16/base-conversion/" target="_self">
+          
+          
+            
+          
+          进制转换（无数的人已经写过这篇了）
+首先介绍一下相关英文：
+进制 Base
+二进制 Binary
+八进制 Octal
+十进制 Decimal
+十六进制 Hexadecimal
+接下来探讨一下其转换。
+Part 1 整数部分进制虽然不同，但其表示思想类似，即每一数位上的数字均代表进位的 n 次幂的倍数。因此，我们把其余数制转为十进制是直观容易的：
+FEC (base 16) → 15×16²+14×
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-16 22:15" pubdate>
+              2020-10-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/10/11/android11/" target="_self">
+          Android Studio 模拟器体验 Android R
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/10/11/android11/" target="_self">
+          
+          
+            
+          
+          Android Studio 模拟器体验 Android R
+​        2020 年 9 月 9 日，Android 11 正式发布了。在这里，使用 Android Studio 自带模拟器对其进行一番轻度把玩。
+Part 1 初步体验​        本次更新增强了聊天气泡（然而这里并没有体验），提升了权限方面的保护，在通知面板集成了音乐播放控制，在开发者选项加入对不同屏幕形态的模拟，还
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-10-11 00:19" pubdate>
+              2020-10-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%A8%B1%E4%B9%90/">娱乐</a>
+            
+          </div>
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2020/09/30/hello-world/" target="_self">
           Hello World
         </a>

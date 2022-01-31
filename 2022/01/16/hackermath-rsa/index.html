@@ -1,0 +1,665 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
+  <link rel="icon" href="/images/res/avatar.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#90a4ae">
+  <meta name="description" content="">
+  <meta name="author" content="zhaozihanzzh">
+  <meta name="keywords" content="">
+  
+  <title>RSA 论文翻译：一种实现数字签名和公钥密码系统的方法 - Blogs of mefailedcoder</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/images/res/default.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="RSA 论文翻译：一种实现数字签名和公钥密码系统的方法">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-16 10:41" pubdate>
+        2022-01-16 10:41
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      104
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">RSA 论文翻译：一种实现数字签名和公钥密码系统的方法</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022-01-16 21:53
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>本文是对 R.L. Rivest、A. Shamir 和 L. Adleman 论文 A Method for Obtaining Digital Signatures and Public-Key Cryptosystems 的翻译。需要注意的是，这个翻译只是为了完成任务而已，（本人对密码学了解甚少，按理说是没有能力、不应该进行这样的工作的）未经任何形式的检查，不仅有翻译不恰当的地方，甚至应该也有理解性的错误，但截至 2021 年 11 月时，敝人并未在网上找到现成的其他翻译（也可能是我不懂得如何搜索），故就此发出，权当抛砖引玉。</p>
+<h1 id="一种实现数字签名和公钥密码系统的方法"><a href="#一种实现数字签名和公钥密码系统的方法" class="headerlink" title="一种实现数字签名和公钥密码系统的方法"></a>一种实现数字签名和公钥密码系统的方法</h1><p>R.L. Rivest, A. Shamir, and L. Adleman∗</p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>本文提出一种具有能够在公开加密密钥的同时不泄露相应的解密密钥这一全新性质的加密方法。这一性质有两个重要影响：</p>
+<ol>
+<li><p>传输密钥不需要使用信使或其他安全手段，因为信息可以用接受者公开的加密密钥来加密，而只有接受者知道对应的解密密钥，因此只有他可以解密信息。</p>
+</li>
+<li><p>一条信息可以被私有的解密密钥“签名”，每个人都可以用对应的加密公钥来验证此签名。签名不能被伪造，并且签名者也不能在签名后否认签名的有效性。这在“电子邮件”和“电子转账”中应用效果明显。</p>
+</li>
+</ol>
+<p>一条消息可以通过转换成数字M，计算M的e次幂（e是公开的指定值）并除以两个选定的大素数p和q的积n（n是公开的指定值）取余数，得到加密。解密过程也是类似的；只有在e · d ≡ 1 (mod (p − 1) · (q − 1))中用到了一个不同的私密的幂d。这套系统的安全性部分地依赖于对公开的除数n进行因式分解的难度。</p>
+<p><em>关键词</em>：数字签名，公钥密码系统，私密性，认证，安全，因式分解，素数，电子邮件，信息传送，电子转账，密码学。</p>
+<p>CR Categories: 2.12, 3.15, 3.50, 3.81, 5.25</p>
+<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h2><p>“电子邮件” [10]时代可能即将到来；我们必须确保现行“纸质邮件”系统的两个重要特性能得以保留：(a) 信息内容是私密的，(b)能够对信件进行签名。我们将在本文中论证如何在电子邮件系统中实现这些能力。</p>
+<p>此方案以一种新的“公钥密码系统”实现为核心。Diffie 和 Hellman 在论文中提出了公钥密码系统这一优雅的概念，但并未给出具体的公钥密码系统实现，本研究希望填补这一空白。[1] 对[1] 熟悉的读者可以直接跳到第五节来阅读有关本文提出的方法的描述。</p>
+<h2 id="2-公钥密码系统"><a href="#2-公钥密码系统" class="headerlink" title="2 公钥密码系统"></a>2 公钥密码系统</h2><p>在一个“公钥密码系统”中每个用户在一个公共文件中放置一个加密程序E。换言之，公共文件是一个给出了每个用户加密程序E的目录。用户将对应的解密程序D保密。这些程序有以下四个性质：</p>
+<p>(a) 加密M后再解密可以得到M。一般地，</p>
+<script type="math/tex; mode=display">D(E(M)) = M. \tag{1}</script><p>(b) E 和 D 易于计算。</p>
+<p>(c) 用户公开 E 并不会使得 D 易于被算出，因此实际上只有他自己能解密用 E 加密的信息，或者高效地计算D。</p>
+<p>(d) M 先被解密，再被加密后仍然得到 M。一般地，</p>
+<script type="math/tex; mode=display">E(D(M)) = M.  \tag{2}</script><p>一套加密（或解密）程序往往由一套通用方法和一个加密密钥组成。受密钥控制的通用方法加密信息M得到信息的加密形式，称之为密文C。每个人可以使用同一套通用方法；给出的程序的安全性将依赖于密钥的安全性。泄露加密算法因此意味着泄露密钥。</p>
+<p>公开 E 相当于公开一种非常低效的计算 D(C) 的方法：穷举信息 M 的所有可能直到找到一个 M 使得 E(M) = C。如果性质 (c) 满足，要穷举的数量将会十分巨大，也就意味着此方法不切实际。</p>
+<p>一个满足 (a)-(c) 的函数 E 是一个“单向陷门函数”；此外还满足 (d) 的 E 称为“单向陷门置换”。Diffie 与 Hellman [1] 引入了单向陷门函数的概念但没有给出任何实例。此类函数是“单向”的，因为这些函数从一个方向上是易于计算的，但（显然）从另一方向计算十分困难；此类函数是“陷门”的，因为一旦已知某些私密的“陷门”信息，反向计算就变得容易了。一个满足 (d) 的单向陷门函数一定是一个置换：每个信息都是其他某条信息的密文，每条密文都是一条可以被接受的信息。（这种映射是“一对一”和“满射”的）。仅在实现“签名”时需要性质 (d) 。</p>
+<p>我们鼓励读者阅读 Diffie 和 Hellman 的杰作[1] 来了解相关背景知识和对公钥密码系统的详尽解释，以及探讨密码学中的其他问题。公钥密码系统保证私密性和实现“签名”（在下面的第三和第四节将会讨论）的原理也在 Diffie 和 Hellman 的论文中有解释。</p>
+<p>在我们的方案中，我们假设 A 和 B （一般是 Alice 和 Bob）是公钥密码系统的两个用户。用下标来区分他们的加密和解密程序：<em>E<sub>A</sub></em>, <em>D<sub>A</sub></em>, <em>E<sub>B</sub></em>, <em>D<sub>B</sub></em>。</p>
+<h2 id="3-私密性"><a href="#3-私密性" class="headerlink" title="3 私密性"></a>3 私密性</h2><p>加密是让通信私密的常规方式。在向接受者发出消息前，发送者需要对信息加密。接收者（除任何未经授权的人）知晓可用于从接收到的消息中获得原本信息的解密函数。在传输信息时收集到信息的窃听者只接收到了不能解密的无意义“垃圾”（密文）。</p>
+<p>在计算机数据库中存储和在电话线中传输的大量私人的和敏感的信息使得加密日益重要。意识到高效的、高质量的加密技术处于急需紧缺的状态，美国国家标准局今日正式通过了一项由 IBM 提出的“数据加密标准” [13, 14]。新的标准并不包括实现公钥密码系统所需的性质 (c)。</p>
+<p>所有的经典加密方法（包括美国国家标准局提出的标准）都受“密钥分发问题”困扰。该问题在于，在私密通信开始之前，为了把对应的加密和解密密钥分发给发送者和接收者，必须建立另一个私密传输。通常需要一个私密信使把密钥从发送者带给接收者，这对于构建高速廉价的电子邮件系统而言是不可行的。而一个公钥密码系统不需要私密信使；密钥可以在不安全的信道上分发。</p>
+<p>在公钥密码系统中，Bob 如何向 Alice 发送一条私密信息呢？首先，他在公共文件中检索E<sub>A</sub>，然后将加密过的信息 E<sub>A</sub>(M) 发送给她。 Alice 通过计算 D<sub>A</sub>(E<sub>A</sub>(M)) = M 解密信息。由公钥密码系统性质 (c) 可知，只有她能解密 E<sub>A</sub>(M)。她用公共文件中的 E<sub>B</sub> 也能加密私密的回复。</p>
+<p>注意到在 Alice 和 Bob 之间建立私密通信不需要私密传输。唯一需要的“设定”是希望接收私密通信的每位用户都把他的加密算法放入公共文件中。</p>
+<p>两位用户也可以在不查询公共文件的情况下通过不安全的信道建立私密通信。每位用户把他的加密密钥发送给对方，之后和公钥系统一样，所有信息便可以用接收者的加密密钥加密。监听信道的入侵者因为不可能从加密密钥中取得解密秘钥而无法解密任何信息（我们假定入侵者不能在信道中修改或者发送信息）。Ralph Merkle 对这个问题已经提出了另一个解决方案 [5]。</p>
+<p>公钥密码系统可以用于“引导”进入如美国国家标准局方案等的常规加密体系。一旦建立了加密通信，就可以将第一条传输的信息作为美国国家标准局方案中的密钥来解密接下来的所有信息。如果我们的方法在加密时比常规方案慢的话，这是可取的。（如果使用专用的硬件加密设备，美国国家标准局方案大概会稍快；在通用计算机上我们的方案可能更快，因为多精度的算术运算比复杂的位控制更易实现。）</p>
+<h2 id="4-签名"><a href="#4-签名" class="headerlink" title="4 签名"></a>4 签名</h2><p>如果电子邮件系统要在商务交易中取代已有的纸质邮件系统，那么必须能够“签署电子信息。收到签名过的信息的人就有了信息是从发出者发出的证据。这个性质比单纯的身份认证（接收者可以验证信息来自发送者）更强有力；接收者能向“法官”证明签名人发送了这条信息。为了实现这个目标，他必须向法官证明他没有伪造这条信息！而在一个身份认证问题中，由于接收者只用让自己相信信息来自发送者，他就不用担心这种可能性了。</p>
+<p>一个电子签名必须是依赖于消息内容和签署人的。否则，接收者可以修改信息后把信息和签名成对地出示给法官，或者利用电子的“剪切、粘贴”难以被发现的特性把签名与任意一条信息拼接起来。</p>
+<p>由于将会对未解密的信息使用解密算法，为了实现签名功能，公钥密码系统必须实现单向陷门置换（例如具有性质 (d)）。</p>
+<p>用户 Bob 如何在公钥密码系统中向 Alice 发送一条“签名”过的消息 M 呢？他首先用 DB 计算他对于消息 M 的“签名” S：</p>
+<script type="math/tex; mode=display">S = D_B(M).</script><p>（由公钥密码系统的性质 (d) 可知，解密一条未经加密的信息“有意义”：每条信息都是其他一条信息的密文。）他然后用 E<sub>A</sub> 加密 S （为了隐私），然后把结果 E<sub>A</sub>(S) 发送给 Alice 。他不需要将 M 也发送；M 可以从 S 中计算出。</p>
+<p>Alice 首先用 D<sub>A</sub> 解密密文来获得 S。她知道签名的发送者应该是谁（在这个例子中是 Bob）；如果必要的话，这个人可以在 S 上附带的纯文本中给出。之后她用发送者的加密流程，此例中是 E<sub>B</sub> （可以在公共文件中找到），来提取信息：</p>
+<script type="math/tex; mode=display">M = E_B(S) .</script><p>因此她拥有了一个有着和签名过的纸质文档相似性质的信息-签名对 (M, S)。</p>
+<p>Bob 不能以后否认向 Alice 发送过这条消息，因为没有其他人能创建 S = D<sub>B</sub>(M)。Alice 可以用 E<sub>B</sub>(S) = M作为证据说服“法官” Bob 签署了这份文档。</p>
+<p>显然 Alice 不能把 M 修改为不同的版本 M’，因为那样的话她必须也创建对应的 S’ = D<sub>B</sub>(M’)。因此 Alice 可以证明她收到的 Bob “签名”的邮件是 Bob 发送且她不能修改的。（她也不能在其他的任何邮件中仿造他的签名。）</p>
+<p>一个电子支票系统可以基于像上面一样的签名系统构建。不难想象，你的家庭终端中有一个让你签发能通过电子邮件发往收款人的支票的加密设备。唯一必要的是在每张支票中加入一个唯一的支票号码，这样就算收款人复制这张支票，银行也只会接受它见到的第一个版本。</p>
+<p>如果加密设备足够快速的话，另一种可能将出现：可能将出现说出的每个字在发送前都被加密设备签名的电话通信。</p>
+<p>当上述加密被用作签名时，加密设备不应该被“植入”在终端（或计算机）和信道之间，因为一条信息可能需要用多个密钥依次加密。可能把加密设备看成是可以按需执行的“硬件子程序”更加自然。</p>
+<p>我们已在上面假定每位用户总是能够可靠地访问公共文件。在一个“计算机网络”中这可能是困难的；入侵者可能会把自己的消息伪造成是来自公共文件的。用户将会相信他真的获得了想要通信的用户的加密程序，不会假设是入侵者的加密程序。如果公共文件对发送给用户的消息进行“签名”的话，这种危险将不复存在。用户可以用公共文件的加密算法 E<sub>PF</sub> 来验证签名。通过在用户首次露面（亲自）来加入公钥密码系统并存储他的加密程序时将 E<sub>PF</sub> 的描述递交给他，就可以避免要到公共文件中“查找” E<sub>PF</sub> 自己的问题。用户能够把这个描述存储起来，不用再次查找。每位用户加入系统时与公共文件管理员的一次安全的会面取代了每一对用户之间的信使。另一解决方案是当用户注册时给他一本记录系统中所有用户加密密钥的书（像电话号码簿）。</p>
+<h2 id="5-我们的加密和解密方法"><a href="#5-我们的加密和解密方法" class="headerlink" title="5 我们的加密和解密方法"></a>5 我们的加密和解密方法</h2><p>我们使用公共加密密钥 (e, n) 来加密消息 M 的方法如下。（这里 e 和 n 是一对正整数）</p>
+<p>首先，用 0 到 n - 1 之间的整数表示这条消息。（将长信息分成一系列块，并用这样的这个整数来表示每个块）可以使用任何标准的表示。这一步的目的不是加密信息，只是变形成进行加密所需要的数字形式。</p>
+<p>然后，通过对其 e 次幂取模 n 加密消息。也就是说，结果（密文 C）是 M<sup>e</sup> 被 n 除的余数。</p>
+<p>解密密文需要取其 d 次幂对 n 的模。加密和解密算法 E 和 D 是这样的：</p>
+<script type="math/tex; mode=display">\text{对消息 M，}C \equiv{E(M)}\equiv{M^e}\pmod{n}.</script><script type="math/tex; mode=display">\text{对密文 C，}D(C)\equiv{C^d}\pmod{n}.</script><p>注意加密不会增大消息的长度；消息和密文都是范围在 0 到 n - 1 之间的整数。</p>
+<p>加密密钥因此是正整数对 (e, n) 。类似地，解密秘钥是正整数对 (d, n)。每位用户公开他的加密密钥，同时把相对应的解密密钥保密。（这些整数应该被正确地脚注为 n<sub>A</sub>，e<sub>A</sub>，d<sub>A</sub>的形式，因为每位用户都有自己的一组。然而，我们只会考虑一组作为代表，因此省略下标。）</p>
+<p>如果你想使用我们的方法的话，应该如何选择加密和解密密钥？</p>
+<p>首先计算两个素数 p 和 q 的乘积 n：</p>
+<script type="math/tex; mode=display">n = p\cdot{q} .</script><p>这两个素数是非常大的、“任意”的。尽管你会公开 n，但由于因式分解 n 难度巨大，除了你之外的任何人都很难发现隐藏的因子 p 和 q。这也使得从 e 推出 d 的方法难以被找出。</p>
+<p>然后你选出与 (p − 1) · (q − 1) 互素的随机的大整数 d。也就是说，确保 d 满足：</p>
+<script type="math/tex; mode=display">gcd(d, (p − 1)\cdot{(q − 1)}) = 1</script><p>(“gcd” 意思是“最大公因数”)</p>
+<p>最后用 p，q 和 d 计算出 d 模 (p − 1) · (q − 1) 的逆元 e。因此有</p>
+<script type="math/tex; mode=display">e\cdot{d}\equiv{1}\pmod{(p − 1)\cdot{(q − 1)}}.</script><p>我们将在下一节证明，这确保了 (1) 和 (2) 成立，即 E 和 D 是逆置换。第 7 节中展示了如何高效完成以上每一步操作。</p>
+<p>上述方法不应与 Diffie 和 Hellman 为解决密钥分发问题提出的“求幂”技术 [1] 混淆。他们的技术使得两位用户能够选定一个可在一般的密码系统中使用的共同的密钥。这一技术并不是建立在单向陷门置换之上的。Pohlig 和 Hellman [8] 研究了一种与我们的方案有关的，对素数取模来计算幂的方案。</p>
+<h2 id="6-数学基础"><a href="#6-数学基础" class="headerlink" title="6 数学基础"></a>6 数学基础</h2><p>通过使用 Euler 和 Fermat 提出的性质 [7]，我们论证了解密算法的正确性：对于任意和 n互素的整数（消息）M，</p>
+<script type="math/tex; mode=display">M^{\varphi{(n)}}\equiv{1}\pmod{n}.\tag{3}</script><p>这里 φ(n) 是欧拉函数，这个函数给出了小于 n 且与 n 互素的正整数数目。对于素数 p，</p>
+<script type="math/tex; mode=display">\varphi{(p)} = p − 1 .</script><p>在这里，由欧拉函数的基本性质 [7]，有：</p>
+<script type="math/tex; mode=display">\begin{align}\varphi{(n)} &= \varphi{(p)}\cdot{\varphi{(q)}}\\&= (p − 1)\cdot{(q − 1)}\tag{4}\\&= n − (p + q) + 1 .\end{align}</script><p>因为 d 与 φ(n) 互素，, d 在模 φ(n) 的整数环中存在一个逆元 e ：</p>
+<script type="math/tex; mode=display">e\cdot{d}\equiv{1}\pmod{\varphi{(n)}}. \tag{5}</script><p>我们已经证明了等式 (1) 和 (2) 成立（也就是说，按照上述的方法选择 e 和 d 时，解密算法是正确的）。现在有</p>
+<script type="math/tex; mode=display">D(E(M))\equiv{(E(M))^d}\equiv{(M^e)^d}\pmod{n}=M^{e\cdot{d}}\pmod{n}</script><script type="math/tex; mode=display">E(D(M))\equiv{(D(M))^e}\equiv{(M^d)^e}\pmod{n}=M^{e\cdot{d}}\pmod{n}</script><p>和</p>
+<script type="math/tex; mode=display">M^{e\cdot{d}}\equiv{M^{k\cdot{}\varphi{(n)}+1}}\pmod{n}\text{（对于某个整数 k）.}</script><p>从 (3) 可知，对于所有不能被 p 整除的 M ， </p>
+<script type="math/tex; mode=display">M^{p−1}\equiv{1}\pmod{p}</script><p>并且，因为 (p − 1) 整除 φ(n)</p>
+<script type="math/tex; mode=display">M^{k\cdot{}\varphi{(n)}+1}\equiv{M}\pmod{p}.</script><p>当 $M\equiv{0}\pmod{p}$ 时上式亦成立，所以以上相等关系实际上对任何 M 都成立。同理可得，对 q，有</p>
+<script type="math/tex; mode=display">M^{k\cdot{\varphi{(n)}+1}}\equiv{M}\pmod{q}.</script><p>上述的最后两等式表明，对于任意 M，</p>
+<script type="math/tex; mode=display">M^{e\cdot{d}}\equiv{M^{k\cdot{\varphi{(n)}+1}}}\equiv{M}\pmod{n}.</script><p>这证明对任意M，0 ≤ M &lt; n，(1) 和 (2) 成立。因此 E 和 D 是逆置换。（上面的证明是 Rich Schroeppel 对作者先前证明的改进版本，我们对他的建议表示感谢。）</p>
+<h2 id="7-算法"><a href="#7-算法" class="headerlink" title="7 算法"></a>7 算法</h2><p>为了证明我们的方法是可行的，我们给出一个高效的算法来完成需要的每一步操作。</p>
+<h3 id="A-如何高效地加密和解密"><a href="#A-如何高效地加密和解密" class="headerlink" title="A 如何高效地加密和解密"></a>A 如何高效地加密和解密</h3><p>使用如下的流程时，计算 M<sub>e</sub>(mod n) 需要最多2 · log<sub>2</sub>(e) 次相乘和 2 · log<sub>2</sub>(e) 次相除（解密类似，只需将 e 换成 d ）：</p>
+<p>步骤 1. 将 $e$ 的二进制表示记作 $e_{k} e_{k−1}\ldots e_{1}e_{0}.$</p>
+<p>步骤 2. 令 $C$ 等于 $1$.</p>
+<p>步骤 3. 对于$ i = k, k − 1,\ldots{}, 0$，重复步骤 3a 和 3b:</p>
+<p>​        步骤 3a. 令 $C$ 等于$C^2$ 被 $n$ 除的余数.</p>
+<p>​        步骤 3b. 如果 $e_i = 1$，那么令 $C$ 等于$C\cdot{M}$ 除以 $n$ 的余数.</p>
+<p>步骤 4. 停止。现在 C 是 M 被加密过的形式。</p>
+<p>这一流程叫做“模重复平方法”。这种流程只有最好方法的一半好；还有更高效的流程。 Knuth [3] 详细地研究了这一问题。</p>
+<p>加密和解密的一致性使得算法的实现更简单。（整个操作可以在几块专用的集成电路芯片上实现。）</p>
+<p>一台高速计算机可以在几秒钟内加密一条 200 位的消息 M；专用硬件会快许多。每个块的加密时间的增长不会快于 n 中数字的位数的立方。</p>
+<h3 id="B-如何寻找大素数"><a href="#B-如何寻找大素数" class="headerlink" title="B 如何寻找大素数"></a>B 如何寻找大素数</h3><p>每位用户必须（私密地）选择两个随机大数 p 和 q 来生成自己的加密和解密密钥。这些数字必须很大，这样才能保证因式分解 n = p · q 是计算上不可行的。（记住，公共文件中保存的是 n 而不是 p 或 q。）我们推荐使用 100 位（十进制）素数 p 和 q，这样 n 有 200 位。</p>
+<p>为了寻找一个 100 位“随机”素数，随机地生成 100 位的奇数直到找到素数。根据素数定理[7]，尝试大约 (ln 10100)/2 = 115 个数字后能找到一个数字。</p>
+<p>为了检验一个大数 b 的素数性，我们推荐使用由 Solovay 和 Strassen 提出的优雅的“基于概率的”算法[12]。这一算法从均匀分布 {1, . . . , b − 1} 中选择随机数 a ，并检查是否有</p>
+<script type="math/tex; mode=display">gcd(a, b) = 1 \text{和} J(a, b) = a^{(b−1)/2}\pmod{b},\tag{6}</script><p>这里 J(a, b) 是雅可比符号[7]。如果 b 是素数，(6) 总成立。如果 b 是合数，(6) 有至少 1/2 的概率不成立。如果对 100 个随机选择的数值 a，(6) 全都成立，那么几乎可以确定 b 是素数；b 有 2100 分之 1 的可能（微不足道的）是合数。即使我们的系统中意外地使用了一个合数，接收者也很可能会注意到解密不正常，从而发现这一点。当 b 是奇数，a ≤ b，且 gcd(a, b) = 1 时，雅可比符号 J(a, b) 在 {−1, 1} 中取值并且可以通过以下程序高效地计算：</p>
+<script type="math/tex; mode=display">\begin{align}J(a, b) =&\textbf{if}\;a = 1\;\textbf{then}\;1\;\textbf{else}\\&\textbf{if}\;a\;is\;even\;\textbf{then}\;J(a/2, b)\cdot{}(−1)^{(b^2−1)/8}\\&\textbf{else}\;J(b\pmod{a}, a)\cdot{}(−1)^{(a−1)\cdot{}(b−1)/4}\end{align}</script><p>（J(a, b) 和 gcd(a, b) 的计算也可以得到很好的结合。）注意这一算法并不是通过对因式分解的尝试来测试一个数的素数性。其他高效的测试大数的素数性的程序在 [6,9,11] 中给出。</p>
+<p>为了获得对各种巧妙的因式分解算法的额外防护，p 和 q 应该在长度上相差几位， (p - 1) 和 (q - 1) 都应该包含大素数因子，且 gcd(p − 1, q − 1) 应该很小。可以容易地检查后面的条件。</p>
+<p>为了找到使 (p − 1) 有大素数因子的素数 p ，生成一个随机大素数 u，然后让 p 是序列 i · u + 1，i = 2, 4, 6, . . . . 中的第一个素数（这不会花太长时间）。确保 (u - 1) 也有大素因数可以使得算法更加安全。</p>
+<p>一台高速计算机可以在几秒内判定一个 100 位的数字是否是素数，可以在一两分钟内找到在给定数字之后的第一个素数。</p>
+<p>另一种寻找大素数的方法是从已知的因数分解中取一个合数，加一，然后检验它的素数性。如果找到了素数 p ，用 p - 1 的因式分解来证明它确实是素数这一思路是可行的。因为概率方法已经足够，我们略过这一方法的讨论。</p>
+<h3 id="C-如何选择-d"><a href="#C-如何选择-d" class="headerlink" title="C 如何选择 d"></a>C 如何选择 d</h3><p>选取与 φ(n) 互素的数字 d 十分容易。例如，任何比 max(p, q) 大的素数都符合要求。重要的是，要在足够大的集合中选择 d，这样密码分析者就不能通过直接寻找来找出 d。</p>
+<h3 id="D-如何用-d-和-φ-n-计算-e"><a href="#D-如何用-d-和-φ-n-计算-e" class="headerlink" title="D 如何用 d 和 φ(n) 计算 e"></a>D 如何用 d 和 φ(n) 计算 e</h3><p>为了计算 e，使用下面的欧几里得算法变种来计算 φ(n) 和 d 的最大公因数。（见 [3] 中的练习 4.5.2.15。）通过计算序列 x<sub>0</sub>，x<sub>1</sub>，x<sub>2</sub>……，x<sub>0</sub> ≡ φ(n)， x<sub>1</sub> = d，x<sub>i+1</sub> ≡ x<sub>i−1</sub> (mod x<sub>i</sub>) 直到找到 x<sub>k</sub> 等于 0 ，可以计算gcd(φ(n), d)。这样 gcd(x<sub>0</sub>, x<sub>1</sub>) = x<sub>k−1</sub>。对每个 x<sub>i</sub> 求出 a<sub>i</sub>，b<sub>i</sub> 满足 x<sub>i</sub> = a<sub>i</sub> · x<sub>0</sub> + b<sub>i</sub> · x<sub>1</sub>。如果 x<sub>k-1</sub> = 1 那么 b<sub>k-1</sub> 是x<sub>1</sub> (mod x<sub>0</sub>) 的逆元。因为 k 小于 2 log<sub>2</sub>(n)，这个计算将会十分快速。</p>
+<p>如果 e 最终小于 log<sub>2</sub>(n)，那么选择另一个 d 值重新开始。这保证了每条加密过的消息（除了 M = 0 或 1）经过某种“环绕”（模 n）。</p>
+<h2 id="8-一个小例子"><a href="#8-一个小例子" class="headerlink" title="8 一个小例子"></a>8 一个小例子</h2><p>考虑当 p = 47，q = 59，n = p · q = 47 · 59 = 2773，d = 157 的情况。这时 φ(2773) = 46 · 58 = 2668，e 可以如下地计算：</p>
+<script type="math/tex; mode=display">\begin{aligned}x_0 &= 2668, & a_0 &= 1, & b_0 &= 0,\\x_1 &= 157, & a_1 &= 0, & b_1 &= 1,\\x_2 &= 156, & a_2 &= 1, & b_2 &= −16 (\text{由于}2668 = 157\cdot{}16 + 156),\\x_3 &= 1, & a_3 &= −1, & b_3 &= 17 (\text{由于}157 = 1\cdot{}156 + 1)\end{aligned}</script><p>因此 e = 17，这是 (mod 2668) 下 d = 157 的逆元。</p>
+<p>已知 n =2773，我们可以按每个块两字母来加密，把每个字母替换成一个两位数：空格 = 00，A = 01，B = 02，……，Z = 26。这样消息</p>
+<p><strong>ITS ALL GREEK TO ME</strong> </p>
+<p>（《裘力斯·凯撒》，第一幕，第二场，288行，改写）被编码为：</p>
+<p>0920 1900 0112 1200 0718 0505 1100 2015 0013 0500</p>
+<p>由于 e = 10001 （二进制），第一个块（M = 920）被编码为：</p>
+<script type="math/tex; mode=display">M^{17} = (((((1)^2\cdot{}M)^2)^2)^2)^2\cdot{}M = 948\pmod{2273}.</script><p>整条消息被编码为：</p>
+<p>0948 2342 1084 1444 2663 2390 0778 0774 0219 1655 .</p>
+<p>读者可以检查解密的有效性：948157 ≡ 920 (mod 2773)，以此类推。</p>
+<h2 id="9-方法的安全性：密码分析方法"><a href="#9-方法的安全性：密码分析方法" class="headerlink" title="9 方法的安全性：密码分析方法"></a>9 方法的安全性：密码分析方法</h2><p>由于现有的技术不能保证一种加密机制是安全的，唯一可行的检验方法是看看是否有人能找出破解方法。美国国家标准局的标准是用此方法“鉴定”的；IBM 花费了 17 人工作年试图攻破这一机制，毫无结果。一旦一种方法成功抵抗这样一场精心筹划的攻击，在实践中便可以认为此方法是安全的。（事实上，关于 NBS 方法的安全性存在争议 [2]。）</p>
+<p>我们将在下面的部分展示，所有攻击我们系统的明显的方法至少不会比因式分解 n 更容易。尽管大数因式分解在结果验证上不困难，近三百年来已有许多知名数学家致力于解决大数因式分解问题本身。费马（1601?-1665）和勒让德（1752-1833）发现了分解算法；如今的某些更高效算法正是基于勒让德的工作的。然而，正如我们将在下一节中看到的，至今无人发现能在可接受的时间内将一个 200 位数分解的算法。我们认为，我们的系统的安全性已经被前人寻找高效的分解算法付出的努力部分地“鉴定”了。</p>
+<p>在下面的部分中，我们将讨论密码分析者在试图从公开的加密密钥中推断出私密的解密密钥时可能采用的方法。我们将不会讨论怎样使解密密钥不被窃取；一般的物理安全措施应当足够了。（例如，独立的加密设备也可以生成加密和解密密钥，这样解密密钥永远不会被打印出来（甚至不用打印给设备的主人）而是仅用于解密信息。设备也可以在遭篡改时清除解密密钥。）</p>
+<h3 id="A-因式分解-n"><a href="#A-因式分解-n" class="headerlink" title="A 因式分解 n"></a>A 因式分解 n</h3><p>因式分解 n 将让敌方密码分析者能够“破解”我们的方法。他可以通过 n 的因数计算 φ(n)，因而算出 d。幸运的是，因式分解一个数似乎比确定它是素数还是合数更加困难。</p>
+<p>已经有了大量的因式分解算法。Knuth [3, 4.5.4 节] 很好地阐明了其中不少算法。Pollard [9] 提出了在时间 O(n<sup>1/4</sup>) 内因式分解数 n 的一种算法。</p>
+<p>作者已知的最快的因式分解算法是 Richard Schroeppel 提出的（尚未发表） ；这种方法可以在大约</p>
+<script type="math/tex; mode=display">\begin{align}exp\sqrt{\ln{(n)}\cdot\ln{(\ln{(n)})}}&=n^{\sqrt{\ln{\ln{(n)}}/\ln{(n)}}}\\&=(\ln{(n)})^{\sqrt{\ln{(n)}/\ln{(\ln{(n)})}}}\end{align}</script><p>步骤内因式分解 n（这里 ln 表示自然对数函数）。表 1 给出了对于不同长度的数 n（十进制），用 Schroeppel 的方法因式分解 n 所需的操作的数量，以及当每次操作耗费一微秒时所需的时间。</p>
+<p>表1</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>位数</th>
+<th>操作数</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>50</td>
+<td>1.4 × 10<sup>10</sup></td>
+<td>3.9 小时</td>
+</tr>
+<tr>
+<td>75</td>
+<td>9.0 × 10<sup>12</sup></td>
+<td>104 天</td>
+</tr>
+<tr>
+<td>100</td>
+<td>2.3 × 10<sup>15</sup></td>
+<td>74 年</td>
+</tr>
+<tr>
+<td>200</td>
+<td>1.2 × 10<sup>23</sup></td>
+<td>3.8 × 10<sup>9</sup> 年</td>
+</tr>
+<tr>
+<td>300</td>
+<td>1.5 × 10<sup>29</sup></td>
+<td>4.9 × 10<sup>15</sup> 年</td>
+</tr>
+<tr>
+<td>500</td>
+<td>1.3 × 10<sup>39</sup></td>
+<td>4.2 × 10<sup>25</sup> 年</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我们推荐 n 取大概 200 位长。根据具体应用的加密速度和安全性的相对重要关系，可以使用更长或更短的长度。80 位长的 n 在遭受现有技术水平的攻击时能提供中等的安全性；200 位数 n 则为未来攻击技术的发展留有余地。选择密钥长度（从而选择安全级别）以适应具体应用场景的这种灵活性在许多先前的加密机制（例如美国国家标准局的机制）中是不具备的。</p>
+<h3 id="B-计算-φ-n-而不因式分解-n"><a href="#B-计算-φ-n-而不因式分解-n" class="headerlink" title="B 计算 φ(n) 而不因式分解 n"></a>B 计算 φ(n) 而不因式分解 n</h3><p>如果密码分析者能够计算出 φ(n)，那么他就能通过计算模 φ(n) 下 e 的逆元（使用第 7 节 D 的流程）来计算 d 并攻破密码系统。</p>
+<p>我们可以证明此方法不比因式分解 n 更容易。这是因为此方法使得密码分析者能用 φ(n) 容易地因式分解 n，而这种因式分解 n 的方法在实践中还不可行。</p>
+<p>怎么用 φ(n) 得到 n 的因式分解呢？首先，由 n 和 φ(n) = n - (p + q) + 1 可得 (p + q)。之后，求 (p + q)<sup>2</sup> - 4n 的平方根即为 (p - q)。最后，(p + q) 和 (p - q) 之差的一半就是 q。</p>
+<p>因此通过计算 φ(n) 来攻破我们的系统并不比通过因式分解 n 难度更低。（这就是 n 是合数的理由；如果 n 是素数，计算 φ(n) 轻而易举）</p>
+<h3 id="C-得出-d-而不因式分解-n-或计算-φ-n"><a href="#C-得出-d-而不因式分解-n-或计算-φ-n" class="headerlink" title="C 得出 d 而不因式分解 n 或计算 φ(n)"></a>C 得出 d 而不因式分解 n 或计算 φ(n)</h3><p>显然，为了使得直接搜索不可行，应该从足够大的集合中选择 d。</p>
+<p>我们可以证明密码分析者计算 d 并不比因式分解 n 难度低，因为一旦 d 已知，n 可以容易地被因式分解。这一种因式分解的方法也还没有成果。</p>
+<p>已知 d 时可以用如下方法计算 n。一旦密码分析者知道了 d 后便可计算 e · d−1，这个数是 φ(n) 的倍数。Miller [6] 已经阐明，给出 φ(n) 的任一倍数便可以因式分解 n。因此如果 n 很大，密码分析者应当不能比因式分解 n 更容易地求解 d。</p>
+<p>密码分析者可能希望找到一个 d’ ，使得 d’ 与公钥密码系统用户保密的 d 等价。如果这样数值的 d’ 普遍存在，那么暴力搜索就能攻破系统。然而，所有这样的 d’ 相差 (p-1) 和 (q - 1) 的最小公倍数，并且找到一个这样的 d’ 就能因式分解 n。（在 (3) 和 (5) 中，φ(n) 可以用 lcm(p − 1, q − 1) 来替换。）因此，找到任一 d’ 和因式分解 n 同等困难。</p>
+<h3 id="D-通过某种其他方式计算-D"><a href="#D-通过某种其他方式计算-D" class="headerlink" title="D 通过某种其他方式计算 D"></a>D 通过某种其他方式计算 D</h3><p>尽管“不用因式分解 n 来计算 e 次幂模 n”不像因式分解一样是众所周知的困难问题，我们有理由相信该问题是难以计算的。也许能证明，任何破解我们机制的一般性方法都能导出一种高效的因式分解算法。这将证明，任何破解我们机制的方法一定和因式分解具有同等难度。然而，我们现在还不能证明这一猜想。</p>
+<p>应当让人们共同努力看看能否推翻上述关于难度的猜想，这样才能验证我们的方法。欢迎读者寻找一种方法来“攻破”我们的方案。</p>
+<h2 id="10-避免加密一条签名过的消息时的“重新分块”"><a href="#10-避免加密一条签名过的消息时的“重新分块”" class="headerlink" title="10 避免加密一条签名过的消息时的“重新分块”"></a>10 避免加密一条签名过的消息时的“重新分块”</h2><p>一条签名过的消息可能不得不为加密而“重新分块”，因为签名时用的 n 可能比加密用的 n要大（每位用户有自己的 n）。下面的方法可以避免这一问题。为公钥密码系统选取临界值 h（例如 h = 10<sup>199</sup>）。每位用户维护两个公共的 (e, n) 对，一个用于加密，一个用于签名验证，其中每个签名 n 小于 h，每个解密 n 大于 h。这样就不需要重新分块来解密一条签名过的消息；消息根据发送者的签名 n 来分块。</p>
+<p>另一解决方案使用在 [4] 中给出的一项技术。每位用户有单一的 (e, n) 对，这里 n 在h 和2h 之间，h 和先前相同，是临界值。一条消息被编码为一个小于 h 的数字并和先前一样地加密，如果密文比 h 大，这时将会对密文反复加密直到密文比 h 小。解密时类似，密文被反复解密直到获得的值小于 h。如果 n 接近于 h ，那么不会经常需要反复加密。（不可能出现无限循环，因为最差的情况下一条信息加密得到本身。）</p>
+<h2 id="11-结论"><a href="#11-结论" class="headerlink" title="11 结论"></a>11 结论</h2><p>我们提出了一种通过分解大数的困难性保证安全的方法来实现公钥密码系统。如果我们方法的安全性足够，那么此方法不用信使分发密钥就能建立安全通信，同时允许用户“签名”数字文档。</p>
+<p>特别地，因式分解大数的困难程度应当得到非常严格的检验。我们鼓励读者寻找“攻破”系统的方法。一旦这套系统在足够长的时间中经受住了所有的攻击，人们就应当带着一定的信心来应用。</p>
+<p>我们使用的加密函数是作者所知的唯一“单向陷门函数”。更加理想的是找出这种函数的其他范例，一旦某天我们系统变得不够安全时，能提供额外的实现。未来肯定能发现这类函数的许多新应用场景。</p>
+<p><em>致谢。</em> 我们对Martin Hellman，Richard Schroeppel，Abraham Lempel 和 Roger Needham 带来的有帮助的讨论表示感谢，也感谢 Wendy Glasser 在准备初稿时的帮助。施乐帕克研究中心提供了帮助，在准备终稿时提供我们出色的文本编辑设备。</p>
+<p>1977 年 4 月 4 日投稿；1977 年 9 月 1 日修改。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ol>
+<li><p>Diffie, W., and Hellman, M. New directions in cryptography. IEEE Trans. Inform. Theory IT-22, (Nov. 1976), 644-654.</p>
+</li>
+<li><p>Diffie, W., and Hellman, M. Exhaustive cryptanalysis of the NBS data encryption standard. Computer 10 (June 1977), 74-84.</p>
+</li>
+<li><p>Knuth, D. E. The Art of Computer Programming, Vol 2: Seminumerical Algorithms. Addison-Wesley, Reading, Mass., 1969.</p>
+</li>
+<li><p>Levine, J., and Brawley, J.V. Some cryptographic applications of permutation polynomials. Cryptologia 1 (Jan. 1977), 76-92.</p>
+</li>
+<li><p>Merkle, R. Secure communications over an insecure channel. Submitted to Comm. ACM.</p>
+</li>
+<li><p>Miller, G.L. Riemann’s hypothesis and tests for primality. Proc. Seventh Annual ACM Symp. on the Theory of Comptng. Albuquerque, New Mex., May 1975, pp. 234-239; extended vers. available as Res. Rep. CS-75-27, Dept. of Comptr. Sci., U. of Waterloo, Waterloo, Ont., Canada, Oct. 1975.</p>
+</li>
+<li><p>Niven, I., and Zuckerman, H.S. An Introduction to the Theory of Numbers. Wiley, New York, 1972.</p>
+</li>
+<li><p>Pohlig, S.C., and Hellman, M.E. An improved algorithm for computing logarithms over GF(p) and its cryptographic significance. To appear in IEEE Trans. Inform. Theory, 1978.</p>
+</li>
+<li><p>Pollard, J.M. Theorems on factorization and primality testing. Proc. Camb. Phil. Soc. 76 (1974), 521-528.</p>
+</li>
+<li><p>Potter, R.J., Electronic mail. Science 195, 4283 (March 1977), 1160-1164.</p>
+</li>
+<li><p>Rabin, M.O., Probabilistic algorithms. In Algorithms and Complexity, J. F. Traub, Ed., Academic Press, New York, 1976, pp. 21-40.</p>
+</li>
+<li><p>Solovay, R., and Strassen, V. A Fast Monte-Carlo test for primality. SIAM J. Comptng. (March 1977), 84-85.</p>
+</li>
+<li><p>Federal Register, Vol. 40, No. 52, March 17, 1975.</p>
+</li>
+<li><p>Federal Register, Vol. 40, No. 149, August 1, 1975.</p>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">信息安全数学基础</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/17/arch-standby/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">神船 TX6 延长 ArchLinux 下的续航</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/26/computer-organization/">
+                        <span class="hidden-mobile">计算机组成原理</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.4/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
