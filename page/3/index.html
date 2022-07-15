@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -9,14 +9,22 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
   <link rel="icon" href="/images/res/avatar.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#90a4ae">
-  <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Blogs of mefailedcoder">
+<meta property="og:url" content="https://zhaozihanzzh.github.io/page/3/index.html">
+<meta property="og:site_name" content="Blogs of mefailedcoder">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="zhaozihanzzh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   
   <title>Blogs of mefailedcoder</title>
 
@@ -24,35 +32,60 @@
 
 
 
+
+
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>mefailedcoder</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -114,13 +147,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -129,34 +164,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/images/res/default.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Welcome">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/res/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="Welcome"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -175,23 +216,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/11/02/relations-functions/" target="_self">
-          
-          
-            
-          
-          关系和函数简单辨析一些问题：
-有序对，有序 n 元组
-笛卡尔积（直积）
-关系（二元关系）及符号表示，从 A 到 B 的二元关系， A 上的二元关系，EA，IA，二元关系是一个有序对吗？
-二元关系与有序对构成的集合是否等价？
-二元关系的定义域（前域）、值域（后域）、域及其符号表示？
-关系的表示：集合，关系图（注意 A 到 B 上的与 A 上的），邻接矩阵
-关系的逆
-对关系的并，交，补，差，包含等的结
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/11/02/relations-functions/" target="_self">
+        <div>
+          关系和函数简单辨析一些问题： 有序对，有序 n 元组 笛卡尔积（直积） 关系（二元关系）及符号表示，从 A 到 B 的二元关系， A 上的二元关系，EA，IA，二元关系是一个有序对吗？ 二元关系与有序对构成的集合是否等价？ 二元关系的定义域（前域）、值域（后域）、域及其符号表示？ 关系的表示：集合，关系图（注意 A 到 B 上的与 A 上的），邻接矩阵 关系的逆 对关系的并，交，补，差，包含等的结
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -203,11 +233,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="category-chain-item">离散数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -226,18 +270,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/11/01/gfm-error/" target="_self">
-          
-          
-            
-          
-          博客相关问题1.使用 GFM 时发现，加粗、斜体格式用 *** 表示时在某些场景下会出现无法正确解析的问题。（更新：按 6 的进一步参考链接做后使用这一条会导致下划线直接出现在文本中，需要换回原来的三星号）
-更换为 **_ 与 _** 后问题消失。
-参考：https://www.reinforce.cn/t/545.html
-2.开启 Typora 的行内公式支持：https://blog.csd
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/11/01/gfm-error/" target="_self">
+        <div>
+          博客相关问题1.使用 GFM 时发现，加粗、斜体格式用 *** 表示时在某些场景下会出现无法正确解析的问题。（更新：按 6 的进一步参考链接做后使用这一条会导致下划线直接出现在文本中，需要换回原来的三星号） 更换为 **_ 与 _** 后问题消失。 参考：https:&#x2F;&#x2F;www.reinforce.cn&#x2F;t&#x2F;545.html 2.开启 Typora 的行内公式支持：https:&#x2F;&#x2F;blog.csd
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -249,11 +287,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/" class="category-chain-item">计算机杂谈</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -272,18 +324,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/10/25/matrix/" target="_self">
-          
-          
-            
-          
-          初探矩阵一、矩阵定义1. 数域对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。
-2. 矩阵矩阵是指某一数域中的 m × n 个数排成 m 行 n 列的表。可记为 A = (aij)mn，或 Amn，或 Am×n。如果没有特殊说明，我们讨论的是复矩阵。
-两矩阵行列分别相等，称为同型矩阵。
-当 m 
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/10/25/matrix/" target="_self">
+        <div>
+          初探矩阵一、矩阵定义1. 数域对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。 2. 矩阵矩阵是指某一数域中的 m × n 个数排成 m 行 n 列的表。可记为 A &#x3D; (aij)mn，或 Amn，或 Am×n。如果没有特殊说明，我们讨论的是复矩阵。 两矩阵行列分别相等，称为同型矩阵。 当 m
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -295,11 +341,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/">线性代数与解析几何</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/" class="category-chain-item">线性代数与解析几何</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -318,16 +378,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/10/24/local-variable-pr/" target="_self">
-          
-          
-            
-          
-          C++ 返回局部变量的引用与地址听说 2020 - 1024 = 996？
-1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int&amp; refer(int&amp; arg) &#123;	int inter_var = 1024;	return inter_var;	// 返
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/10/24/local-variable-pr/" target="_self">
+        <div>
+          C++ 返回局部变量的引用与地址听说 2020 - 1024 &#x3D; 996？ 1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int&amp; refer(int&amp; arg) &amp;#123;	int inter_var &#x3D; 1024;	return inter_var;	&#x2F;&#x2F; 返
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -339,11 +395,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/C/">C++</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -362,24 +432,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/10/16/base-conversion/" target="_self">
-          
-          
-            
-          
-          进制转换（无数的人已经写过这篇了）
-首先介绍一下相关英文：
-进制 Base
-二进制 Binary
-八进制 Octal
-十进制 Decimal
-十六进制 Hexadecimal
-接下来探讨一下其转换。
-Part 1 整数部分进制虽然不同，但其表示思想类似，即每一数位上的数字均代表进位的 n 次幂的倍数。因此，我们把其余数制转为十进制是直观容易的：
-FEC (base 16) → 15×16²+14×
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/10/16/base-conversion/" target="_self">
+        <div>
+          进制转换（无数的人已经写过这篇了） 首先介绍一下相关英文： 进制 Base 二进制 Binary 八进制 Octal 十进制 Decimal 十六进制 Hexadecimal 接下来探讨一下其转换。 Part 1 整数部分进制虽然不同，但其表示思想类似，即每一数位上的数字均代表进位的 n 次幂的倍数。因此，我们把其余数制转为十进制是直观容易的： FEC (base 16) → 15×16²+14×
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -391,11 +449,25 @@ FEC (base 16) → 15×16²+14×
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/" class="category-chain-item">计算机杂谈</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -414,17 +486,12 @@ FEC (base 16) → 15×16²+14×
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/10/11/android11/" target="_self">
-          
-          
-            
-          
-          Android Studio 模拟器体验 Android R
-​        2020 年 9 月 9 日，Android 11 正式发布了。在这里，使用 Android Studio 自带模拟器对其进行一番轻度把玩。
-Part 1 初步体验​        本次更新增强了聊天气泡（然而这里并没有体验），提升了权限方面的保护，在通知面板集成了音乐播放控制，在开发者选项加入对不同屏幕形态的模拟，还
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/10/11/android11/" target="_self">
+        <div>
+          Android Studio 模拟器体验 Android R ​        2020 年 9 月 9 日，Android 11 正式发布了。在这里，使用 Android Studio 自带模拟器对其进行一番轻度把玩。 Part 1 初步体验​        本次更新增强了聊天气泡（然而这里并没有体验），提升了权限方面的保护，在通知面板集成了音乐播放控制，在开发者选项加入对不同屏幕形态的模拟，还
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -436,11 +503,25 @@ Part 1 初步体验​        本次更新增强了聊天气泡（然而这里�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A8%B1%E4%B9%90/">娱乐</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A8%B1%E4%B9%90/" class="category-chain-item">娱乐</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -459,16 +540,12 @@ Part 1 初步体验​        本次更新增强了聊天气泡（然而这里�
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/09/30/hello-world/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/09/30/hello-world/" target="_self">
+        <div>
           There is only one heroism in the world: to see the world as it is and to love it.
-
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -503,7 +580,7 @@ Part 1 初步体验​        本次更新增强了聊天气泡（然而这里�
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -522,32 +599,34 @@ Part 1 初步体验​        本次更新增强了聊天气泡（然而这里�
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
@@ -566,26 +645,29 @@ Part 1 初步体验​        本次更新增强了聊天气泡（然而这里�
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
     <script  src="/js/img-lazyload.js" ></script>
   
 
-
-
-  
-
-
-
-
-
-
-
-
-
-  <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
@@ -595,35 +677,15 @@ Part 1 初步体验​        本次更新增强了聊天气泡（然而这里�
 
 
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

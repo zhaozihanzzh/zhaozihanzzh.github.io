@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -9,14 +9,22 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
   <link rel="icon" href="/images/res/avatar.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#90a4ae">
-  <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Blogs of mefailedcoder">
+<meta property="og:url" content="https://zhaozihanzzh.github.io/index.html">
+<meta property="og:site_name" content="Blogs of mefailedcoder">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="zhaozihanzzh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   
   <title>Blogs of mefailedcoder</title>
 
@@ -24,35 +32,60 @@
 
 
 
+
+
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>mefailedcoder</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -114,13 +147,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -129,34 +164,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/images/res/default.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Welcome">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/res/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="Welcome"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -175,15 +216,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/01/17/arch-standby/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/01/17/arch-standby/" target="_self">
+        <div>
           神船 TX6 延长 ArchLinux 下的续航神船 TX6（2020 款，CU5Dx）采用蓝天 NK60SB 模具，搭载 Intel Core i5-10400 这一 6 核心 12 线程，TDP 65W 的 LGA 封装 CPU 和 NVIDIA GeForce GTX1650 （4GB GDDR6）独立显卡，再加上 16.1 寸 60Hz 的 LCD 显示屏，却使用一块只 47Whr 的可拆
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -195,11 +233,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -218,15 +270,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2022/01/16/hackermath-rsa/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/01/16/hackermath-rsa/" target="_self">
+        <div>
           本文是对 R.L. Rivest、A. Shamir 和 L. Adleman 论文 A Method for Obtaining Digital Signatures and Public-Key Cryptosystems 的翻译。需要注意的是，这个翻译只是为了完成任务而已，（本人对密码学了解甚少，按理说是没有能力、不应该进行这样的工作的）未经任何形式的检查，不仅有翻译不恰当的地方，甚至应该也
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -238,11 +287,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">信息安全数学基础</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="category-chain-item">信息安全数学基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -261,15 +324,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/12/26/computer-organization/" target="_self">
-          
-          
-            
-          
-          计算机组成原理一、计算机系统概论1. 计算机的分类、发展电子计算机分哪两类？“电脑”指的是？其中&#x2003;&#x2003;&#x2003;又可进一步分成&#x2003;&#x2003;&#x2003;和&#x2003;&#x2003;&#x2003;。计算机已经经历了五代发展。到目前为止，计算机中所有信息仍以二进制方式表示的理由是（由物理器件的性能决定）。现代计算机已经从以运算器为中心发展到
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/26/computer-organization/" target="_self">
+        <div>
+          计算机组成原理一、计算机系统概论1. 计算机的分类、发展电子计算机分哪两类？“电脑”指的是？其中&amp;#x2003;&amp;#x2003;&amp;#x2003;又可进一步分成&amp;#x2003;&amp;#x2003;&amp;#x2003;和&amp;#x2003;&amp;#x2003;&amp;#x2003;。计算机已经经历了五代发展。到目前为止，计算机中所有信息仍以二进制方式表示的理由是（由物理器件的性能决定）。现代计算机已经从以运算器为中心发展到
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -281,11 +341,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="category-chain-item">计算机组成原理</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -304,18 +378,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/12/15/hackermath-modernalgebraecc/" target="_self">
-          
-          
-            
-          
-          群、环、域、椭圆曲线一、运算与群
-映射？笛卡尔积？设 A 和 B 是两个集合，R 是 A 和 B 之间的元素的对应关系，如果 R 满足：对于 A 中的每一个元素，通过 R 在 B 中都存在唯一一个元素与之对应，则称对应关系 R 为从集合 A 到 B 的映射，其中 A 称为原像集，B 称为像集。集合 A、B 的笛卡尔积为集合 A×B={(x, y)|x∈A, y∈B}。
-
-一元运算（本身映射到本身）
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/15/hackermath-modernalgebraecc/" target="_self">
+        <div>
+          群、环、域、椭圆曲线一、运算与群 映射？笛卡尔积？设 A 和 B 是两个集合，R 是 A 和 B 之间的元素的对应关系，如果 R 满足：对于 A 中的每一个元素，通过 R 在 B 中都存在唯一一个元素与之对应，则称对应关系 R 为从集合 A 到 B 的映射，其中 A 称为原像集，B 称为像集。集合 A、B 的笛卡尔积为集合 A×B&#x3D;{(x, y)|x∈A, y∈B}。  一元运算（本身映射到本身）
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -327,11 +395,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">信息安全数学基础</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="category-chain-item">信息安全数学基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -350,18 +432,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/12/14/hackermath-congruence-modulo/" target="_self">
-          
-          
-            
-          
-          同余与同余式一、概念及性质
-同余的定义？“定义域”？P54 模 m 同余是等价关系吗？P55同余的定义并不直接是其字面意义 ，而是“跨度”为模的整数倍。
-a_1\equiv{b_1}\pmod{m}，a_2\equiv{b_2}\pmod{m}，则 a1+a2，b1+b2 和 a1a2，b1b2 之间存在怎样的关系？P56由此，某天是星期三，这天后的 22008 天是星期几？
-怎样快速判断某数是否
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/14/hackermath-congruence-modulo/" target="_self">
+        <div>
+          同余与同余式一、概念及性质 同余的定义？“定义域”？P54 模 m 同余是等价关系吗？P55同余的定义并不直接是其字面意义 ，而是“跨度”为模的整数倍。 $a_1\equiv{b_1}\pmod{m}$，$a_2\equiv{b_2}\pmod{m}$，则 a1+a2，b1+b2 和 a1a2，b1b2 之间存在怎样的关系？P56由此，某天是星期三，这天后的 22008 天是星期几？ 怎样快速判断
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -373,11 +449,25 @@ a_1\equiv{b_1}\pmod{m}，a_2\equiv{b_2}\pmod{m}，则 a1+a2，b1+b2 和 a1a2，b
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">信息安全数学基础</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="category-chain-item">信息安全数学基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -396,24 +486,12 @@ a_1\equiv{b_1}\pmod{m}，a_2\equiv{b_2}\pmod{m}，则 a1+a2，b1+b2 和 a1a2，b
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/12/06/hackermath-int-divisibility/" target="_self">
-          
-          
-            
-          
-          整数的可除性一、整除的概念
-什么是 b 整除 a 或 a 被 b 整除？因数、倍数的定义？对“定义域”有什么要求？什么是不整除？
-
-若 c|a，c|b，那么 c|(sa+tb)吗？
-
-对于一个数而言，什么是显然因数？素数和合数的定义？没有特别声明时素数总是指正整数。什么是安全素数？什么是索菲热尔曼素数？
-
-n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的性质？怎么证明？
-
-爱
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/12/06/hackermath-int-divisibility/" target="_self">
+        <div>
+          整数的可除性一、整除的概念 什么是 b 整除 a 或 a 被 b 整除？因数、倍数的定义？对“定义域”有什么要求？什么是不整除？  若 c|a，c|b，那么 c|(sa+tb)吗？  对于一个数而言，什么是显然因数？素数和合数的定义？没有特别声明时素数总是指正整数。什么是安全素数？什么是索菲热尔曼素数？  n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的性质？怎么证明？  爱
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -425,11 +503,25 @@ n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">信息安全数学基础</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="category-chain-item">信息安全数学基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -448,15 +540,12 @@ n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的�
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/10/06/algo-ten-internalsort/" target="_self">
-          
-          
-            
-          
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/06/algo-ten-internalsort/" target="_self">
+        <div>
           十大常见的内部排序算法所谓内部 (Internal) 排序，是指在计算机的主存而非外存中进行的排序。所谓稳定 (Stable) 的排序算法，是指排序完后大小相等的元素的相对位置能保持不变。在以某一键值进行排序时（如基数排序），稳定性是十分重要的。所谓原地排序算法 (In-place Sorting Algorithm)，是指除了函数调用所需的栈和固定数目的实例变量之外无序额外内存的排序算法。[1]
-        </a>
-      </p>
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -468,11 +557,25 @@ n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -491,15 +594,12 @@ n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的�
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/09/25/touchpad-clevo-arch/" target="_self">
-          
-          
-            
-          
-          神船 TX6 修复 ArchLinux 下触摸板问题Part 1 背景在 Arch Linux 刚刚安装好时，这台神船 TX6（蓝天 NK60SB 模具）的触摸板是正常的。然而，2021 年 2 月 26 日系统更新之后的重启改变了这一切——触摸板不能用了。我按照 wiki 上的各种方法，安装了 xf86-input-synaptics，调整了 /etc/X11/xorg.conf.d/70-sy
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/25/touchpad-clevo-arch/" target="_self">
+        <div>
+          神船 TX6 修复 ArchLinux 下触摸板问题Part 1 背景在 Arch Linux 刚刚安装好时，这台神船 TX6（蓝天 NK60SB 模具）的触摸板是正常的。然而，2021 年 2 月 26 日系统更新之后的重启改变了这一切——触摸板不能用了。我按照 wiki 上的各种方法，安装了 xf86-input-synaptics，调整了 &#x2F;etc&#x2F;X11&#x2F;xorg.conf.d&#x2F;70-sy
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -511,11 +611,25 @@ n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -534,19 +648,12 @@ n 为正合数，p 是大于 1 的 n 的最小正因数，那么 p 有怎样的�
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/09/19/algo-tortoiseandhare/" target="_self">
-          
-          
-            
-          
-          龟兔赛跑算法Part 1 背景问题来自力扣：判断链表中是否有环？
-Part 2 实现准备两个指针，遍历时一个指针前进一次，另一个前进两次，如果两指针相遇或赶超，说明存在环。好比两人在操场上跑步，速度一快一慢，当时间足够时，总会“套圈”。
-时间复杂度：O(N)，N 为链表节点数。
-空间复杂度：O(1)。
-
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/19/algo-tortoiseandhare/" target="_self">
+        <div>
+          龟兔赛跑算法Part 1 背景问题来自力扣：判断链表中是否有环？ Part 2 实现准备两个指针，遍历时一个指针前进一次，另一个前进两次，如果两指针相遇或赶超，说明存在环。好比两人在操场上跑步，速度一快一慢，当时间足够时，总会“套圈”。 时间复杂度：O(N)，N 为链表节点数。 空间复杂度：O(1)。
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -558,11 +665,25 @@ Part 2 实现准备两个指针，遍历时一个指针前进一次，另一个�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="category-chain-item">数据结构与算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -581,19 +702,12 @@ Part 2 实现准备两个指针，遍历时一个指针前进一次，另一个�
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/09/10/python-exact-division/" target="_self">
-          
-          
-            
-          
-          Python3 整除的浅思Python 3 中，采用 // 来实现整除，两个整型变量整除后得到的变量依然是整型。而采用普通的除号 / 得到的却是浮点型。
-Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点型没有这样的实现机制。为了保留相对完整的大整数运算能力支持，需要整除的存在来避开对浮点的依赖。
-那么，为什么两个整型采用除号运算，得到的却是浮点型？
-可以参考：pansz的回答。
-
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/10/python-exact-division/" target="_self">
+        <div>
+          Python3 整除的浅思Python 3 中，采用 &#x2F;&#x2F; 来实现整除，两个整型变量整除后得到的变量依然是整型。而采用普通的除号 &#x2F; 得到的却是浮点型。 Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点型没有这样的实现机制。为了保留相对完整的大整数运算能力支持，需要整除的存在来避开对浮点的依赖。 那么，为什么两个整型采用除号运算，得到的却是浮点型？ 可以参考：pansz的回答。
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -605,11 +719,25 @@ Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点�
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/">计算机杂谈</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%9D%82%E8%B0%88/" class="category-chain-item">计算机杂谈</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -635,7 +763,7 @@ Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点�
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -654,32 +782,34 @@ Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点�
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
@@ -698,26 +828,29 @@ Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点�
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
     <script  src="/js/img-lazyload.js" ></script>
   
 
-
-
-  
-
-
-
-
-
-
-
-
-
-  <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
@@ -727,35 +860,15 @@ Python 3 中，整型支持可以做到硬件允许范围内的大，但浮点�
 
 
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

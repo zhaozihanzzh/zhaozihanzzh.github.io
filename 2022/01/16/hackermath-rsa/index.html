@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -9,66 +9,93 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
   <link rel="icon" href="/images/res/avatar.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#90a4ae">
-  <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="本文是对 R.L. Rivest、A. Shamir 和 L. Adleman 论文 A Method for Obtaining Digital Signatures and Public-Key Cryptosystems 的翻译。需要注意的是，这个翻译只是为了完成任务而已，（本人对密码学了解甚少，按理说是没有能力、不应该进行这样的工作的）未经任何形式的检查，不仅有翻译不恰当的地方，甚至应该也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RSA 论文翻译：一种实现数字签名和公钥密码系统的方法">
+<meta property="og:url" content="https://zhaozihanzzh.github.io/2022/01/16/hackermath-rsa/index.html">
+<meta property="og:site_name" content="Blogs of mefailedcoder">
+<meta property="og:description" content="本文是对 R.L. Rivest、A. Shamir 和 L. Adleman 论文 A Method for Obtaining Digital Signatures and Public-Key Cryptosystems 的翻译。需要注意的是，这个翻译只是为了完成任务而已，（本人对密码学了解甚少，按理说是没有能力、不应该进行这样的工作的）未经任何形式的检查，不仅有翻译不恰当的地方，甚至应该也">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-16T02:41:37.000Z">
+<meta property="article:modified_time" content="2022-07-14T15:33:35.122Z">
+<meta property="article:author" content="zhaozihanzzh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   
   <title>RSA 论文翻译：一种实现数字签名和公钥密码系统的方法 - Blogs of mefailedcoder</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://lib.baomitu.com/highlight.js/10.7.2/styles/github-gist.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>mefailedcoder</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +157,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -145,60 +174,69 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/images/res/default.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="RSA 论文翻译：一种实现数字签名和公钥密码系统的方法">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-01-16 10:41" pubdate>
-        2022-01-16 10:41
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      9k 字
-    </span>
   
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      104
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/res/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="RSA 论文翻译：一种实现数字签名和公钥密码系统的方法"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-16 10:41" pubdate>
+          2022-01-16 10:41
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          112 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -207,22 +245,30 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">RSA 论文翻译：一种实现数字签名和公钥密码系统的方法</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022-01-16 21:53
+                  
+                    Last updated on July 14, 2022 pm
+                  
                 
               </p>
             
-            <div class="markdown-body">
-              <p>本文是对 R.L. Rivest、A. Shamir 和 L. Adleman 论文 A Method for Obtaining Digital Signatures and Public-Key Cryptosystems 的翻译。需要注意的是，这个翻译只是为了完成任务而已，（本人对密码学了解甚少，按理说是没有能力、不应该进行这样的工作的）未经任何形式的检查，不仅有翻译不恰当的地方，甚至应该也有理解性的错误，但截至 2021 年 11 月时，敝人并未在网上找到现成的其他翻译（也可能是我不懂得如何搜索），故就此发出，权当抛砖引玉。</p>
+            
+              <div class="markdown-body">
+                
+                <p>本文是对 R.L. Rivest、A. Shamir 和 L. Adleman 论文 A Method for Obtaining Digital Signatures and Public-Key Cryptosystems 的翻译。需要注意的是，这个翻译只是为了完成任务而已，（本人对密码学了解甚少，按理说是没有能力、不应该进行这样的工作的）未经任何形式的检查，不仅有翻译不恰当的地方，甚至应该也有理解性的错误，但截至 2021 年 11 月时，敝人并未在网上找到现成的其他翻译（也可能是我不懂得如何搜索），故就此发出，权当抛砖引玉。</p>
 <h1 id="一种实现数字签名和公钥密码系统的方法"><a href="#一种实现数字签名和公钥密码系统的方法" class="headerlink" title="一种实现数字签名和公钥密码系统的方法"></a>一种实现数字签名和公钥密码系统的方法</h1><p>R.L. Rivest, A. Shamir, and L. Adleman∗</p>
 <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>本文提出一种具有能够在公开加密密钥的同时不泄露相应的解密密钥这一全新性质的加密方法。这一性质有两个重要影响：</p>
 <ol>
@@ -237,11 +283,14 @@
 <h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h2><p>“电子邮件” [10]时代可能即将到来；我们必须确保现行“纸质邮件”系统的两个重要特性能得以保留：(a) 信息内容是私密的，(b)能够对信件进行签名。我们将在本文中论证如何在电子邮件系统中实现这些能力。</p>
 <p>此方案以一种新的“公钥密码系统”实现为核心。Diffie 和 Hellman 在论文中提出了公钥密码系统这一优雅的概念，但并未给出具体的公钥密码系统实现，本研究希望填补这一空白。[1] 对[1] 熟悉的读者可以直接跳到第五节来阅读有关本文提出的方法的描述。</p>
 <h2 id="2-公钥密码系统"><a href="#2-公钥密码系统" class="headerlink" title="2 公钥密码系统"></a>2 公钥密码系统</h2><p>在一个“公钥密码系统”中每个用户在一个公共文件中放置一个加密程序E。换言之，公共文件是一个给出了每个用户加密程序E的目录。用户将对应的解密程序D保密。这些程序有以下四个性质：</p>
-<p>(a) 加密M后再解密可以得到M。一般地，</p>
-<script type="math/tex; mode=display">D(E(M)) = M. \tag{1}</script><p>(b) E 和 D 易于计算。</p>
+<p>(a) 加密M后再解密可以得到M。一般地，<br>
+$$D(E(M)) = M. \tag{1}$$
+
+(b) E 和 D 易于计算。</p>
 <p>(c) 用户公开 E 并不会使得 D 易于被算出，因此实际上只有他自己能解密用 E 加密的信息，或者高效地计算D。</p>
-<p>(d) M 先被解密，再被加密后仍然得到 M。一般地，</p>
-<script type="math/tex; mode=display">E(D(M)) = M.  \tag{2}</script><p>一套加密（或解密）程序往往由一套通用方法和一个加密密钥组成。受密钥控制的通用方法加密信息M得到信息的加密形式，称之为密文C。每个人可以使用同一套通用方法；给出的程序的安全性将依赖于密钥的安全性。泄露加密算法因此意味着泄露密钥。</p>
+<p>(d) M 先被解密，再被加密后仍然得到 M。一般地，<br>
+$$E(D(M)) = M.  \tag{2}$$
+一套加密（或解密）程序往往由一套通用方法和一个加密密钥组成。受密钥控制的通用方法加密信息M得到信息的加密形式，称之为密文C。每个人可以使用同一套通用方法；给出的程序的安全性将依赖于密钥的安全性。泄露加密算法因此意味着泄露密钥。</p>
 <p>公开 E 相当于公开一种非常低效的计算 D(C) 的方法：穷举信息 M 的所有可能直到找到一个 M 使得 E(M) = C。如果性质 (c) 满足，要穷举的数量将会十分巨大，也就意味着此方法不切实际。</p>
 <p>一个满足 (a)-(c) 的函数 E 是一个“单向陷门函数”；此外还满足 (d) 的 E 称为“单向陷门置换”。Diffie 与 Hellman [1] 引入了单向陷门函数的概念但没有给出任何实例。此类函数是“单向”的，因为这些函数从一个方向上是易于计算的，但（显然）从另一方向计算十分困难；此类函数是“陷门”的，因为一旦已知某些私密的“陷门”信息，反向计算就变得容易了。一个满足 (d) 的单向陷门函数一定是一个置换：每个信息都是其他某条信息的密文，每条密文都是一条可以被接受的信息。（这种映射是“一对一”和“满射”的）。仅在实现“签名”时需要性质 (d) 。</p>
 <p>我们鼓励读者阅读 Diffie 和 Hellman 的杰作[1] 来了解相关背景知识和对公钥密码系统的详尽解释，以及探讨密码学中的其他问题。公钥密码系统保证私密性和实现“签名”（在下面的第三和第四节将会讨论）的原理也在 Diffie 和 Hellman 的论文中有解释。</p>
@@ -256,10 +305,14 @@
 <h2 id="4-签名"><a href="#4-签名" class="headerlink" title="4 签名"></a>4 签名</h2><p>如果电子邮件系统要在商务交易中取代已有的纸质邮件系统，那么必须能够“签署电子信息。收到签名过的信息的人就有了信息是从发出者发出的证据。这个性质比单纯的身份认证（接收者可以验证信息来自发送者）更强有力；接收者能向“法官”证明签名人发送了这条信息。为了实现这个目标，他必须向法官证明他没有伪造这条信息！而在一个身份认证问题中，由于接收者只用让自己相信信息来自发送者，他就不用担心这种可能性了。</p>
 <p>一个电子签名必须是依赖于消息内容和签署人的。否则，接收者可以修改信息后把信息和签名成对地出示给法官，或者利用电子的“剪切、粘贴”难以被发现的特性把签名与任意一条信息拼接起来。</p>
 <p>由于将会对未解密的信息使用解密算法，为了实现签名功能，公钥密码系统必须实现单向陷门置换（例如具有性质 (d)）。</p>
-<p>用户 Bob 如何在公钥密码系统中向 Alice 发送一条“签名”过的消息 M 呢？他首先用 DB 计算他对于消息 M 的“签名” S：</p>
-<script type="math/tex; mode=display">S = D_B(M).</script><p>（由公钥密码系统的性质 (d) 可知，解密一条未经加密的信息“有意义”：每条信息都是其他一条信息的密文。）他然后用 E<sub>A</sub> 加密 S （为了隐私），然后把结果 E<sub>A</sub>(S) 发送给 Alice 。他不需要将 M 也发送；M 可以从 S 中计算出。</p>
-<p>Alice 首先用 D<sub>A</sub> 解密密文来获得 S。她知道签名的发送者应该是谁（在这个例子中是 Bob）；如果必要的话，这个人可以在 S 上附带的纯文本中给出。之后她用发送者的加密流程，此例中是 E<sub>B</sub> （可以在公共文件中找到），来提取信息：</p>
-<script type="math/tex; mode=display">M = E_B(S) .</script><p>因此她拥有了一个有着和签名过的纸质文档相似性质的信息-签名对 (M, S)。</p>
+<p>用户 Bob 如何在公钥密码系统中向 Alice 发送一条“签名”过的消息 M 呢？他首先用 DB 计算他对于消息 M 的“签名” S：<br>
+$$S = D_B(M).$$
+
+（由公钥密码系统的性质 (d) 可知，解密一条未经加密的信息“有意义”：每条信息都是其他一条信息的密文。）他然后用 E<sub>A</sub> 加密 S （为了隐私），然后把结果 E<sub>A</sub>(S) 发送给 Alice 。他不需要将 M 也发送；M 可以从 S 中计算出。</p>
+<p>Alice 首先用 D<sub>A</sub> 解密密文来获得 S。她知道签名的发送者应该是谁（在这个例子中是 Bob）；如果必要的话，这个人可以在 S 上附带的纯文本中给出。之后她用发送者的加密流程，此例中是 E<sub>B</sub> （可以在公共文件中找到），来提取信息：<br>
+$$M = E_B(S) .$$
+
+因此她拥有了一个有着和签名过的纸质文档相似性质的信息-签名对 (M, S)。</p>
 <p>Bob 不能以后否认向 Alice 发送过这条消息，因为没有其他人能创建 S = D<sub>B</sub>(M)。Alice 可以用 E<sub>B</sub>(S) = M作为证据说服“法官” Bob 签署了这份文档。</p>
 <p>显然 Alice 不能把 M 修改为不同的版本 M’，因为那样的话她必须也创建对应的 S’ = D<sub>B</sub>(M’)。因此 Alice 可以证明她收到的 Bob “签名”的邮件是 Bob 发送且她不能修改的。（她也不能在其他的任何邮件中仿造他的签名。）</p>
 <p>一个电子支票系统可以基于像上面一样的签名系统构建。不难想象，你的家庭终端中有一个让你签发能通过电子邮件发往收款人的支票的加密设备。唯一必要的是在每张支票中加入一个唯一的支票号码，这样就算收款人复制这张支票，银行也只会接受它见到的第一个版本。</p>
@@ -269,44 +322,80 @@
 <h2 id="5-我们的加密和解密方法"><a href="#5-我们的加密和解密方法" class="headerlink" title="5 我们的加密和解密方法"></a>5 我们的加密和解密方法</h2><p>我们使用公共加密密钥 (e, n) 来加密消息 M 的方法如下。（这里 e 和 n 是一对正整数）</p>
 <p>首先，用 0 到 n - 1 之间的整数表示这条消息。（将长信息分成一系列块，并用这样的这个整数来表示每个块）可以使用任何标准的表示。这一步的目的不是加密信息，只是变形成进行加密所需要的数字形式。</p>
 <p>然后，通过对其 e 次幂取模 n 加密消息。也就是说，结果（密文 C）是 M<sup>e</sup> 被 n 除的余数。</p>
-<p>解密密文需要取其 d 次幂对 n 的模。加密和解密算法 E 和 D 是这样的：</p>
-<script type="math/tex; mode=display">\text{对消息 M，}C \equiv{E(M)}\equiv{M^e}\pmod{n}.</script><script type="math/tex; mode=display">\text{对密文 C，}D(C)\equiv{C^d}\pmod{n}.</script><p>注意加密不会增大消息的长度；消息和密文都是范围在 0 到 n - 1 之间的整数。</p>
+<p>解密密文需要取其 d 次幂对 n 的模。加密和解密算法 E 和 D 是这样的：<br>
+$$\text{对消息 M，}C \equiv{E(M)}\equiv{M^e}\pmod{n}.$$
+
+$$\text{对密文 C，}D(C)\equiv{C^d}\pmod{n}.$$
+
+注意加密不会增大消息的长度；消息和密文都是范围在 0 到 n - 1 之间的整数。</p>
 <p>加密密钥因此是正整数对 (e, n) 。类似地，解密秘钥是正整数对 (d, n)。每位用户公开他的加密密钥，同时把相对应的解密密钥保密。（这些整数应该被正确地脚注为 n<sub>A</sub>，e<sub>A</sub>，d<sub>A</sub>的形式，因为每位用户都有自己的一组。然而，我们只会考虑一组作为代表，因此省略下标。）</p>
 <p>如果你想使用我们的方法的话，应该如何选择加密和解密密钥？</p>
-<p>首先计算两个素数 p 和 q 的乘积 n：</p>
-<script type="math/tex; mode=display">n = p\cdot{q} .</script><p>这两个素数是非常大的、“任意”的。尽管你会公开 n，但由于因式分解 n 难度巨大，除了你之外的任何人都很难发现隐藏的因子 p 和 q。这也使得从 e 推出 d 的方法难以被找出。</p>
-<p>然后你选出与 (p − 1) · (q − 1) 互素的随机的大整数 d。也就是说，确保 d 满足：</p>
-<script type="math/tex; mode=display">gcd(d, (p − 1)\cdot{(q − 1)}) = 1</script><p>(“gcd” 意思是“最大公因数”)</p>
-<p>最后用 p，q 和 d 计算出 d 模 (p − 1) · (q − 1) 的逆元 e。因此有</p>
-<script type="math/tex; mode=display">e\cdot{d}\equiv{1}\pmod{(p − 1)\cdot{(q − 1)}}.</script><p>我们将在下一节证明，这确保了 (1) 和 (2) 成立，即 E 和 D 是逆置换。第 7 节中展示了如何高效完成以上每一步操作。</p>
+<p>首先计算两个素数 p 和 q 的乘积 n：<br>
+$$n = p\cdot{q} .$$
+
+这两个素数是非常大的、“任意”的。尽管你会公开 n，但由于因式分解 n 难度巨大，除了你之外的任何人都很难发现隐藏的因子 p 和 q。这也使得从 e 推出 d 的方法难以被找出。</p>
+<p>然后你选出与 (p − 1) · (q − 1) 互素的随机的大整数 d。也就是说，确保 d 满足：<br>
+$$gcd(d, (p − 1)\cdot{(q − 1)}) = 1$$
+
+(“gcd” 意思是“最大公因数”)</p>
+<p>最后用 p，q 和 d 计算出 d 模 (p − 1) · (q − 1) 的逆元 e。因此有<br>
+$$e\cdot{d}\equiv{1}\pmod{(p − 1)\cdot{(q − 1)}}.$$
+
+我们将在下一节证明，这确保了 (1) 和 (2) 成立，即 E 和 D 是逆置换。第 7 节中展示了如何高效完成以上每一步操作。</p>
 <p>上述方法不应与 Diffie 和 Hellman 为解决密钥分发问题提出的“求幂”技术 [1] 混淆。他们的技术使得两位用户能够选定一个可在一般的密码系统中使用的共同的密钥。这一技术并不是建立在单向陷门置换之上的。Pohlig 和 Hellman [8] 研究了一种与我们的方案有关的，对素数取模来计算幂的方案。</p>
-<h2 id="6-数学基础"><a href="#6-数学基础" class="headerlink" title="6 数学基础"></a>6 数学基础</h2><p>通过使用 Euler 和 Fermat 提出的性质 [7]，我们论证了解密算法的正确性：对于任意和 n互素的整数（消息）M，</p>
-<script type="math/tex; mode=display">M^{\varphi{(n)}}\equiv{1}\pmod{n}.\tag{3}</script><p>这里 φ(n) 是欧拉函数，这个函数给出了小于 n 且与 n 互素的正整数数目。对于素数 p，</p>
-<script type="math/tex; mode=display">\varphi{(p)} = p − 1 .</script><p>在这里，由欧拉函数的基本性质 [7]，有：</p>
-<script type="math/tex; mode=display">\begin{align}\varphi{(n)} &= \varphi{(p)}\cdot{\varphi{(q)}}\\&= (p − 1)\cdot{(q − 1)}\tag{4}\\&= n − (p + q) + 1 .\end{align}</script><p>因为 d 与 φ(n) 互素，, d 在模 φ(n) 的整数环中存在一个逆元 e ：</p>
-<script type="math/tex; mode=display">e\cdot{d}\equiv{1}\pmod{\varphi{(n)}}. \tag{5}</script><p>我们已经证明了等式 (1) 和 (2) 成立（也就是说，按照上述的方法选择 e 和 d 时，解密算法是正确的）。现在有</p>
-<script type="math/tex; mode=display">D(E(M))\equiv{(E(M))^d}\equiv{(M^e)^d}\pmod{n}=M^{e\cdot{d}}\pmod{n}</script><script type="math/tex; mode=display">E(D(M))\equiv{(D(M))^e}\equiv{(M^d)^e}\pmod{n}=M^{e\cdot{d}}\pmod{n}</script><p>和</p>
-<script type="math/tex; mode=display">M^{e\cdot{d}}\equiv{M^{k\cdot{}\varphi{(n)}+1}}\pmod{n}\text{（对于某个整数 k）.}</script><p>从 (3) 可知，对于所有不能被 p 整除的 M ， </p>
-<script type="math/tex; mode=display">M^{p−1}\equiv{1}\pmod{p}</script><p>并且，因为 (p − 1) 整除 φ(n)</p>
-<script type="math/tex; mode=display">M^{k\cdot{}\varphi{(n)}+1}\equiv{M}\pmod{p}.</script><p>当 $M\equiv{0}\pmod{p}$ 时上式亦成立，所以以上相等关系实际上对任何 M 都成立。同理可得，对 q，有</p>
-<script type="math/tex; mode=display">M^{k\cdot{\varphi{(n)}+1}}\equiv{M}\pmod{q}.</script><p>上述的最后两等式表明，对于任意 M，</p>
-<script type="math/tex; mode=display">M^{e\cdot{d}}\equiv{M^{k\cdot{\varphi{(n)}+1}}}\equiv{M}\pmod{n}.</script><p>这证明对任意M，0 ≤ M &lt; n，(1) 和 (2) 成立。因此 E 和 D 是逆置换。（上面的证明是 Rich Schroeppel 对作者先前证明的改进版本，我们对他的建议表示感谢。）</p>
+<h2 id="6-数学基础"><a href="#6-数学基础" class="headerlink" title="6 数学基础"></a>6 数学基础</h2><p>通过使用 Euler 和 Fermat 提出的性质 [7]，我们论证了解密算法的正确性：对于任意和 n互素的整数（消息）M，<br>
+$$M^{\varphi{(n)}}\equiv{1}\pmod{n}.\tag{3}$$
+
+这里 φ(n) 是欧拉函数，这个函数给出了小于 n 且与 n 互素的正整数数目。对于素数 p，<br>
+$$\varphi{(p)} = p − 1 .$$
+
+在这里，由欧拉函数的基本性质 [7]，有：<br>
+$$\begin{align}\varphi{(n)} &= \varphi{(p)}\cdot{\varphi{(q)}}\\&= (p − 1)\cdot{(q − 1)}\tag{4}\\&= n − (p + q) + 1 .\end{align}$$
+
+因为 d 与 φ(n) 互素，, d 在模 φ(n) 的整数环中存在一个逆元 e ：<br>
+$$e\cdot{d}\equiv{1}\pmod{\varphi{(n)}}. \tag{5}$$
+
+我们已经证明了等式 (1) 和 (2) 成立（也就是说，按照上述的方法选择 e 和 d 时，解密算法是正确的）。现在有<br>
+$$D(E(M))\equiv{(E(M))^d}\equiv{(M^e)^d}\pmod{n}=M^{e\cdot{d}}\pmod{n}$$
+
+$$E(D(M))\equiv{(D(M))^e}\equiv{(M^d)^e}\pmod{n}=M^{e\cdot{d}}\pmod{n}$$
+
+和<br>
+$$M^{e\cdot{d}}\equiv{M^{k\cdot{}\varphi{(n)}+1}}\pmod{n}\text{（对于某个整数 k）.}$$
+
+从 (3) 可知，对于所有不能被 p 整除的 M ，<br>
+$$M^{p−1}\equiv{1}\pmod{p}$$
+
+并且，因为 (p − 1) 整除 φ(n)<br>
+$$ M^{k\cdot{}\varphi{(n)}+1}\equiv{M}\pmod{p}.$$
+
+当 $M\equiv{0}\pmod{p}$ 时上式亦成立，所以以上相等关系实际上对任何 M 都成立。同理可得，对 q，有<br>
+$$M^{k\cdot{\varphi{(n)}+1}}\equiv{M}\pmod{q}.$$
+
+上述的最后两等式表明，对于任意 M，<br>
+$$M^{e\cdot{d}}\equiv{M^{k\cdot{\varphi{(n)}+1}}}\equiv{M}\pmod{n}.$$
+
+这证明对任意M，0 ≤ M &lt; n，(1) 和 (2) 成立。因此 E 和 D 是逆置换。（上面的证明是 Rich Schroeppel 对作者先前证明的改进版本，我们对他的建议表示感谢。）</p>
 <h2 id="7-算法"><a href="#7-算法" class="headerlink" title="7 算法"></a>7 算法</h2><p>为了证明我们的方法是可行的，我们给出一个高效的算法来完成需要的每一步操作。</p>
 <h3 id="A-如何高效地加密和解密"><a href="#A-如何高效地加密和解密" class="headerlink" title="A 如何高效地加密和解密"></a>A 如何高效地加密和解密</h3><p>使用如下的流程时，计算 M<sub>e</sub>(mod n) 需要最多2 · log<sub>2</sub>(e) 次相乘和 2 · log<sub>2</sub>(e) 次相除（解密类似，只需将 e 换成 d ）：</p>
 <p>步骤 1. 将 $e$ 的二进制表示记作 $e_{k} e_{k−1}\ldots e_{1}e_{0}.$</p>
 <p>步骤 2. 令 $C$ 等于 $1$.</p>
 <p>步骤 3. 对于$ i = k, k − 1,\ldots{}, 0$，重复步骤 3a 和 3b:</p>
-<p>​        步骤 3a. 令 $C$ 等于$C^2$ 被 $n$ 除的余数.</p>
-<p>​        步骤 3b. 如果 $e_i = 1$，那么令 $C$ 等于$C\cdot{M}$ 除以 $n$ 的余数.</p>
+<p>​    ​    步骤 3a. 令 $C$ 等于$C^2$ 被 $n$ 除的余数.</p>
+<p>​    ​    步骤 3b. 如果 $e_i = 1$，那么令 $C$ 等于$C\cdot{M}$ 除以 $n$ 的余数.</p>
 <p>步骤 4. 停止。现在 C 是 M 被加密过的形式。</p>
 <p>这一流程叫做“模重复平方法”。这种流程只有最好方法的一半好；还有更高效的流程。 Knuth [3] 详细地研究了这一问题。</p>
 <p>加密和解密的一致性使得算法的实现更简单。（整个操作可以在几块专用的集成电路芯片上实现。）</p>
 <p>一台高速计算机可以在几秒钟内加密一条 200 位的消息 M；专用硬件会快许多。每个块的加密时间的增长不会快于 n 中数字的位数的立方。</p>
 <h3 id="B-如何寻找大素数"><a href="#B-如何寻找大素数" class="headerlink" title="B 如何寻找大素数"></a>B 如何寻找大素数</h3><p>每位用户必须（私密地）选择两个随机大数 p 和 q 来生成自己的加密和解密密钥。这些数字必须很大，这样才能保证因式分解 n = p · q 是计算上不可行的。（记住，公共文件中保存的是 n 而不是 p 或 q。）我们推荐使用 100 位（十进制）素数 p 和 q，这样 n 有 200 位。</p>
 <p>为了寻找一个 100 位“随机”素数，随机地生成 100 位的奇数直到找到素数。根据素数定理[7]，尝试大约 (ln 10100)/2 = 115 个数字后能找到一个数字。</p>
-<p>为了检验一个大数 b 的素数性，我们推荐使用由 Solovay 和 Strassen 提出的优雅的“基于概率的”算法[12]。这一算法从均匀分布 {1, . . . , b − 1} 中选择随机数 a ，并检查是否有</p>
-<script type="math/tex; mode=display">gcd(a, b) = 1 \text{和} J(a, b) = a^{(b−1)/2}\pmod{b},\tag{6}</script><p>这里 J(a, b) 是雅可比符号[7]。如果 b 是素数，(6) 总成立。如果 b 是合数，(6) 有至少 1/2 的概率不成立。如果对 100 个随机选择的数值 a，(6) 全都成立，那么几乎可以确定 b 是素数；b 有 2100 分之 1 的可能（微不足道的）是合数。即使我们的系统中意外地使用了一个合数，接收者也很可能会注意到解密不正常，从而发现这一点。当 b 是奇数，a ≤ b，且 gcd(a, b) = 1 时，雅可比符号 J(a, b) 在 {−1, 1} 中取值并且可以通过以下程序高效地计算：</p>
-<script type="math/tex; mode=display">\begin{align}J(a, b) =&\textbf{if}\;a = 1\;\textbf{then}\;1\;\textbf{else}\\&\textbf{if}\;a\;is\;even\;\textbf{then}\;J(a/2, b)\cdot{}(−1)^{(b^2−1)/8}\\&\textbf{else}\;J(b\pmod{a}, a)\cdot{}(−1)^{(a−1)\cdot{}(b−1)/4}\end{align}</script><p>（J(a, b) 和 gcd(a, b) 的计算也可以得到很好的结合。）注意这一算法并不是通过对因式分解的尝试来测试一个数的素数性。其他高效的测试大数的素数性的程序在 [6,9,11] 中给出。</p>
+<p>为了检验一个大数 b 的素数性，我们推荐使用由 Solovay 和 Strassen 提出的优雅的“基于概率的”算法[12]。这一算法从均匀分布 {1, . . . , b − 1} 中选择随机数 a ，并检查是否有<br>
+$$gcd(a, b) = 1 \text{和} J(a, b) = a^{(b−1)/2}\pmod{b},\tag{6} $$
+
+这里 J(a, b) 是雅可比符号[7]。如果 b 是素数，(6) 总成立。如果 b 是合数，(6) 有至少 1/2 的概率不成立。如果对 100 个随机选择的数值 a，(6) 全都成立，那么几乎可以确定 b 是素数；b 有 2100 分之 1 的可能（微不足道的）是合数。即使我们的系统中意外地使用了一个合数，接收者也很可能会注意到解密不正常，从而发现这一点。当 b 是奇数，a ≤ b，且 gcd(a, b) = 1 时，雅可比符号 J(a, b) 在 {−1, 1} 中取值并且可以通过以下程序高效地计算：<br>
+$$\begin{align}J(a, b) =&\textbf{if}\;a = 1\;\textbf{then}\;1\;\textbf{else}\\&\textbf{if}\;a\;is\;even\;\textbf{then}\;J(a/2, b)\cdot{}(−1)^{(b^2−1)/8}\\&\textbf{else}\;J(b\pmod{a}, a)\cdot{}(−1)^{(a−1)\cdot{}(b−1)/4}\end{align}$$
+
+（J(a, b) 和 gcd(a, b) 的计算也可以得到很好的结合。）注意这一算法并不是通过对因式分解的尝试来测试一个数的素数性。其他高效的测试大数的素数性的程序在 [6,9,11] 中给出。</p>
 <p>为了获得对各种巧妙的因式分解算法的额外防护，p 和 q 应该在长度上相差几位， (p - 1) 和 (q - 1) 都应该包含大素数因子，且 gcd(p − 1, q − 1) 应该很小。可以容易地检查后面的条件。</p>
 <p>为了找到使 (p − 1) 有大素数因子的素数 p ，生成一个随机大素数 u，然后让 p 是序列 i · u + 1，i = 2, 4, 6, . . . . 中的第一个素数（这不会花太长时间）。确保 (u - 1) 也有大素因数可以使得算法更加安全。</p>
 <p>一台高速计算机可以在几秒内判定一个 100 位的数字是否是素数，可以在一两分钟内找到在给定数字之后的第一个素数。</p>
@@ -314,14 +403,17 @@
 <h3 id="C-如何选择-d"><a href="#C-如何选择-d" class="headerlink" title="C 如何选择 d"></a>C 如何选择 d</h3><p>选取与 φ(n) 互素的数字 d 十分容易。例如，任何比 max(p, q) 大的素数都符合要求。重要的是，要在足够大的集合中选择 d，这样密码分析者就不能通过直接寻找来找出 d。</p>
 <h3 id="D-如何用-d-和-φ-n-计算-e"><a href="#D-如何用-d-和-φ-n-计算-e" class="headerlink" title="D 如何用 d 和 φ(n) 计算 e"></a>D 如何用 d 和 φ(n) 计算 e</h3><p>为了计算 e，使用下面的欧几里得算法变种来计算 φ(n) 和 d 的最大公因数。（见 [3] 中的练习 4.5.2.15。）通过计算序列 x<sub>0</sub>，x<sub>1</sub>，x<sub>2</sub>……，x<sub>0</sub> ≡ φ(n)， x<sub>1</sub> = d，x<sub>i+1</sub> ≡ x<sub>i−1</sub> (mod x<sub>i</sub>) 直到找到 x<sub>k</sub> 等于 0 ，可以计算gcd(φ(n), d)。这样 gcd(x<sub>0</sub>, x<sub>1</sub>) = x<sub>k−1</sub>。对每个 x<sub>i</sub> 求出 a<sub>i</sub>，b<sub>i</sub> 满足 x<sub>i</sub> = a<sub>i</sub> · x<sub>0</sub> + b<sub>i</sub> · x<sub>1</sub>。如果 x<sub>k-1</sub> = 1 那么 b<sub>k-1</sub> 是x<sub>1</sub> (mod x<sub>0</sub>) 的逆元。因为 k 小于 2 log<sub>2</sub>(n)，这个计算将会十分快速。</p>
 <p>如果 e 最终小于 log<sub>2</sub>(n)，那么选择另一个 d 值重新开始。这保证了每条加密过的消息（除了 M = 0 或 1）经过某种“环绕”（模 n）。</p>
-<h2 id="8-一个小例子"><a href="#8-一个小例子" class="headerlink" title="8 一个小例子"></a>8 一个小例子</h2><p>考虑当 p = 47，q = 59，n = p · q = 47 · 59 = 2773，d = 157 的情况。这时 φ(2773) = 46 · 58 = 2668，e 可以如下地计算：</p>
-<script type="math/tex; mode=display">\begin{aligned}x_0 &= 2668, & a_0 &= 1, & b_0 &= 0,\\x_1 &= 157, & a_1 &= 0, & b_1 &= 1,\\x_2 &= 156, & a_2 &= 1, & b_2 &= −16 (\text{由于}2668 = 157\cdot{}16 + 156),\\x_3 &= 1, & a_3 &= −1, & b_3 &= 17 (\text{由于}157 = 1\cdot{}156 + 1)\end{aligned}</script><p>因此 e = 17，这是 (mod 2668) 下 d = 157 的逆元。</p>
+<h2 id="8-一个小例子"><a href="#8-一个小例子" class="headerlink" title="8 一个小例子"></a>8 一个小例子</h2><p>考虑当 p = 47，q = 59，n = p · q = 47 · 59 = 2773，d = 157 的情况。这时 φ(2773) = 46 · 58 = 2668，e 可以如下地计算：<br>
+$$\begin{aligned}x_0 &= 2668, & a_0 &= 1, & b_0 &= 0,\\x_1 &= 157, & a_1 &= 0, & b_1 &= 1,\\x_2 &= 156, & a_2 &= 1, & b_2 &= −16 (\text{由于}2668 = 157\cdot{}16 + 156),\\x_3 &= 1, & a_3 &= −1, & b_3 &= 17 (\text{由于}157 = 1\cdot{}156 + 1)\end{aligned}$$
+
+因此 e = 17，这是 (mod 2668) 下 d = 157 的逆元。</p>
 <p>已知 n =2773，我们可以按每个块两字母来加密，把每个字母替换成一个两位数：空格 = 00，A = 01，B = 02，……，Z = 26。这样消息</p>
 <p><strong>ITS ALL GREEK TO ME</strong> </p>
 <p>（《裘力斯·凯撒》，第一幕，第二场，288行，改写）被编码为：</p>
 <p>0920 1900 0112 1200 0718 0505 1100 2015 0013 0500</p>
-<p>由于 e = 10001 （二进制），第一个块（M = 920）被编码为：</p>
-<script type="math/tex; mode=display">M^{17} = (((((1)^2\cdot{}M)^2)^2)^2)^2\cdot{}M = 948\pmod{2273}.</script><p>整条消息被编码为：</p>
+<p>由于 e = 10001 （二进制），第一个块（M = 920）被编码为：<br>
+$$M^{17} = (((((1)^2\cdot{}M)^2)^2)^2)^2\cdot{}M = 948\pmod{2273}.$$
+整条消息被编码为：</p>
 <p>0948 2342 1084 1444 2663 2390 0778 0774 0219 1655 .</p>
 <p>读者可以检查解密的有效性：948157 ≡ 920 (mod 2773)，以此类推。</p>
 <h2 id="9-方法的安全性：密码分析方法"><a href="#9-方法的安全性：密码分析方法" class="headerlink" title="9 方法的安全性：密码分析方法"></a>9 方法的安全性：密码分析方法</h2><p>由于现有的技术不能保证一种加密机制是安全的，唯一可行的检验方法是看看是否有人能找出破解方法。美国国家标准局的标准是用此方法“鉴定”的；IBM 花费了 17 人工作年试图攻破这一机制，毫无结果。一旦一种方法成功抵抗这样一场精心筹划的攻击，在实践中便可以认为此方法是安全的。（事实上，关于 NBS 方法的安全性存在争议 [2]。）</p>
@@ -329,8 +421,9 @@
 <p>在下面的部分中，我们将讨论密码分析者在试图从公开的加密密钥中推断出私密的解密密钥时可能采用的方法。我们将不会讨论怎样使解密密钥不被窃取；一般的物理安全措施应当足够了。（例如，独立的加密设备也可以生成加密和解密密钥，这样解密密钥永远不会被打印出来（甚至不用打印给设备的主人）而是仅用于解密信息。设备也可以在遭篡改时清除解密密钥。）</p>
 <h3 id="A-因式分解-n"><a href="#A-因式分解-n" class="headerlink" title="A 因式分解 n"></a>A 因式分解 n</h3><p>因式分解 n 将让敌方密码分析者能够“破解”我们的方法。他可以通过 n 的因数计算 φ(n)，因而算出 d。幸运的是，因式分解一个数似乎比确定它是素数还是合数更加困难。</p>
 <p>已经有了大量的因式分解算法。Knuth [3, 4.5.4 节] 很好地阐明了其中不少算法。Pollard [9] 提出了在时间 O(n<sup>1/4</sup>) 内因式分解数 n 的一种算法。</p>
-<p>作者已知的最快的因式分解算法是 Richard Schroeppel 提出的（尚未发表） ；这种方法可以在大约</p>
-<script type="math/tex; mode=display">\begin{align}exp\sqrt{\ln{(n)}\cdot\ln{(\ln{(n)})}}&=n^{\sqrt{\ln{\ln{(n)}}/\ln{(n)}}}\\&=(\ln{(n)})^{\sqrt{\ln{(n)}/\ln{(\ln{(n)})}}}\end{align}</script><p>步骤内因式分解 n（这里 ln 表示自然对数函数）。表 1 给出了对于不同长度的数 n（十进制），用 Schroeppel 的方法因式分解 n 所需的操作的数量，以及当每次操作耗费一微秒时所需的时间。</p>
+<p>作者已知的最快的因式分解算法是 Richard Schroeppel 提出的（尚未发表） ；这种方法可以在大约<br>
+$$\begin{align}exp\sqrt{\ln{(n)}\cdot\ln{(\ln{(n)})}}&=n^{\sqrt{\ln{\ln{(n)}}/\ln{(n)}}}\\&=(\ln{(n)})^{\sqrt{\ln{(n)}/\ln{(\ln{(n)})}}}\end{align}$$
+步骤内因式分解 n（这里 ln 表示自然对数函数）。表 1 给出了对于不同长度的数 n（十进制），用 Schroeppel 的方法因式分解 n 所需的操作的数量，以及当每次操作耗费一微秒时所需的时间。</p>
 <p>表1</p>
 <div class="table-container">
 <table>
@@ -424,33 +517,87 @@
 </li>
 </ol>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">信息安全数学基础</a>
-                    
-                  </div>
-                
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" class="category-chain-item">信息安全数学基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>RSA 论文翻译：一种实现数字签名和公钥密码系统的方法</div>
+      <div>https://zhaozihanzzh.github.io/2022/01/16/hackermath-rsa/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>zhaozihanzzh</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>January 16, 2022</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
               
-              
-                <div class="post-prevnext">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/01/17/arch-standby/">
+                      <a href="/2022/01/17/arch-standby/" title="神船 TX6 延长 ArchLinux 下的续航">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">神船 TX6 延长 ArchLinux 下的续航</span>
                         <span class="visible-mobile">Previous</span>
@@ -460,7 +607,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/26/computer-organization/">
+                      <a href="/2021/12/26/computer-organization/" title="计算机组成原理">
                         <span class="hidden-mobile">计算机组成原理</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -476,25 +623,62 @@
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
 
 
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -513,32 +697,34 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
@@ -557,7 +743,23 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
@@ -566,25 +768,106 @@
 
 
 
+
   
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-  <script  src="https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
 
-  <script  src="https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js" ></script>
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
 
+  <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
 
-
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
@@ -592,74 +875,15 @@
 
 
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://lib.baomitu.com/mathjax/3.2.0/tex-svg.js" ></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

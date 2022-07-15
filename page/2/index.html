@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -9,14 +9,22 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
   <link rel="icon" href="/images/res/avatar.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#90a4ae">
-  <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Blogs of mefailedcoder">
+<meta property="og:url" content="https://zhaozihanzzh.github.io/page/2/index.html">
+<meta property="og:site_name" content="Blogs of mefailedcoder">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="zhaozihanzzh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   
   <title>Blogs of mefailedcoder</title>
 
@@ -24,35 +32,60 @@
 
 
 
+
+
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 100vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>mefailedcoder</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -114,13 +147,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -129,34 +164,40 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/images/res/default.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Welcome">
-              
-            </span>
+  
 
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/res/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
           
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
+            <span id="subtitle" data-typed-text="Welcome"></span>
           
         </div>
+
+        
       </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
     
       <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          style=margin-top:0>
+        <div id="board"
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
@@ -175,15 +216,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/08/10/bios-gpu-switch/" target="_self">
-          
-          
-            
-          
-          神船 TX6 BIOS 开关独显Part 1 背景神船 TX6-CU5DA/S （蓝天 NK60SB 模具那一代）采用了桌面端 Intel Core i5-10400 CPU（主板采用 H470 芯片组），搭载 NVIDIA GeForce GTX1650 独立显卡，采用双风扇四铜管三出风口散热，且有两个 M.2 2280 的 SSD 接口、1 个 2.5 吋 7mm 硬盘位 ，内存可插拔，使用 
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/08/10/bios-gpu-switch/" target="_self">
+        <div>
+          神船 TX6 BIOS 开关独显Part 1 背景神船 TX6-CU5DA&#x2F;S （蓝天 NK60SB 模具那一代）采用了桌面端 Intel Core i5-10400 CPU（主板采用 H470 芯片组），搭载 NVIDIA GeForce GTX1650 独立显卡，采用双风扇四铜管三出风口散热，且有两个 M.2 2280 的 SSD 接口、1 个 2.5 吋 7mm 硬盘位 ，内存可插拔，使用
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -195,11 +233,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A8%B1%E4%B9%90/">娱乐</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A8%B1%E4%B9%90/" class="category-chain-item">娱乐</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -218,18 +270,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/06/07/probability-theory/" target="_self">
-          
-          
-            
-          
-          一、随机事件与概率1.随机现象与随机试验基本事件：每一个可能出现的实验结果，用 w_i 表示。必然事件常用 \Omega 表示，不可能事件常用 \emptyset 表示。
-事件的运算：和 A\bigcup{B} ，差 A-B 或 A\B ，交（积） A\bigcap{B} 或 AB 。
-互不相同事件：不同时发生；对立事件：“事件A不发生”这一事件。
-2.概率的定义古典概型（\Omega 是有限集）
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/06/07/probability-theory/" target="_self">
+        <div>
+          一、随机事件与概率1.随机现象与随机试验基本事件：每一个可能出现的实验结果，用 $w_i$ 表示。必然事件常用 $\Omega$ 表示，不可能事件常用 $\emptyset$ 表示。 事件的运算：和 $A\bigcup{B}$ ，差 $A-B$ 或 A\B ，交（积） $A\bigcap{B}$ 或 $AB$ 。 互不相同事件：不同时发生；对立事件：“事件A不发生”这一事件。 2.概率的定义古典概
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -241,11 +287,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" class="category-chain-item">概率论与数理统计</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -264,18 +324,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/05/21/cpp-private/" target="_self">
-          
-          
-            
-          
-          C++ 类的成员函数访问该类的私有数据成员知乎有同款问题。
-类的成员函数访问该类的私有数据成员时，不因为该私有数据成员不是 this 指针指向的对象持有的而禁止访问。这种控制是基于类的，而不是对象层面的。
-这样的代码将是可以编译的。
-12345678910class Object &#123;    public:        Object(int arg):num(arg) &#123;&#1
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/21/cpp-private/" target="_self">
+        <div>
+          C++ 类的成员函数访问该类的私有数据成员知乎有同款问题。 类的成员函数访问该类的私有数据成员时，不因为该私有数据成员不是 this 指针指向的对象持有的而禁止访问。这种控制是基于类的，而不是对象层面的。 这样的代码将是可以编译的。 12345678910class Object &amp;#123;    public:        Object(int arg):num(arg) &amp;#123;&amp;#1
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -287,11 +341,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/C/">C++</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -310,17 +378,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/05/01/multivarintegral/" target="_self">
-          
-          
-            
-          
-          多元函数积分学零、定积分个人的总结先从定积分开始：定积分形如 \int_{a}^{b}f(x)dx ，积分域是一条线段，被积函数 f(x) 是要沿着这条线段（积分域中微小的量）积累的量的函数。如：所谓“曲边梯形的面积”问题中，可以把竖直方向上的长度看成是要被积累的量，沿着线段（x 轴）积累所得。
-计算方法：牛顿-莱布尼茨公式。
-一、二重积分对于被积函数是二元函数的情况，使用二重积分来将微小量（小区
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/01/multivarintegral/" target="_self">
+        <div>
+          多元函数积分学零、定积分个人的总结先从定积分开始：定积分形如 $\int_{a}^{b}f(x)dx$ ，积分域是一条线段，被积函数 $f(x)$ 是要沿着这条线段（积分域中微小的量）积累的量的函数。如：所谓“曲边梯形的面积”问题中，可以把竖直方向上的长度看成是要被积累的量，沿着线段（x 轴）积累所得。 计算方法：牛顿-莱布尼茨公式。 一、二重积分对于被积函数是二元函数的情况，使用二重积分来将微小
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -332,11 +395,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%B7%A5%E7%A7%91%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/">工科数学分析</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E7%A7%91%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/" class="category-chain-item">工科数学分析</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -355,16 +432,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/03/31/assignmentoverride/" target="_self">
-          
-          
-            
-          
-          C++ 重载赋值运算符如果在含有指针数据成员的类中没有重载赋值运算符，赋值时进行浅复制，导致被赋值对象与赋值对象指向同一地址，析构、操作数据成员时会出现不符合期望的结果，因此需要进行深复制。但仅进行深复制仍然是不够完善的。
-12345Demo &amp; Demo::operator=(const Demo &amp; obj) &#123;	delete ptr;	ptr = new strin
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/31/assignmentoverride/" target="_self">
+        <div>
+          C++ 重载赋值运算符如果在含有指针数据成员的类中没有重载赋值运算符，赋值时进行浅复制，导致被赋值对象与赋值对象指向同一地址，析构、操作数据成员时会出现不符合期望的结果，因此需要进行深复制。但仅进行深复制仍然是不够完善的。 12345Demo &amp; Demo::operator&#x3D;(const Demo &amp; obj) &amp;#123;	delete ptr;	ptr &#x3D; new strin
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -376,11 +449,25 @@
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/C/">C++</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -399,16 +486,12 @@
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2021/02/02/flexicharger/" target="_self">
-          
-          
-            
-          
-          FlexiCharger 减少笔记本电脑电池损耗Part 1 背景平时常常插电使用笔记本电脑。在我的认知里，插电时会先用电源适配器满足电脑功耗，再给电池充电。但是，偶然了解到最好不要让电池长期处在电量充满的情况下后，我希望寻找一种方法来阻止电池充满。经过一番搜索，我找到了我所使用的蓝天 NK 系列模具开启这种机制的方法—— FlexiCharger。
-Part 2 操作步骤1.开机按 F2 进入 
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/02/02/flexicharger/" target="_self">
+        <div>
+          FlexiCharger 减少笔记本电脑电池损耗Part 1 背景平时常常插电使用笔记本电脑。在我的认知里，插电时会先用电源适配器满足电脑功耗，再给电池充电。但是，偶然了解到最好不要让电池长期处在电量充满的情况下后，我希望寻找一种方法来阻止电池充满。经过一番搜索，我找到了我所使用的蓝天 NK 系列模具开启这种机制的方法—— FlexiCharger。 Part 2 操作步骤1.开机按 F2 进入
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -420,11 +503,25 @@ Part 2 操作步骤1.开机按 F2 进入
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A8%B1%E4%B9%90/">娱乐</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A8%B1%E4%B9%90/" class="category-chain-item">娱乐</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -443,17 +540,12 @@ Part 2 操作步骤1.开机按 F2 进入
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/12/25/arch-install/" target="_self">
-          
-          
-            
-          
-          神船 TX6 安装 ArchLinux警告！本文可能有大量图片，流量消耗大。
-本文为安装完毕一个多月后撰写，部分回忆可能与事实有所出入，仅供参考。
-Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 主控且运行在 SATA 速率下，我选择加装一条 NVMe 的 SSD。蓝天的 NK60SB 模具拥有第二个 M.2 2280 硬盘位，且为 PCIe 3.0 × 4 速率。
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/12/25/arch-install/" target="_self">
+        <div>
+          神船 TX6 安装 ArchLinux警告！本文可能有大量图片，流量消耗大。 本文为安装完毕一个多月后撰写，部分回忆可能与事实有所出入，仅供参考。 Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 主控且运行在 SATA 速率下，我选择加装一条 NVMe 的 SSD。蓝天的 NK60SB 模具拥有第二个 M.2 2280 硬盘位，且为 PCIe 3.0 × 4 速率。
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -465,11 +557,25 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Linux/">Linux</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -488,15 +594,12 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/12/18/general-academic-words/" target="_self">
-          
-          
-            
-          
-          通用学术英语词表配套练习1perform … analysis 进行 … 分析approach the limit 接近限值area 面积assessment 评估assume 假定，设想authority 权力little information is available on …benefit 收益concept 观念be consistent with 与…一致constitutional 
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/12/18/general-academic-words/" target="_self">
+        <div>
+          通用学术英语词表配套练习1perform … analysis 进行 … 分析approach the limit 接近限值area 面积assessment 评估assume 假定，设想authority 权力little information is available on …benefit 收益concept 观念be consistent with 与…一致constitutional
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -508,11 +611,25 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E6%9D%82%E9%A1%B9/">杂项</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9D%82%E9%A1%B9/" class="category-chain-item">杂项</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -531,18 +648,12 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/12/08/graph-theory/" target="_self">
-          
-          
-            
-          
-          图论简单辨析一些问题：
-一、图的基本组成1.图，组成，无向有向问题
-2.平行边（注意有向图里情况），结点邻接，环（注意度数），孤立点，边关联于结点，边集元素重复，n 阶图？零图？平凡图？空图（及符号表示）？结点的度数，入度，出度（重复的边算吗，符号表示）？最大/小度及其符号？悬挂结点/边？图的度数序列？
-3.简单图？多重图？n 阶无向完全图及符号表示？有向完全图？默认的完全图？n 阶有向/无向完全
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/12/08/graph-theory/" target="_self">
+        <div>
+          图论简单辨析一些问题： 一、图的基本组成1.图，组成，无向有向问题 2.平行边（注意有向图里情况），结点邻接，环（注意度数），孤立点，边关联于结点，边集元素重复，n 阶图？零图？平凡图？空图（及符号表示）？结点的度数，入度，出度（重复的边算吗，符号表示）？最大&#x2F;小度及其符号？悬挂结点&#x2F;边？图的度数序列？ 3.简单图？多重图？n 阶无向完全图及符号表示？有向完全图？默认的完全图？n 阶有向&#x2F;无向完全
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -554,11 +665,25 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">离散数学</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" class="category-chain-item">离散数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -577,18 +702,12 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
         </a>
       </h1>
 
-      <p class="index-excerpt">
-        <a href="/2020/11/13/ztpc005/" target="_self">
-          
-          
-            
-          
-          神船 TX6 加致钛 PC005 Active SSDPart 1 安装首先，确保机器断电，移除外置电池，用螺丝刀（我的是直径 3mm 的十字螺丝刀）卸下 D 面的 6 颗螺丝。
-
-
-然后，准备好 M.2 SSD 的固定螺丝。我从京东自营购入，对方表示不带螺丝。（这里这个螺丝与我的螺丝刀略微不匹配，应该使用略小一点的。用我这个拧神船自带那块固态的螺丝，会直接滑丝）于是只好单独购买……搞这么大盒子，
-        </a>
-      </p>
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/11/13/ztpc005/" target="_self">
+        <div>
+          神船 TX6 加致钛 PC005 Active SSDPart 1 安装首先，确保机器断电，移除外置电池，用螺丝刀（我的是直径 3mm 的十字螺丝刀）卸下 D 面的 6 颗螺丝。   然后，准备好 M.2 SSD 的固定螺丝。我从京东自营购入，对方表示不带螺丝。（这里这个螺丝与我的螺丝刀略微不匹配，应该使用略小一点的。用我这个拧神船自带那块固态的螺丝，会直接滑丝）于是只好单独购买……搞这么大盒子，
+        </div>
+      </a>
 
       <div class="index-btm post-metas">
         
@@ -600,11 +719,25 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
           </div>
         
         
-          <div class="post-meta mr-3">
+          <div class="post-meta mr-3 d-flex align-items-center">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/%E5%A8%B1%E4%B9%90/">娱乐</a>
-            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A8%B1%E4%B9%90/" class="category-chain-item">娱乐</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
           </div>
         
         
@@ -630,7 +763,7 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -649,32 +782,34 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
@@ -693,26 +828,29 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
     <script  src="/js/img-lazyload.js" ></script>
   
 
-
-
-  
-
-
-
-
-
-
-
-
-
-  <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
 
 
 
@@ -722,35 +860,15 @@ Part 1 准备工作由于原装 SSD 使用的是被认为较差的群联 PS3111 
 
 
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

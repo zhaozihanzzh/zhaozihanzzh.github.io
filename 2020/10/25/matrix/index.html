@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -9,66 +9,93 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
   <link rel="icon" href="/images/res/avatar.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#90a4ae">
-  <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="初探矩阵一、矩阵定义1. 数域对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。 2. 矩阵矩阵是指某一数域中的 m × n 个数排成 m 行 n 列的表。可记为 A &#x3D; (aij)mn，或 Amn，或 Am×n。如果没有特殊说明，我们讨论的是复矩阵。 两矩阵行列分别相等，称为同型矩阵。 当 m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初探矩阵">
+<meta property="og:url" content="https://zhaozihanzzh.github.io/2020/10/25/matrix/index.html">
+<meta property="og:site_name" content="Blogs of mefailedcoder">
+<meta property="og:description" content="初探矩阵一、矩阵定义1. 数域对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。 2. 矩阵矩阵是指某一数域中的 m × n 个数排成 m 行 n 列的表。可记为 A &#x3D; (aij)mn，或 Amn，或 Am×n。如果没有特殊说明，我们讨论的是复矩阵。 两矩阵行列分别相等，称为同型矩阵。 当 m">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-25T15:07:17.000Z">
+<meta property="article:modified_time" content="2022-07-14T22:47:40.671Z">
+<meta property="article:author" content="zhaozihanzzh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   
   <title>初探矩阵 - Blogs of mefailedcoder</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://lib.baomitu.com/highlight.js/10.7.2/styles/github-gist.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>mefailedcoder</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +157,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -145,60 +174,69 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/images/res/default.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="初探矩阵">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-25 23:07" pubdate>
-        2020-10-25 23:07
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      2.6k 字
-    </span>
   
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      31
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/res/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="初探矩阵"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-10-25 23:07" pubdate>
+          2020-10-25 23:07
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -207,22 +245,30 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">初探矩阵</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022-01-16 23:10
+                  
+                    Last updated on July 15, 2022 am
+                  
                 
               </p>
             
-            <div class="markdown-body">
-              <h1 id="初探矩阵"><a href="#初探矩阵" class="headerlink" title="初探矩阵"></a>初探矩阵</h1><h2 id="一、矩阵定义"><a href="#一、矩阵定义" class="headerlink" title="一、矩阵定义"></a>一、矩阵定义</h2><h3 id="1-数域"><a href="#1-数域" class="headerlink" title="1. 数域"></a>1. 数域</h3><p>对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。</p>
+            
+              <div class="markdown-body">
+                
+                <h1 id="初探矩阵"><a href="#初探矩阵" class="headerlink" title="初探矩阵"></a>初探矩阵</h1><h2 id="一、矩阵定义"><a href="#一、矩阵定义" class="headerlink" title="一、矩阵定义"></a>一、矩阵定义</h2><h3 id="1-数域"><a href="#1-数域" class="headerlink" title="1. 数域"></a>1. 数域</h3><p>对于一个至少含有 0,1 的复数集合的子集 F ，如果其中任意两个数的四则运算所得结果仍在 F 中，那么 F 称为一个数域。显然，有理数域是最小的数域。</p>
 <h3 id="2-矩阵"><a href="#2-矩阵" class="headerlink" title="2. 矩阵"></a>2. 矩阵</h3><p>矩阵是指某一数域中的 m × n 个数排成 m 行 n 列的表。可记为 <strong><em>A</em></strong> = (a<sub>ij</sub>)<sub>mn</sub>，或 <strong><em>A</em></strong><sub>mn</sub>，或 <strong><em>A</em></strong><sub>m×n</sub>。如果没有特殊说明，我们讨论的是复矩阵。</p>
 <p>两矩阵行列分别相等，称为同型矩阵。</p>
 <p>当 m = 1 时，矩阵可以看成一个行向量；当 n = 1 时，矩阵可以看成一个列向量。当 m = n 时，称为 n 阶方阵，其主对角线（只有方阵才有）元素之和为方阵的迹，记作 tr(<strong><em>A</em></strong>)。</p>
@@ -234,9 +280,11 @@
 <h2 id="二、矩阵运算"><a href="#二、矩阵运算" class="headerlink" title="二、矩阵运算"></a>二、矩阵运算</h2><h3 id="1-矩阵的加法"><a href="#1-矩阵的加法" class="headerlink" title="1.矩阵的加法"></a>1.矩阵的加法</h3><p>两个同型矩阵相加，所得矩阵上元素等于原来两矩阵对应位置元素之和。只有同型矩阵才能相加。某个矩阵减去另一个矩阵相当于加上它的负矩阵。</p>
 <h3 id="2-矩阵的数乘"><a href="#2-矩阵的数乘" class="headerlink" title="2.矩阵的数乘"></a>2.矩阵的数乘</h3><p>某个矩阵与数域中某个数相乘，等于用这个数去乘这一矩阵上的每一个元素。这一点与行列式不同。</p>
 <p>特别地，称 k<strong><em>E</em></strong> 为数量矩阵。</p>
-<h3 id="3-矩阵的乘法"><a href="#3-矩阵的乘法" class="headerlink" title="3.矩阵的乘法"></a>3.矩阵的乘法</h3><p>设矩阵 <strong><em>A</em></strong> = (a<sub>ij</sub>)<sub>sn</sub>，<strong><em>B</em></strong> = (b<sub>kl</sub>)<sub>nm</sub>，则 <strong><em>AB</em></strong> = (c<sub>ij</sub>)<sub>sm</sub>，其中 c<sub>ij</sub> = a<sub>i1</sub>b<sub>1j</sub>+a<sub>i2</sub>b<sub>2j</sub>+a<sub>i3</sub>b<sub>3j</sub>+…+a<sub>n1</sub>b<sub>nj</sub> ，即：</p>
-<script type="math/tex; mode=display">
-\sum^{n}_{k=1}a_{ik}b_{kj}</script><p>显然，矩阵乘法不满足交换律，当乘号前矩阵的列数与乘号后矩阵的行数不相等时，无法对这两个矩阵求积。另外，两矩阵之积为零矩阵，则这两个矩阵可能都不为零矩阵。</p>
+<h3 id="3-矩阵的乘法"><a href="#3-矩阵的乘法" class="headerlink" title="3.矩阵的乘法"></a>3.矩阵的乘法</h3><p>设矩阵 <strong><em>A</em></strong> = (a<sub>ij</sub>)<sub>sn</sub>，<strong><em>B</em></strong> = (b<sub>kl</sub>)<sub>nm</sub>，则 <strong><em>AB</em></strong> = (c<sub>ij</sub>)<sub>sm</sub>，其中 c<sub>ij</sub> = a<sub>i1</sub>b<sub>1j</sub>+a<sub>i2</sub>b<sub>2j</sub>+a<sub>i3</sub>b<sub>3j</sub>+…+a<sub>n1</sub>b<sub>nj</sub> ，即：
+$$
+\sum^{n}_{k=1}a_{ik}b_{kj}
+$$
+显然，矩阵乘法不满足交换律，当乘号前矩阵的列数与乘号后矩阵的行数不相等时，无法对这两个矩阵求积。另外，两矩阵之积为零矩阵，则这两个矩阵可能都不为零矩阵。</p>
 <p>当 <strong><em>AB</em></strong> = <strong><em>BA</em></strong> 时，称 <strong><em>A</em></strong> 与 <strong><em>B</em></strong> 可交换，易知此时 <strong><em>A</em></strong> 与 <strong><em>B</em></strong> 为同阶方阵。</p>
 <p>当 <strong><em>A</em></strong> 为对角矩阵时，通过设出 <strong><em>B</em></strong> 中的代表项可知，若要 <strong><em>A</em></strong> 与 <strong><em>B</em></strong> 可交换，此时 <strong><em>B</em></strong> 一定亦是对角矩阵。</p>
 <p>矩阵乘法满足结合律、分配律。（矩阵乘法中混入的与数相乘也满足结合律）</p>
@@ -260,9 +308,11 @@
 <h3 id="2-阶梯形矩阵"><a href="#2-阶梯形矩阵" class="headerlink" title="2.阶梯形矩阵"></a>2.阶梯形矩阵</h3><p>当 <strong><em>A</em></strong> = (a<sub>ij</sub>)<sub>mn</sub> 满足：a. 若某行元素全为 0 ，则该行以下均全为 0 元素；b. 当前 r 行均存在非零元素时，若设第 i 行左起第一个非零元素为  $a_{ij_{i}}$，则有 j<sub>1</sub> &lt; j<sub>2</sub> &lt; … &lt; j<sub>r</sub> 恒成立。</p>
 <p>任意一个矩阵可以通过一系列初等行变换化为阶梯形矩阵。</p>
 <h3 id="3-简化阶梯形矩阵"><a href="#3-简化阶梯形矩阵" class="headerlink" title="3.简化阶梯形矩阵"></a>3.简化阶梯形矩阵</h3><p>当阶梯形矩阵满足：a. 所有先导元素（每行第一个非零元素）为 1；b. 先导元素所在列除了先导元素外全为 0 ，称其为简化阶梯形矩阵。</p>
-<h3 id="4-等价标准形矩阵"><a href="#4-等价标准形矩阵" class="headerlink" title="4.等价标准形矩阵"></a>4.等价标准形矩阵</h3><p>等价标准形矩阵的形式：</p>
-<script type="math/tex; mode=display">
-\left( \begin{matrix} 1 &0 &\cdots &0 &0 &\cdots &0\\0 &1 &\cdots &0 &0 &\cdots &0 \\\vdots &\vdots &&\vdots &\vdots & &\vdots \\ 0 &0 &\cdots &1 &0 &\cdots &0 \\ 0 &0 &\cdots &0 &0 &\cdots &0 \\ \vdots &\vdots & &\vdots\ &\vdots & &\vdots \\0 &0 &\cdots &0 &0 &\cdots &0 \end{matrix} \right)=\left( \begin{matrix} E_r &0  \\ 0 &0 \end{matrix} \right)</script><p>向等价标准形转化时，可能需要用到列变换。</p>
+<h3 id="4-等价标准形矩阵"><a href="#4-等价标准形矩阵" class="headerlink" title="4.等价标准形矩阵"></a>4.等价标准形矩阵</h3><p>等价标准形矩阵的形式：
+$$
+\left( \begin{matrix} 1 &0 &\cdots &0 &0 &\cdots &0\\0 &1 &\cdots &0 &0 &\cdots &0 \\\vdots &\vdots &&\vdots &\vdots & &\vdots \\ 0 &0 &\cdots &1 &0 &\cdots &0 \\ 0 &0 &\cdots &0 &0 &\cdots &0 \\ \vdots &\vdots & &\vdots\ &\vdots & &\vdots \\0 &0 &\cdots &0 &0 &\cdots &0 \end{matrix} \right)=\left( \begin{matrix} E_r &0  \\ 0 &0 \end{matrix} \right)
+$$
+向等价标准形转化时，可能需要用到列变换。</p>
 <h3 id="5-初等矩阵"><a href="#5-初等矩阵" class="headerlink" title="5.初等矩阵"></a>5.初等矩阵</h3><p>第 Ⅰ 种类型初等矩阵：n 阶单位矩阵第 i 行、第 j 行互换所得，记作 <strong><em>P</em></strong>(i, j)。</p>
 <p>第 Ⅱ 种类型初等矩阵：n 阶单位矩阵第 i 行乘非零的 k 所得，记作 <strong><em>P</em></strong>(i(k))。</p>
 <p>第 Ⅲ 种类型初等矩阵：n 阶单位阵第 j 行的 k 倍加到第 i 行所得，记作 <strong><em>P</em></strong>(i, j(k))。</p>
@@ -281,44 +331,102 @@
 <p>f. 上三角矩阵的逆仍然是上三角矩阵。</p>
 <p>但是，(<strong><em>A</em></strong>+<strong><em>B</em></strong>)<sup>-1</sup> 不等于 <strong><em>A</em></strong><sup>-1</sup> + <strong><em>B</em></strong><sup>-1</sup>。</p>
 <h3 id="3-充要条件"><a href="#3-充要条件" class="headerlink" title="3.充要条件"></a>3.充要条件</h3><p>当且仅当方阵 <strong><em>A</em></strong> 的行列式不为零时，<strong><em>A</em></strong> 可逆。</p>
-<h3 id="4-利用伴随矩阵求逆"><a href="#4-利用伴随矩阵求逆" class="headerlink" title="4.利用伴随矩阵求逆"></a>4.利用伴随矩阵求逆</h3><p>定义 <strong><em>A</em></strong><sub>ij</sub> 为 方阵的行列式中元素 a<sub>ij</sub> 的代数余子式，称矩阵</p>
-<script type="math/tex; mode=display">
-A^*=\left( \begin{matrix} A_{11} &A_{21} &\cdots  &A_{n1}\\A_{12} &A_{22} &\cdots  &A_{n2}\\\vdots &\vdots &&\vdots\\ A_{1n} &A_{2n} &\cdots  &A_{nn} \end{matrix} \right)</script><p>为 <strong><em>A</em></strong> 的伴随矩阵。（特别注意此矩阵经过了转置）</p>
-<p>则有:</p>
-<script type="math/tex; mode=display">
-A^{-1} = \frac{1}{|A|}A^*</script><p>但此方法较为繁琐。</p>
+<h3 id="4-利用伴随矩阵求逆"><a href="#4-利用伴随矩阵求逆" class="headerlink" title="4.利用伴随矩阵求逆"></a>4.利用伴随矩阵求逆</h3><p>定义 <strong><em>A</em></strong><sub>ij</sub> 为 方阵的行列式中元素 a<sub>ij</sub> 的代数余子式，称矩阵
+$$
+A^*=\left( \begin{matrix} A_{11} &A_{21} &\cdots  &A_{n1}\\A_{12} &A_{22} &\cdots  &A_{n2}\\\vdots &\vdots &&\vdots\\ A_{1n} &A_{2n} &\cdots  &A_{nn} \end{matrix} \right)
+$$
+为 <strong><em>A</em></strong> 的伴随矩阵。（特别注意此矩阵经过了转置）</p>
+<p>则有:
+$$
+A^{-1} = \frac{1}{|A|}A^*
+$$
+但此方法较为繁琐。</p>
 <h3 id="5-矩阵初等变换求逆"><a href="#5-矩阵初等变换求逆" class="headerlink" title="5.矩阵初等变换求逆"></a>5.矩阵初等变换求逆</h3><p>对于初等矩阵的逆，有：a. <strong><em>P</em></strong>(i, j)<sup>-1</sup> = <strong><em>P</em></strong>(i, j) b. <strong><em>P</em></strong>(i(k))<sup>-1</sup> = <strong><em>P</em></strong>(i(k<sup>-1</sup>)) c. <strong><em>P</em></strong>(i, j(k))<sup>-1</sup> = <strong><em>P</em></strong>(i, j(-k))，即初等矩阵的逆仍然是初等矩阵。</p>
 <p>可逆矩阵只通过初等行变换即可变为单位矩阵。因此，可逆矩阵可表示为初等矩阵的积。</p>
 <p>求 <strong><em>A</em></strong> 的逆时，可将与其同阶的单位阵加到其右边构成新矩阵，再通过初等行变换将矩阵左半边化成单位矩阵，此时右半边即为要求的逆；或者将与其同阶的单位阵加到其下边构成新矩阵，再通过初等列变换将矩阵上半边化成单位矩阵，此时下半边即为要求的逆。</p>
 <p>这里，给出已知 <strong><em>A</em></strong>，<strong><em>B</em></strong> ，求 <strong><em>A</em></strong><sup>-1</sup><strong><em>B</em></strong> 的较快方法：(<strong><em>A</em></strong>, <strong><em>B</em></strong>) 通过初等行变换化为 (<strong><em>E</em></strong>, <strong><em>A</em></strong><sup>-1</sup><strong><em>B</em></strong>)。</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/">线性代数与解析几何</a>
-                    
-                  </div>
-                
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E8%A7%A3%E6%9E%90%E5%87%A0%E4%BD%95/" class="category-chain-item">线性代数与解析几何</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>初探矩阵</div>
+      <div>https://zhaozihanzzh.github.io/2020/10/25/matrix/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>zhaozihanzzh</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>October 25, 2020</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
               
-              
-                <div class="post-prevnext">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/11/01/gfm-error/">
+                      <a href="/2020/11/01/gfm-error/" title="博客相关问题">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">博客相关问题</span>
                         <span class="visible-mobile">Previous</span>
@@ -328,7 +436,7 @@ A^{-1} = \frac{1}{|A|}A^*</script><p>但此方法较为繁琐。</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/24/local-variable-pr/">
+                      <a href="/2020/10/24/local-variable-pr/" title="C++ 返回局部变量的引用与地址">
                         <span class="hidden-mobile">C++ 返回局部变量的引用与地址</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -344,25 +452,62 @@ A^{-1} = \frac{1}{|A|}A^*</script><p>但此方法较为繁琐。</p>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
 
 
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -381,32 +526,34 @@ A^{-1} = \frac{1}{|A|}A^*</script><p>但此方法较为繁琐。</p>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
@@ -425,7 +572,23 @@ A^{-1} = \frac{1}{|A|}A^*</script><p>但此方法较为繁琐。</p>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
@@ -434,25 +597,106 @@ A^{-1} = \frac{1}{|A|}A^*</script><p>但此方法较为繁琐。</p>
 
 
 
+
   
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-  <script  src="https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
 
-  <script  src="https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js" ></script>
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
 
+  <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
 
-
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
@@ -460,74 +704,15 @@ A^{-1} = \frac{1}{|A|}A^*</script><p>但此方法较为繁琐。</p>
 
 
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://lib.baomitu.com/mathjax/3.2.0/tex-svg.js" ></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

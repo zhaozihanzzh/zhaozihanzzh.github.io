@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+<html lang="en" data-default-color-scheme=auto>
 
 
 
@@ -9,66 +9,93 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/images/res/avatar.png">
   <link rel="icon" href="/images/res/avatar.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#90a4ae">
-  <meta name="description" content="">
   <meta name="author" content="zhaozihanzzh">
   <meta name="keywords" content="">
+  
+    <meta name="description" content="一、随机事件与概率1.随机现象与随机试验基本事件：每一个可能出现的实验结果，用 $w_i$ 表示。必然事件常用 $\Omega$ 表示，不可能事件常用 $\emptyset$ 表示。 事件的运算：和 $A\bigcup{B}$ ，差 $A-B$ 或 A\B ，交（积） $A\bigcap{B}$ 或 $AB$ 。 互不相同事件：不同时发生；对立事件：“事件A不发生”这一事件。 2.概率的定义古典概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="概率论">
+<meta property="og:url" content="https://zhaozihanzzh.github.io/2021/06/07/probability-theory/index.html">
+<meta property="og:site_name" content="Blogs of mefailedcoder">
+<meta property="og:description" content="一、随机事件与概率1.随机现象与随机试验基本事件：每一个可能出现的实验结果，用 $w_i$ 表示。必然事件常用 $\Omega$ 表示，不可能事件常用 $\emptyset$ 表示。 事件的运算：和 $A\bigcup{B}$ ，差 $A-B$ 或 A\B ，交（积） $A\bigcap{B}$ 或 $AB$ 。 互不相同事件：不同时发生；对立事件：“事件A不发生”这一事件。 2.概率的定义古典概">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-07T13:12:02.000Z">
+<meta property="article:modified_time" content="2022-07-14T22:38:04.651Z">
+<meta property="article:author" content="zhaozihanzzh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   
   <title>概率论 - Blogs of mefailedcoder</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://lib.baomitu.com/highlight.js/10.7.2/styles/github-gist.min.css" />
-    
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhaozihanzzh.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#cfd8dc","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>mefailedcoder</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>mefailedcoder</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -130,13 +157,15 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -145,60 +174,69 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/images/res/default.jpg') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="概率论">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-06-07 21:12" pubdate>
-        2021-06-07 21:12
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      2.4k 字
-    </span>
   
 
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      32
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('/images/res/default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="概率论"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-07 21:12" pubdate>
+          2021-06-07 21:12
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          65 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -207,38 +245,46 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">概率论</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021-06-29 17:37
+                  
+                    Last updated on July 15, 2022 am
+                  
                 
               </p>
             
-            <div class="markdown-body">
-              <h2 id="一、随机事件与概率"><a href="#一、随机事件与概率" class="headerlink" title="一、随机事件与概率"></a>一、随机事件与概率</h2><h3 id="1-随机现象与随机试验"><a href="#1-随机现象与随机试验" class="headerlink" title="1.随机现象与随机试验"></a>1.随机现象与随机试验</h3><p>基本事件：每一个可能出现的实验结果，用 <script type="math/tex">w_i</script> 表示。必然事件常用 <script type="math/tex">\Omega</script> 表示，不可能事件常用 <script type="math/tex">\emptyset</script> 表示。</p>
-<p>事件的运算：和 <script type="math/tex">A\bigcup{B}</script> ，差 <script type="math/tex">A-B</script> 或 A\B ，交（积） <script type="math/tex">A\bigcap{B}</script> 或 <script type="math/tex">AB</script> 。</p>
+            
+              <div class="markdown-body">
+                
+                <h2 id="一、随机事件与概率"><a href="#一、随机事件与概率" class="headerlink" title="一、随机事件与概率"></a>一、随机事件与概率</h2><h3 id="1-随机现象与随机试验"><a href="#1-随机现象与随机试验" class="headerlink" title="1.随机现象与随机试验"></a>1.随机现象与随机试验</h3><p>基本事件：每一个可能出现的实验结果，用 $w_i$ 表示。必然事件常用 $\Omega$ 表示，不可能事件常用 $\emptyset$ 表示。</p>
+<p>事件的运算：和 $A\bigcup{B}$ ，差 $A-B$ 或 A\B ，交（积） $A\bigcap{B}$ 或 $AB$ 。</p>
 <p>互不相同事件：不同时发生；对立事件：“事件A不发生”这一事件。</p>
-<h3 id="2-概率的定义"><a href="#2-概率的定义" class="headerlink" title="2.概率的定义"></a>2.概率的定义</h3><p>古典概型（<script type="math/tex">\Omega</script> 是有限集）：<script type="math/tex">P(A)=\frac{n_A}{n}</script>，几何概型：<script type="math/tex">P(A)=\frac{G 的几何度量}{\Omega 的几何度量}</script>。</p>
-<p>概率的公理化定义：基本事件空间 <script type="math/tex">\Omega</script> 是所有基本事件构成的集合，事件域为 <script type="math/tex">F</script> （已有的事件怎么操作都跑不出去），概率测度 <script type="math/tex">P</script> ，则 <script type="math/tex">(\Omega, F, P)</script> 为概率空间。</p>
-<p>如果 <script type="math/tex">P(A) = 0</script> ，A 未必是不可能事件。</p>
-<p>概率加法公式：<script type="math/tex">P(\bigcup\limits_{i=1}^{n}A_i)=\sum\limits_{i=1}^{n}P(A_i)-\sum\limits_{1\leq{i}<j\leq{n}}^{n}P(A_{i}A_{j})+\sum\limits_{1\leq{i}<j<k\leq{n}}^{n}P(A_{i}A_{j}A_{k})-\cdots+(-1)^{n-1}P(A_{1}A_{2}\cdots A_{n})</script></p>
+<h3 id="2-概率的定义"><a href="#2-概率的定义" class="headerlink" title="2.概率的定义"></a>2.概率的定义</h3><p>古典概型（$\Omega$ 是有限集）：$P(A)=\frac{n_A}{n}$，几何概型：$P(A)=\frac{G 的几何度量}{\Omega 的几何度量}$。</p>
+<p>概率的公理化定义：基本事件空间 $\Omega$ 是所有基本事件构成的集合，事件域为 $F$ （已有的事件怎么操作都跑不出去），概率测度 $P$ ，则 $(\Omega, F, P)$ 为概率空间。</p>
+<p>如果 $P(A) = 0$ ，A 未必是不可能事件。</p>
+<p>概率加法公式：$P(\bigcup\limits_{i=1}^{n}A_i)=\sum\limits_{i=1}^{n}P(A_i)-\sum\limits_{1\leq{i}&lt;j\leq{n}}^{n}P(A_{i}A_{j})+\sum\limits_{1\leq{i}&lt;j&lt;k\leq{n}}^{n}P(A_{i}A_{j}A_{k})-\cdots+(-1)^{n-1}P(A_{1}A_{2}\cdots A_{n})$</p>
 <h3 id="3-条件概率"><a href="#3-条件概率" class="headerlink" title="3.条件概率"></a>3.条件概率</h3><p>条件概率：已知某事件发生，另一事件发生（可用来构造概率空间）</p>
-<p>乘法公式：<script type="math/tex">P(B|A)=\frac{P(AB)}{P(A)}</script>，推广：<script type="math/tex">P(A_1A_2\cdots A_n)=P(A_1)P(A_2|A_1)P(A_3|(A_1A_2))\cdots P(A_n|(A_1A_2\cdots A_n))</script></p>
-<p>全概率公式：先化整为零，再聚零为整：<script type="math/tex">B_i</script> 为 <script type="math/tex">B</script> 的一个划分，则当 <script type="math/tex">A\subset B</script> ，<script type="math/tex">B_i</script> 是 <script type="math/tex">B</script> 的一个划分，此时有 <script type="math/tex">P(A) = \sum\limits_{i=1}^{n}P(B_i)P(A|B_i)</script> 。(6 个黑球，4 个白球，第二次摸到的是白球的概率？)</p>
-<p>贝叶斯公式：若 <script type="math/tex">P(B_i)>0</script> ，<script type="math/tex">B_iB_j = \emptyset</script>，<script type="math/tex">A\subset{\bigcup\limits_{i=1}^{\infty}B_i}</script> ，<script type="math/tex">P(A)>0</script> ，则 <script type="math/tex">P(B_j|A) = \frac{P(B_j)P(A|B_j)}{\sum\limits_{i=1}^{\infty}P(B_i)P(A|B_i)}</script>。（甲乙丙三车间产量占比已知，次品率已知，现在查出一个次品，是甲车间生产的概率？）</p>
-<h3 id="4-事件独立性"><a href="#4-事件独立性" class="headerlink" title="4.事件独立性"></a>4.事件独立性</h3><p>若 <script type="math/tex">P(AB) = P(A)P(B)</script>，则 A、B 相互独立。</p>
-<p>三个事件相互独立（<script type="math/tex">P(AB) = P(A)P(B)</script>，<script type="math/tex">P(BC) = P(B)P(C)</script>，<script type="math/tex">P(AC) = P(A)P(C)</script>，<script type="math/tex">P(ABC) = P(A)P(B)P(C)</script>）强于两两独立。</p>
+<p>乘法公式：$P(B|A)=\frac{P(AB)}{P(A)}$，推广：$P(A_1A_2\cdots A_n)=P(A_1)P(A_2|A_1)P(A_3|(A_1A_2))\cdots P(A_n|(A_1A_2\cdots A_n))$</p>
+<p>全概率公式：先化整为零，再聚零为整：$B_i$ 为 $B$ 的一个划分，则当 $A\subset B$ ，$B_i$ 是 $B$ 的一个划分，此时有 $P(A) = \sum\limits_{i=1}^{n}P(B_i)P(A|B_i)$ 。(6 个黑球，4 个白球，第二次摸到的是白球的概率？)</p>
+<p>贝叶斯公式：若 $P(B_i)&gt;0$ ，$B_iB_j = \emptyset$，$A\subset{\bigcup\limits_{i=1}^{\infty}B_i}$ ，$P(A)&gt;0$ ，则 $P(B_j|A) = \frac{P(B_j)P(A|B_j)}{\sum\limits_{i=1}^{\infty}P(B_i)P(A|B_i)}$。（甲乙丙三车间产量占比已知，次品率已知，现在查出一个次品，是甲车间生产的概率？）</p>
+<h3 id="4-事件独立性"><a href="#4-事件独立性" class="headerlink" title="4.事件独立性"></a>4.事件独立性</h3><p>若 $P(AB) = P(A)P(B)$，则 A、B 相互独立。</p>
+<p>三个事件相互独立（$P(AB) = P(A)P(B)$，$P(BC) = P(B)P(C)$，$P(AC) = P(A)P(C)$，$P(ABC) = P(A)P(B)P(C)$）强于两两独立。</p>
 <h3 id="5-独立实验"><a href="#5-独立实验" class="headerlink" title="5.独立实验"></a>5.独立实验</h3><p>n 重伯努利试验：试验只有两种可能结果，重复 n 次。</p>
-<p>伯努利定理：成功概率 p 时成功 k 次概率 <script type="math/tex">b(k;n,p)=C^{k}_{n}p^{k}(1-p)^{n-k}</script> ，称为伯努利数。</p>
-<h2 id="二、一维随机变量及其分布"><a href="#二、一维随机变量及其分布" class="headerlink" title="二、一维随机变量及其分布"></a>二、一维随机变量及其分布</h2><h3 id="1-随机变量"><a href="#1-随机变量" class="headerlink" title="1.随机变量"></a>1.随机变量</h3><p>对实数集上的任意 x ，有 <script type="math/tex">\{\omega|X(\omega)\leq{x}\}\in{F}</script> ，称 <script type="math/tex">X(\omega)</script> 为随机变量。（这个事件必须在事件域 F 中）</p>
-<p>随机变量 X 的分布函数 <script type="math/tex">F_x(x)=P(X\leq{x})</script> ，则 <script type="math/tex">P(X<{x})=F_x(x-0)</script> （左极限），分布函数右连续，但不一定左连续，<script type="math/tex">P(X={x})=F_x(x)-F_x(x-0)</script> ，<script type="math/tex">F_x(x)</script> 为单调递增函数，且在负无穷、正无穷取值分别为 0、1。</p>
+<p>伯努利定理：成功概率 p 时成功 k 次概率 $b(k;n,p)=C^{k}_{n}p^{k}(1-p)^{n-k}$ ，称为伯努利数。</p>
+<h2 id="二、一维随机变量及其分布"><a href="#二、一维随机变量及其分布" class="headerlink" title="二、一维随机变量及其分布"></a>二、一维随机变量及其分布</h2><h3 id="1-随机变量"><a href="#1-随机变量" class="headerlink" title="1.随机变量"></a>1.随机变量</h3><p>对实数集上的任意 x ，有 $\{\omega|X(\omega)\leq{x}\}\in{F}$ ，称 $X(\omega)$ 为随机变量。（这个事件必须在事件域 F 中）</p>
+<p>随机变量 X 的分布函数 $F_x(x)=P(X\leq{x})$ ，则 $P(X&lt;{x})=F_x(x-0)$ （左极限），分布函数右连续，但不一定左连续，$P(X={x})=F_x(x)-F_x(x-0)$ ，$F_x(x)$ 为单调递增函数，且在负无穷、正无穷取值分别为 0、1。</p>
 <h3 id="2-一维离散型随机变量"><a href="#2-一维离散型随机变量" class="headerlink" title="2.一维离散型随机变量"></a>2.一维离散型随机变量</h3><p>离散型随机变量的取值为有限个或可列多个。为了直观，可以使用表格列出分布列。接下来介绍几种概率分布：</p>
 <p>a.两点分布（0-1分布）：</p>
 <div class="table-container">
@@ -259,97 +305,153 @@
 </tbody>
 </table>
 </div>
-<p>b.二项分布 <script type="math/tex">X\sim{B(n, p)}</script></p>
+<p>b.二项分布 $X\sim{B(n, p)}$</p>
 <p>n 重伯努利试验，成功概率 p，随机变量 X 为成功次数</p>
-<p>记 <script type="math/tex">k_0=Int[(n+1)p]</script>，当 <script type="math/tex">k=k_0</script> 时 <script type="math/tex">b(k;n,p)</script> 最大；若 (n+1)p 为整数，则 <script type="math/tex">b(k_0;n,p)=b(k_0-1;n,p)</script> 。</p>
-<p>c.泊松分布 <script type="math/tex">X\sim{P(\lambda)}</script>，参数 <script type="math/tex">\lambda>0</script></p>
-<p>$P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}$ ，其中又有泊松定理：<script type="math/tex">X_n\sim{B(n,p_n)}</script>，其中 <script type="math/tex">p_n</script> 与 <script type="math/tex">n</script> 有关，且 <script type="math/tex">\lim\limits_{n\rightarrow\infty}np_n=\lambda>0</script> ，此时有 <script type="math/tex">\lim\limits_{n\rightarrow\infty}P(x_n=k)=\frac{e^{-\lambda}\lambda^k}{k!}</script> ，k 取自然数，表示的意义为：把一段时间分割为 <script type="math/tex">n</script> 段，每段时间内某事件发生的概率为 <script type="math/tex">p_n</script> （由于每段时间很小，认为事件不会在这样短的时间内发生两次及以上），由二项分布，乘积 <script type="math/tex">\lambda</script> 为这段时间事件发生次数的期望，当把每段时间无限地分割下去时，二项分布实际上就成了泊松分布。因此，还有泊松近似公式：</p>
-<p>当二项分布 n 很大，p 很小（一般取 <script type="math/tex">n\geq{10}</script>，<script type="math/tex">p\leq{0.1}</script> ）时，<script type="math/tex">P(X=k)\approx{\frac{e^{-\lambda}\lambda^k}{k!}}</script>。</p>
+<p>记 $k_0=Int[(n+1)p]$，当 $k=k_0$ 时 $b(k;n,p)$ 最大；若 (n+1)p 为整数，则 $b(k_0;n,p)=b(k_0-1;n,p)$ 。</p>
+<p>c.泊松分布 $X\sim{P(\lambda)}$，参数 $\lambda&gt;0$</p>
+<p>$P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!}$ ，其中又有泊松定理：$X_n\sim{B(n,p_n)}$，其中 $p_n$ 与 $n$ 有关，且 $\lim\limits_{n\rightarrow\infty}np_n=\lambda&gt;0$ ，此时有 $\lim\limits_{n\rightarrow\infty}P(x_n=k)=\frac{e^{-\lambda}\lambda^k}{k!}$ ，k 取自然数，表示的意义为：把一段时间分割为 $n$ 段，每段时间内某事件发生的概率为 $p_n$ （由于每段时间很小，认为事件不会在这样短的时间内发生两次及以上），由二项分布，乘积 $\lambda$ 为这段时间事件发生次数的期望，当把每段时间无限地分割下去时，二项分布实际上就成了泊松分布。因此，还有泊松近似公式：</p>
+<p>当二项分布 n 很大，p 很小（一般取 $n\geq{10}$，$p\leq{0.1}$ ）时，$P(X=k)\approx{\frac{e^{-\lambda}\lambda^k}{k!}}$。</p>
 <p>d.几何分布 $X\sim{Geo(p)}$</p>
 <p>$P(X=k)=g^{k-1}p=g(k;p)$ 表示前 (k - 1) 次试验未成功，第 k 次首次成功。</p>
-<p>几何分布有无记忆性，已知前 k 次还未成功，则从 (k + 1) 次，首次成功出现在哪一次与 k 无关，即 <script type="math/tex">P(X=k+n|X>k)=P(x=n)</script>。（彼此独立）</p>
-<h3 id="3-一维连续型随机变量"><a href="#3-一维连续型随机变量" class="headerlink" title="3.一维连续型随机变量"></a>3.一维连续型随机变量</h3><p>若存在 <script type="math/tex">f(x)>0</script> 使得对任意 x 有 <script type="math/tex">F(x)=\int_{-\infty}^{x}f(t)dt</script>，那么 <script type="math/tex">f(x)</script> 为 x 的概率密度函数（在不至于混淆时简称密度函数）。显然，在某点上概率分布函数一定是 0，因此我们需要讨论随机变量落在某区间上的概率，为了便于描述概率分布函数与 x 轴围成图形的面积，引入密度函数。易知，<script type="math/tex">\int_{-\infty}^{+\infty}f(x)dx=1</script> 。同样地，介绍几种概率分布：</p>
-<p>a.均匀分布 <script type="math/tex">x\sim{U[a,b]}</script></p>
-<p>a&lt;b，<script type="math/tex">f(x)=\left\{\begin{matrix}\frac{1}{b-a},x\in[a,b]\\0,x\notin[a,b]\end{matrix}\right.</script></p>
-<p>显然，当 <script type="math/tex">a\leq{x}\leq{b}</script> 时 <script type="math/tex">F(x)=\frac{x-a}{b-a}</script>。（“线性”）</p>
-<p>b.指数分布 <script type="math/tex">X\sim{E(X)}</script></p>
-<p> x 的密度函数满足 <script type="math/tex">f(x)=\left\{\begin{matrix}\lambda{e}^{-\lambda{x}},x>0\\0,x\leq0\end{matrix}\right.</script> ，分布函数 <script type="math/tex">F(x)=\left\{\begin{matrix}1-e^{-\lambda{x}}, x>0\\0, x\leq{0}\end{matrix}\right.</script></p>
-<p>指数分布也与泊松分布关系密切，后者表示的是某事件在一定时间中的发生次数的概率分布，而前者是某事件两次发生之间时间间隔的概率分布：设某段时间长为 x，在这段时间内某事件发生次数为 <script type="math/tex">\lambda{x}</script>，那么在这段时间中一次也不发生概率为 <script type="math/tex">\frac{e^{-\lambda{x}}(\lambda{x})^0}{0!}=e^{-\lambda{x}}</script>，那么在这段时间内发生一次及以上该事件的概率为 <script type="math/tex">1-e^{-\lambda{x}}</script>，即：时间间隔小于这个 x 的概率为 <script type="math/tex">1-e^{-\lambda{x}}</script>，这就是指数分布在时间间隔大于 0 时的分布函数。</p>
-<p>指数分布具有“无记忆性”，即 <script type="math/tex">P(X>k+n|X>k)=P(X>n)</script>。</p>
-<p>c.正态分布 <script type="math/tex">X\sim{N}(\mu, \sigma^2)</script></p>
-<p>$f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^-\frac{(x-\mu)^2}{2\sigma^2}$，分布函数为其积分。又有标准正态分布 <script type="math/tex">\mu=0,\sigma=1</script>，记其密度函数为 <script type="math/tex">\varphi(x)</script>，分布函数为 <script type="math/tex">\Phi(x)</script>，查表时要注意 <script type="math/tex">\Phi(x)-\frac{1}{2}=\frac{1}{2}-\Phi(-x)</script>，即概率分布关于 <script type="math/tex">\frac{1}{2}</script> 对称。</p>
-<p>正态分布标准化：对于 <script type="math/tex">X\sim{N(\mu, \sigma^2)}</script>，有 <script type="math/tex">\frac{x-\mu}{\sigma}\sim{N(0,1)}</script>。</p>
+<p>几何分布有无记忆性，已知前 k 次还未成功，则从 (k + 1) 次，首次成功出现在哪一次与 k 无关，即 $P(X=k+n|X&gt;k)=P(x=n)$。（彼此独立）</p>
+<h3 id="3-一维连续型随机变量"><a href="#3-一维连续型随机变量" class="headerlink" title="3.一维连续型随机变量"></a>3.一维连续型随机变量</h3><p>若存在 $f(x)&gt;0$ 使得对任意 x 有 $F(x)=\int_{-\infty}^{x}f(t)dt$，那么 $f(x)$ 为 x 的概率密度函数（在不至于混淆时简称密度函数）。显然，在某点上概率分布函数一定是 0，因此我们需要讨论随机变量落在某区间上的概率，为了便于描述概率分布函数与 x 轴围成图形的面积，引入密度函数。易知，$\int_{-\infty}^{+\infty}f(x)dx=1$ 。同样地，介绍几种概率分布：</p>
+<p>a.均匀分布 $x\sim{U[a,b]}$</p>
+<p>a&lt;b，$f(x)=\left\{\begin{matrix}\frac{1}{b-a},x\in[a,b]\\0,x\notin[a,b]\end{matrix}\right.$</p>
+<p>显然，当 $a\leq{x}\leq{b}$ 时 $F(x)=\frac{x-a}{b-a}$。（“线性”）</p>
+<p>b.指数分布 $X\sim{E(X)}$</p>
+<p> x 的密度函数满足 $f(x)=\left\{\begin{matrix}\lambda{e}^{-\lambda{x}},x&gt;0\\0,x\leq0\end{matrix}\right.$ ，分布函数 $F(x)=\left\{\begin{matrix}1-e^{-\lambda{x}}, x&gt;0\\0, x\leq{0}\end{matrix}\right.$</p>
+<p>指数分布也与泊松分布关系密切，后者表示的是某事件在一定时间中的发生次数的概率分布，而前者是某事件两次发生之间时间间隔的概率分布：设某段时间长为 x，在这段时间内某事件发生次数为 $\lambda{x}$，那么在这段时间中一次也不发生概率为 $\frac{e^{-\lambda{x}}(\lambda{x})^0}{0!}=e^{-\lambda{x}}$，那么在这段时间内发生一次及以上该事件的概率为 $1-e^{-\lambda{x}}$，即：时间间隔小于这个 x 的概率为 $1-e^{-\lambda{x}}$，这就是指数分布在时间间隔大于 0 时的分布函数。</p>
+<p>指数分布具有“无记忆性”，即 $P(X&gt;k+n|X&gt;k)=P(X&gt;n)$。</p>
+<p>c.正态分布 $X\sim{N}(\mu, \sigma^2)$</p>
+<p>$f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^-\frac{(x-\mu)^2}{2\sigma^2}$，分布函数为其积分。又有标准正态分布 $\mu=0,\sigma=1$，记其密度函数为 $\varphi(x)$，分布函数为 $\Phi(x)$，查表时要注意 $\Phi(x)-\frac{1}{2}=\frac{1}{2}-\Phi(-x)$，即概率分布关于 $\frac{1}{2}$ 对称。</p>
+<p>正态分布标准化：对于 $X\sim{N(\mu, \sigma^2)}$，有 $\frac{x-\mu}{\sigma}\sim{N(0,1)}$。</p>
 <h3 id="4-一维离散型随机变量函数的分布"><a href="#4-一维离散型随机变量函数的分布" class="headerlink" title="4.一维离散型随机变量函数的分布"></a>4.一维离散型随机变量函数的分布</h3><p>X 经某函数映射到 Y，那么求 Y 取某个值的概率时需要合并使 Y 取这个值的所有 X 的概率。</p>
-<h3 id="5-一维连续型随机变量函数的分布"><a href="#5-一维连续型随机变量函数的分布" class="headerlink" title="5.一维连续型随机变量函数的分布"></a>5.一维连续型随机变量函数的分布</h3><p>需要利用分布函数和 Y 与 X 的关系，将 Y 小于等于某值的概率解不等式转为 X 取某区间的概率，之后如果需要求密度函数，直接对所得的分布函数求导即可，需要注意若 <script type="math/tex">F_Y(y)=\int_{h_2(y)}^{h_1(y)}g(x)dx</script>，那么 <script type="math/tex">F_Y'(y)=g(h_1(y))h_1'(y)-g(h_2(y))h_2'(y)</script>，<script type="math/tex">\pm\infty</script> 导数看做 0。</p>
+<h3 id="5-一维连续型随机变量函数的分布"><a href="#5-一维连续型随机变量函数的分布" class="headerlink" title="5.一维连续型随机变量函数的分布"></a>5.一维连续型随机变量函数的分布</h3><p>需要利用分布函数和 Y 与 X 的关系，将 Y 小于等于某值的概率解不等式转为 X 取某区间的概率，之后如果需要求密度函数，直接对所得的分布函数求导即可，需要注意若 $F_Y(y)=\int_{h_2(y)}^{h_1(y)}g(x)dx$，那么 $F_Y’(y)=g(h_1(y))h_1’(y)-g(h_2(y))h_2’(y)$，$\pm\infty$ 导数看做 0。</p>
 <h2 id="三、二维随机向量及其分布"><a href="#三、二维随机向量及其分布" class="headerlink" title="三、二维随机向量及其分布"></a>三、二维随机向量及其分布</h2><p>我们只讨论二维随机向量。</p>
-<h3 id="1-随机向量联合分布函数与联合密度函数（连续型）"><a href="#1-随机向量联合分布函数与联合密度函数（连续型）" class="headerlink" title="1.随机向量联合分布函数与联合密度函数（连续型）"></a>1.随机向量联合分布函数与联合密度函数（连续型）</h3><p>随机向量联合分布函数 <script type="math/tex">F_{X_1,X_2}(x_1, x_2)=P(X_1\leq{x_1},X_2\leq{x_2})</script>，有 <script type="math/tex">F(-\infty, y)=F(x,-\infty)=F(-\infty, -\infty)=0</script>。</p>
-<p>若 <script type="math/tex">(X,Y)</script> 所有取值只有有限个或可列个，其为离散型随机变量；若存在 <script type="math/tex">f(x,y)</script> 使得对任意 x, y，有 <script type="math/tex">F_{X,Y}(x,y)=\int_{-\infty}^{y}\int_{-\infty}^{x}f(u,v)dudv</script>，那么 <script type="math/tex">(X,Y)</script> 为连续型随机变量，称 <script type="math/tex">f(x,y)</script> 为它的联合概率密度函数（或者直接称为分布密度函数）。</p>
-<h3 id="2-随机向量边缘分布函数与边缘密度函数（连续型）"><a href="#2-随机向量边缘分布函数与边缘密度函数（连续型）" class="headerlink" title="2.随机向量边缘分布函数与边缘密度函数（连续型）"></a>2.随机向量边缘分布函数与边缘密度函数（连续型）</h3><p>二维随机向量边缘分布为其中某个随机变量取某个值的概率（相当于在表格“边缘”的那一栏），对于离散型二维随机向量，有<script type="math/tex">P(Y=y_j)=\sum\limits_ip_{ij}</script>；对于连续型二维随机变量，其边缘分布函数为 <script type="math/tex">F_X(x)=F(x, +\infty)=\lim\limits_{y\rightarrow+\infty}F(x,y)</script>，其边缘密度函数为 <script type="math/tex">f_X(x)=\int_{-\infty}^{+\infty}f_{X,Y}(x,y)dy</script> 。（由联合分布确定其边缘分布，但反之不一定，要考虑其独立性）</p>
-<h3 id="3-随机变量的相互独立性"><a href="#3-随机变量的相互独立性" class="headerlink" title="3.随机变量的相互独立性"></a>3.随机变量的相互独立性</h3><p>若可判断 X、Y 取值互不影响，或对任意 x, y ，有 <script type="math/tex">F(x,y)=F(x)F(y)</script>，或离散型有 <script type="math/tex">p_{ij}=p_{i\cdot}p_{\cdot{j}}</script>，或连续型有 <script type="math/tex">f(x,y)=f_X(x)f_Y(y)</script>，那么 X、Y 相互独立。此时边缘分布可确定联合分布。</p>
-<h3 id="4-二维均匀分布"><a href="#4-二维均匀分布" class="headerlink" title="4.二维均匀分布"></a>4.二维均匀分布</h3><p>有界区域 D 的面积为 <script type="math/tex">S_D</script>，<script type="math/tex">f(x,y)=\left\{\begin{matrix}\frac{1}{S_D},(x,y)\in{D}\\0,(x,y)\notin{D}\end{matrix}\right.</script>。可以用画图辅助。</p>
-<h3 id="5-二维正态分布"><a href="#5-二维正态分布" class="headerlink" title="5.二维正态分布"></a>5.二维正态分布</h3><p>$(X,Y)\sim{N(\mu_1,\mu_2,\sigma^2_1,\sigma^2_2,\rho)}$，其边缘分布是一维正态分布，<script type="math/tex">\rho</script> 为两变量的相关系数。（“物以类聚”，$\mu$ 在一起，$\sigma$ 在一起）</p>
+<h3 id="1-随机向量联合分布函数与联合密度函数（连续型）"><a href="#1-随机向量联合分布函数与联合密度函数（连续型）" class="headerlink" title="1.随机向量联合分布函数与联合密度函数（连续型）"></a>1.随机向量联合分布函数与联合密度函数（连续型）</h3><p>随机向量联合分布函数 $F_{X_1,X_2}(x_1, x_2)=P(X_1\leq{x_1},X_2\leq{x_2})$，有 $F(-\infty, y)=F(x,-\infty)=F(-\infty, -\infty)=0$。</p>
+<p>若 $(X,Y)$ 所有取值只有有限个或可列个，其为离散型随机变量；若存在 $f(x,y)$ 使得对任意 x, y，有 $F_{X,Y}(x,y)=\int_{-\infty}^{y}\int_{-\infty}^{x}f(u,v)dudv$，那么 $(X,Y)$ 为连续型随机变量，称 $f(x,y)$ 为它的联合概率密度函数（或者直接称为分布密度函数）。</p>
+<h3 id="2-随机向量边缘分布函数与边缘密度函数（连续型）"><a href="#2-随机向量边缘分布函数与边缘密度函数（连续型）" class="headerlink" title="2.随机向量边缘分布函数与边缘密度函数（连续型）"></a>2.随机向量边缘分布函数与边缘密度函数（连续型）</h3><p>二维随机向量边缘分布为其中某个随机变量取某个值的概率（相当于在表格“边缘”的那一栏），对于离散型二维随机向量，有$P(Y=y_j)=\sum\limits_ip_{ij}$；对于连续型二维随机变量，其边缘分布函数为 $F_X(x)=F(x, +\infty)=\lim\limits_{y\rightarrow+\infty}F(x,y)$，其边缘密度函数为 $f_X(x)=\int_{-\infty}^{+\infty}f_{X,Y}(x,y)dy$ 。（由联合分布确定其边缘分布，但反之不一定，要考虑其独立性）</p>
+<h3 id="3-随机变量的相互独立性"><a href="#3-随机变量的相互独立性" class="headerlink" title="3.随机变量的相互独立性"></a>3.随机变量的相互独立性</h3><p>若可判断 X、Y 取值互不影响，或对任意 x, y ，有 $F(x,y)=F(x)F(y)$，或离散型有 $p_{ij}=p_{i\cdot}p_{\cdot{j}}$，或连续型有 $f(x,y)=f_X(x)f_Y(y)$，那么 X、Y 相互独立。此时边缘分布可确定联合分布。</p>
+<h3 id="4-二维均匀分布"><a href="#4-二维均匀分布" class="headerlink" title="4.二维均匀分布"></a>4.二维均匀分布</h3><p>有界区域 D 的面积为 $S_D$，$f(x,y)=\left\{\begin{matrix}\frac{1}{S_D},(x,y)\in{D}\\0,(x,y)\notin{D}\end{matrix}\right.$。可以用画图辅助。</p>
+<h3 id="5-二维正态分布"><a href="#5-二维正态分布" class="headerlink" title="5.二维正态分布"></a>5.二维正态分布</h3><p>$(X,Y)\sim{N(\mu_1,\mu_2,\sigma^2_1,\sigma^2_2,\rho)}$，其边缘分布是一维正态分布，$\rho$ 为两变量的相关系数。（“物以类聚”，$\mu$ 在一起，$\sigma$ 在一起）</p>
 <h3 id="6-二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）"><a href="#6-二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）" class="headerlink" title="6.二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）"></a>6.二维随机向量函数的概率分布函数（离散型）与概率密度函数（连续型）</h3><p>$Z=g(x,y)$ 为一个二元函数，研究其分布：</p>
-<p>离散型与一维类似，其概率分布函数直接将每个可能的 <script type="math/tex">(X,Y)</script> 概率累加。</p>
-<p>对于连续型，有 <script type="math/tex">F_Z(z)=P(g(X,Y)\leq{Z})=\iint\limits_{g(x,y)\leq{z}}f(x,y)dxdy</script>，但我们在这里只讨论随机向量函数为两随机变量之和的情况：令 <script type="math/tex">y=u-x</script>，则上式可写成 <script type="math/tex">\iint\limits_{x+y\leq{z}}f(x,y)dxdy=\int_{-\infty}^{+\infty}\int_{-\infty}^{z-x}f(x,y)dydx=\int_{-\infty}^{+\infty}\int_{-\infty}^{z}f(x,u-x)dudx=\int_{-\infty}^{z}\int_{-\infty}^{+\infty}f(x,u-x)dxdu</script>，求导得 <script type="math/tex">f_Z(z)=\int_{-\infty}^{+\infty}f(x, z-x)dx</script>。同理，<script type="math/tex">f_Z(z)=\int_{-\infty}^{+\infty}f(z-y, y)dy</script>。</p>
-<p>特别地，当 x、y相互独立时，上式变为卷积公式 <script type="math/tex">f_Z(z)=\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)dx=f_Z(z)=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)dy</script></p>
-<p>事实上，X、Y 相互独立时， <script type="math/tex">X\sim P(\lambda_1)</script>，<script type="math/tex">Y\sim P(\lambda_2)</script>，则 <script type="math/tex">X+Y\sim P(\lambda_1+\lambda_2)</script>；<script type="math/tex">X\sim B(m,p)</script>，<script type="math/tex">Y\sim B(n,p)</script>，则 <script type="math/tex">X+Y\sim B(m+n,p)</script>；<script type="math/tex">X\sim{N}(\mu_1, \sigma^2_1)</script>，<script type="math/tex">Y\sim{N}(\mu_2, \sigma^2_2)</script>，则 <script type="math/tex">X+Y\sim{N}(\mu_1+\mu_2, \sigma^2_1+\sigma^2_2)</script>。更进一步地，有限个独立的正态分布的随机变量线性组合仍然是正态分布。</p>
+<p>离散型与一维类似，其概率分布函数直接将每个可能的 $(X,Y)$ 概率累加。</p>
+<p>对于连续型，有 $F_Z(z)=P(g(X,Y)\leq{Z})=\iint\limits_{g(x,y)\leq{z}}f(x,y)dxdy$，但我们在这里只讨论随机向量函数为两随机变量之和的情况：令 $y=u-x$，则上式可写成 $\iint\limits_{x+y\leq{z}}f(x,y)dxdy=\int_{-\infty}^{+\infty}\int_{-\infty}^{z-x}f(x,y)dydx=\int_{-\infty}^{+\infty}\int_{-\infty}^{z}f(x,u-x)dudx=\int_{-\infty}^{z}\int_{-\infty}^{+\infty}f(x,u-x)dxdu$，求导得 $f_Z(z)=\int_{-\infty}^{+\infty}f(x, z-x)dx$。同理，$f_Z(z)=\int_{-\infty}^{+\infty}f(z-y, y)dy$。</p>
+<p>特别地，当 x、y相互独立时，上式变为卷积公式 $f_Z(z)=\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)dx=f_Z(z)=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)dy$</p>
+<p>事实上，X、Y 相互独立时， $X\sim P(\lambda_1)$，$Y\sim P(\lambda_2)$，则 $X+Y\sim P(\lambda_1+\lambda_2)$；$X\sim B(m,p)$，$Y\sim B(n,p)$，则 $X+Y\sim B(m+n,p)$；$X\sim{N}(\mu_1, \sigma^2_1)$，$Y\sim{N}(\mu_2, \sigma^2_2)$，则 $X+Y\sim{N}(\mu_1+\mu_2, \sigma^2_1+\sigma^2_2)$。更进一步地，有限个独立的正态分布的随机变量线性组合仍然是正态分布。</p>
 <h2 id="四、随机变量的数字特征"><a href="#四、随机变量的数字特征" class="headerlink" title="四、随机变量的数字特征"></a>四、随机变量的数字特征</h2><h3 id="1-数学期望"><a href="#1-数学期望" class="headerlink" title="1.数学期望"></a>1.数学期望</h3><p>a.一维随机变量数学期望的计算</p>
-<p>对于离散型，当级数 <script type="math/tex">\sum\limits_{i=1}^{\infty}|x_i|p_i</script> 收敛，则 X 期望存在，<script type="math/tex">E(X)=\sum\limits_{i=1}^{\infty}x_ip_i</script>。</p>
-<p>对于连续型，当 <script type="math/tex">\int_{-\infty}^{+\infty}|x|f(x)dx</script> 收敛时，有期望 <script type="math/tex">E(X)=\int_{-\infty}^{+\infty}xf(x)dx</script> 。发散则不存在，如柯西分布、圣彼得堡悖论。</p>
-<p>二项分布：<script type="math/tex">E(X)=np</script>；泊松分布：<script type="math/tex">E(X)=\lambda</script>；几何分布 <script type="math/tex">E(X)=\frac{1}{p}</script>；均匀分布为中点；正态分布 <script type="math/tex">E(X)=\mu</script> ；指数分布 <script type="math/tex">E(X)=\frac{1}{\lambda}</script> 。</p>
+<p>对于离散型，当级数 $\sum\limits_{i=1}^{\infty}|x_i|p_i$ 收敛，则 X 期望存在，$E(X)=\sum\limits_{i=1}^{\infty}x_ip_i$。</p>
+<p>对于连续型，当 $\int_{-\infty}^{+\infty}|x|f(x)dx$ 收敛时，有期望 $E(X)=\int_{-\infty}^{+\infty}xf(x)dx$ 。发散则不存在，如柯西分布、圣彼得堡悖论。</p>
+<p>二项分布：$E(X)=np$；泊松分布：$E(X)=\lambda$；几何分布 $E(X)=\frac{1}{p}$；均匀分布为中点；正态分布 $E(X)=\mu$ ；指数分布 $E(X)=\frac{1}{\lambda}$ 。</p>
 <p>b.一维随机变量函数的数学期望</p>
-<p>离散型，<script type="math/tex">E(g(X))=\sum\limits_{k}g(x_k)P(X=x_k)</script> （要求 <script type="math/tex">\sum\limits_{k}|g(x_k)|P(X=x_k)<+\infty</script>）</p>
-<p>连续型：<script type="math/tex">\int_{-\infty}^{+\infty}|g(x)|f(x)dx</script> 收敛时，有期望 <script type="math/tex">E(g(x))=\int_{-\infty}^{+\infty}g(x)f(x)dx</script> 。</p>
+<p>离散型，$E(g(X))=\sum\limits_{k}g(x_k)P(X=x_k)$ （要求 $\sum\limits_{k}|g(x_k)|P(X=x_k)&lt;+\infty$）</p>
+<p>连续型：$\int_{-\infty}^{+\infty}|g(x)|f(x)dx$ 收敛时，有期望 $E(g(x))=\int_{-\infty}^{+\infty}g(x)f(x)dx$ 。</p>
 <p>c.二维随机变量函数的数学期望</p>
 <p>离散型：与一维类似，将取值与对应的概率乘积求和</p>
-<p>连续型：若<script type="math/tex">\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}g(x,y)f(x,y)dydx</script> 绝对收敛，则期望存在。</p>
-<p>特别地，<script type="math/tex">E(X)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}xf(x,y)dydx=\int_{-\infty}^{+\infty}x[\int_{-\infty}^{+\infty}f(x,y)dy]dx=\int_{-\infty}^{+\infty}xf_X(x)dx</script></p>
+<p>连续型：若$\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}g(x,y)f(x,y)dydx$ 绝对收敛，则期望存在。</p>
+<p>特别地，$E(X)=\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}xf(x,y)dydx=\int_{-\infty}^{+\infty}x[\int_{-\infty}^{+\infty}f(x,y)dy]dx=\int_{-\infty}^{+\infty}xf_X(x)dx$</p>
 <p>d.数学期望的部分性质</p>
-<p>如果 <script type="math/tex">\xi</script> 与 <script type="math/tex">\eta</script> 相互独立，<script type="math/tex">E(\xi\eta)=E(\xi)E(\eta)</script>；但反之不一定。</p>
+<p>如果 $\xi$ 与 $\eta$ 相互独立，$E(\xi\eta)=E(\xi)E(\eta)$；但反之不一定。</p>
 <h3 id="2-随机变量的矩"><a href="#2-随机变量的矩" class="headerlink" title="2.随机变量的矩"></a>2.随机变量的矩</h3><p>a.相关定义</p>
-<p>记 <script type="math/tex">E[(X-c)^k]</script> 为 X 关于 c 的 k 阶矩，当 c = 0 时为 k 阶原点矩 <script type="math/tex">a_k</script>，<script type="math/tex">c=E(X)</script> 时为 k 阶中心矩 <script type="math/tex">\mu_k</script>。（$\mu$ 有些像以中心为轴左右对称）</p>
-<p>记 <script type="math/tex">\mu_2</script> 为方差。（X 必须有有限的期望）</p>
+<p>记 $E[(X-c)^k]$ 为 X 关于 c 的 k 阶矩，当 c = 0 时为 k 阶原点矩 $a_k$，$c=E(X)$ 时为 k 阶中心矩 $\mu_k$。（$\mu$ 有些像以中心为轴左右对称）</p>
+<p>记 $\mu_2$ 为方差。（X 必须有有限的期望）</p>
 <p>$\frac{\mu_3}{\mu^{\frac{3}{2}}_2}$ 为偏度系数，正态分布偏度系数为 0，绝对值越大，离正态分布偏差越大，大于 0 说明右偏。</p>
 <p>$\frac{\mu_4}{\mu^{2}_2}$ 为峰度系数，正态分布为 3。（“偏锋”，从 3 到 4）</p>
 <p>b.随机变量的方差的计算</p>
 <p>$Var(X)=E(X^2)-[E(X)]^2$ （“由内而外”）</p>
-<script type="math/tex; mode=display">Var(cX)=c^2Var(X)</script><p>对于二项分布，其方差有 <script type="math/tex">Var(X)=np(1-p)=npq</script>；泊松分布方差 <script type="math/tex">Var(X)=\lambda</script>；几何分布方差 <script type="math/tex">Var(X)=\frac{q}{p^2}</script>；均匀分布方差 <script type="math/tex">Var(X)=\frac{(b-a)^2}{12}</script>；正态分布方差 <script type="math/tex">Var(X)=\sigma^2</script>；指数分布方差 <script type="math/tex">Var(X)=\frac{1}{\lambda^2}</script> 。</p>
-<h3 id="3-二维随机向量的协方差"><a href="#3-二维随机向量的协方差" class="headerlink" title="3.二维随机向量的协方差"></a>3.二维随机向量的协方差</h3><p>定义 <script type="math/tex">Cov(X,Y)=E\{[X-E(X)][Y-E(Y)]\}</script>，则有 <script type="math/tex">Var(X)=Cov(X,X)</script>，<script type="math/tex">Cov(aX+bY,Z)=aCov(X,Z)+bCov(Y,Z)</script>；若 X、Y 独立，那么其协方差为 0，但反之不一定。</p>
-<script type="math/tex; mode=display">Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)</script><p>注意 $Cov(X,-Y)=-Cov(X,Y)$，有 $Var(X-Y)=Var(X)+Var(Y)-2Cov(X,Y)$。</p>
-<h3 id="4-相关系数"><a href="#4-相关系数" class="headerlink" title="4.相关系数"></a>4.相关系数</h3><p>当 <script type="math/tex">Var(X)>0</script>，<script type="math/tex">Var(Y)>0</script> 时，定义相关系数 <script type="math/tex">r(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}</script> （也可用 <script type="math/tex">\rho</script>），其绝对值总是小于等于 1。当 <script type="math/tex">\rho=0</script> 时，两变量无线性关系；当 <script type="math/tex">\rho=1</script> 时严格正相关，当 <script type="math/tex">\rho=-1</script> 时严格负相关。</p>
-<p>由协方差的性质，当 X、Y 独立时，其相关系数等于 0，但反之不一定成立。也就是说，X、Y 独立，则两者一定不相关，但反之不一定。不过，<script type="math/tex">(X,Y)</script> 服从二维正态分布时，反之也成立。</p>
+<p>$Var(cX)=c^2Var(X)$</p>
+<p>对于二项分布，其方差有 $Var(X)=np(1-p)=npq$；泊松分布方差 $Var(X)=\lambda$；几何分布方差 $Var(X)=\frac{q}{p^2}$；均匀分布方差 $Var(X)=\frac{(b-a)^2}{12}$；正态分布方差 $Var(X)=\sigma^2$；指数分布方差 $Var(X)=\frac{1}{\lambda^2}$ 。</p>
+<h3 id="3-二维随机向量的协方差"><a href="#3-二维随机向量的协方差" class="headerlink" title="3.二维随机向量的协方差"></a>3.二维随机向量的协方差</h3><p>定义 $Cov(X,Y)=E\{[X-E(X)][Y-E(Y)]\}$，则有 $Var(X)=Cov(X,X)$，$Cov(aX+bY,Z)=aCov(X,Z)+bCov(Y,Z)$；若 X、Y 独立，那么其协方差为 0，但反之不一定。</p>
+<p>$Var(X+Y)=Var(X)+Var(Y)+2Cov(X,Y)$</p>
+<p>注意 $Cov(X,-Y)=-Cov(X,Y)$，有 $Var(X-Y)=Var(X)+Var(Y)-2Cov(X,Y)$。</p>
+<h3 id="4-相关系数"><a href="#4-相关系数" class="headerlink" title="4.相关系数"></a>4.相关系数</h3><p>当 $Var(X)&gt;0$，$Var(Y)&gt;0$ 时，定义相关系数 $r(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$ （也可用 $\rho$），其绝对值总是小于等于 1。当 $\rho=0$ 时，两变量无线性关系；当 $\rho=1$ 时严格正相关，当 $\rho=-1$ 时严格负相关。</p>
+<p>由协方差的性质，当 X、Y 独立时，其相关系数等于 0，但反之不一定成立。也就是说，X、Y 独立，则两者一定不相关，但反之不一定。不过，$(X,Y)$ 服从二维正态分布时，反之也成立。</p>
 <h6 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h6><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/261961315">https://zhuanlan.zhihu.com/p/261961315</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6ee90ba47b4a">https://www.jianshu.com/p/6ee90ba47b4a</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/26441147/answer/429569625">https://www.zhihu.com/question/26441147/answer/429569625</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36555178">https://zhuanlan.zhihu.com/p/36555178</a></p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a>
-                    
-                  </div>
-                
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/" class="category-chain-item">概率论与数理统计</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>概率论</div>
+      <div>https://zhaozihanzzh.github.io/2021/06/07/probability-theory/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>zhaozihanzzh</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 7, 2021</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>Licensed under</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
               
-              
-                <div class="post-prevnext">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/10/bios-gpu-switch/">
+                      <a href="/2021/08/10/bios-gpu-switch/" title="神船 TX6 BIOS 开关独显">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">神船 TX6 BIOS 开关独显</span>
                         <span class="visible-mobile">Previous</span>
@@ -359,7 +461,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/05/21/cpp-private/">
+                      <a href="/2021/05/21/cpp-private/" title="C++ 类的成员函数访问该类的私有数据成员">
                         <span class="hidden-mobile">C++ 类的成员函数访问该类的私有数据成员</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -375,25 +477,62 @@
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
 
 
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -412,32 +551,34 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
   
-
   
-</footer>
+  
+  
+</div>
 
+  </footer>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
@@ -456,7 +597,23 @@
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
@@ -465,25 +622,106 @@
 
 
 
+
   
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
 
-  <script  src="https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>Fluid.plugins.codeWidget();</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
 
-  <script  src="https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js" ></script>
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
 
 
+  <script>Fluid.plugins.imageCaption();</script>
 
-  <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
 
-
+  <script  src="https://lib.baomitu.com/mathjax/3.2.1/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
@@ -491,74 +729,15 @@
 
 
 
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-      typing(title)
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://lib.baomitu.com/mathjax/3.2.0/tex-svg.js" ></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>
