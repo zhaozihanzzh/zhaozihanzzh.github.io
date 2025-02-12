@@ -8,7 +8,7 @@
     <link href="/2025/02/12/small-kernel-config-debian-qemu/"/>
     <url>/2025/02/12/small-kernel-config-debian-qemu/</url>
     
-    <content type="html"><![CDATA[<h1 id="一个用于-QEMU-中编译内核的较小的-Kernel-config-文件"><a href="#一个用于-QEMU-中编译内核的较小的-Kernel-config-文件" class="headerlink" title="一个用于 QEMU 中编译内核的较小的 Kernel config 文件"></a>一个用于 QEMU 中编译内核的较小的 Kernel config 文件</h1><h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>由于 UEFI 课程作业需要，我需要编译一个能在 QEMU 中使用的 Linux 内核。然而，由于发行版默认的内核配置文件打开了太多不需要的选项，我关掉了大量选项（如 NVIDIA 显卡驱动、各种网卡驱动），使得在加速内核编译的同时仍然能在 Intel CPU + QEMU KVM 上正常使用。测试的发行版是 Debian 12。</p><h2 id="二、配置文件内容"><a href="#二、配置文件内容" class="headerlink" title="二、配置文件内容"></a>二、配置文件内容</h2><p><a href="/download/.config" download>.config</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="一个用于-QEMU-中编译内核的较小的-Kernel-config-文件"><a href="#一个用于-QEMU-中编译内核的较小的-Kernel-config-文件" class="headerlink" title="一个用于 QEMU 中编译内核的较小的 Kernel config 文件"></a>一个用于 QEMU 中编译内核的较小的 Kernel config 文件</h1><h2 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h2><p>由于 UEFI 课程作业需要，我需要编译一个能在 QEMU 中使用的 Linux 内核。然而，由于发行版默认的内核配置文件打开了太多不需要的选项，我关掉了大量选项（如 NVIDIA 显卡驱动、各种网卡驱动），使得在加速内核编译的同时仍然能在 Intel CPU + QEMU KVM 上正常使用（AMD 可能无法使用，可能需要额外打开一点相关的配置项）。测试的发行版是 Debian 12。</p><h2 id="二、配置文件内容"><a href="#二、配置文件内容" class="headerlink" title="二、配置文件内容"></a>二、配置文件内容</h2><p>我将这个配置文件上传，这样或许可以方便到部分面临相似问题的人。</p><p><a href="/download/config" download>.config</a></p>]]></content>
     
     
     <categories>
