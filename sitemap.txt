@@ -1,3 +1,4 @@
+https://zhaozihanzzh.github.io/2025/07/27/windows-xrdp-debian-cinnamon/
 https://zhaozihanzzh.github.io/2025/02/12/small-kernel-config-debian-qemu/
 https://zhaozihanzzh.github.io/2024/02/24/bios-update-clevo/
 https://zhaozihanzzh.github.io/2021/09/25/touchpad-clevo-arch/
