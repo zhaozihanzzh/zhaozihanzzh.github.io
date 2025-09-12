@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://zhaozihanzzh.github.io/images/xrdp-login.jpg">
 <meta property="og:image" content="https://zhaozihanzzh.github.io/images/xrdp-established.jpg">
 <meta property="article:published_time" content="2025-07-27T06:45:36.000Z">
-<meta property="article:modified_time" content="2025-07-27T12:44:08.496Z">
+<meta property="article:modified_time" content="2025-09-12T09:07:47.707Z">
 <meta property="article:author" content="zhaozihanzzh">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://zhaozihanzzh.github.io/images/xrdp-create-connection.jpg">
@@ -214,7 +214,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          577 words
+          717 words
         
       </span>
     
@@ -225,7 +225,7 @@
         
         
         
-          5 mins
+          6 mins
         
       </span>
     
@@ -267,7 +267,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    Last updated on July 27, 2025 pm
+                    Last updated on September 12, 2025 pm
                   
                 
               </p>
@@ -285,9 +285,12 @@
 <p>此时如果 Windows 可以连接到被控机器的话，应该会进入登录界面。我这里直接用要登录的用户和密码进行登录。</p>
 <p><img src="https://zhaozihanzzh.github.io/images/xrdp-login.jpg" srcset="/img/loading.gif" lazyload alt="登录界面"></p>
 <p>此时如果你已经在 Linux 的图形界面登录某个用户后，可能无法在远程桌面成功登录同一个用户，但可以登录未在远程物理机器上登录的用户。xrdp 的 <a target="_blank" rel="noopener" href="https://github.com/neutrinolabs/xrdp/wiki/Tips-and-FAQ#why-cant-i-log-the-same-user-on-on-the-graphical-console-and-over-xrdp-at-the-same-time">GitHub Wiki</a> 显示这是由于当前 systemd 不能正确处理同一用户多个会话。如果你需要在远程 Linux 机器上保持登录的同时远程桌面连接该用户，根据<a target="_blank" rel="noopener" href="https://netsarang.atlassian.net/wiki/spaces/ENSUP/pages/2242871461/Ubuntu+22.04+-+XRDP+Enabling+Multiple+Sessions+and+Pause+Resume">这篇文章</a>，可以确保已经安装 <code>dbus-x11</code> 软件包，然后编辑 <code>/etc/xrdp/startwm.sh</code>（这是登录成功后会执行的脚本），在合适位置（如<code>test -x /etc/X11/Xsession &amp;&amp; exec /etc/X11/Xsession</code>）前添加一行：</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">export</span> $(dbus-launch)<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">export $(dbus-launch)<br></code></pre></td></tr></table></figure>
 <p>此时应该可以使用远程桌面了。</p>
 <p><img src="https://zhaozihanzzh.github.io/images/xrdp-established.jpg" srcset="/img/loading.gif" lazyload alt="远程桌面，这里为了截图没有将窗口最大化"></p>
+<p>不过测试下来感觉，使用 <code>export $(dbus-launch)</code> 时 gnome-terminal （cinnamon）启动时速度明显不如使用网上的另一个方法，具体是将之前在 <code>/etc/xrdp/startwm.sh</code> 里编辑的内容改成如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">unset DBUS_SESSION_BUS_ADDRESS<br>unset XDG_RUNTIME_DIR<br></code></pre></td></tr></table></figure>
+<p>此外，后面感觉这样做了还是有些兼容性问题，比如 Firefox 会认为有一个实例已经在运行了，拒绝启动。一个 workaround 是使用类似<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44759117/article/details/109009629">这篇文章</a>的方法，在 xrdp 中创建一个新的 Profile。总的来说，本文章记录的方法并不是很“正确”。</p>
 
                 
               </div>
