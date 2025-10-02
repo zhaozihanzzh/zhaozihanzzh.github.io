@@ -30,9 +30,9 @@
 <meta property="og:image" content="https://zhaozihanzzh.github.io/images/mpe_code_new_page.png">
 <meta property="og:image" content="https://zhaozihanzzh.github.io/images/mpe_code_long_line_not_break.png">
 <meta property="og:image" content="https://zhaozihanzzh.github.io/images/mpe_code_open_config.png">
-<meta property="og:image" content="https://zhaozihanzzh.github.io/images/mpe_code_line_break_no_new_page">
+<meta property="og:image" content="https://zhaozihanzzh.github.io/images/mpe_code_line_break_no_new_page.png">
 <meta property="article:published_time" content="2025-10-02T08:07:14.000Z">
-<meta property="article:modified_time" content="2025-10-02T09:14:52.650Z">
+<meta property="article:modified_time" content="2025-10-02T09:18:51.384Z">
 <meta property="article:author" content="zhaozihanzzh">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://zhaozihanzzh.github.io/images/mpe_code_open_in_browser.png">
@@ -297,7 +297,7 @@
 <p>在 VSCode 跳转到 <code>style.less</code> 后，将 <code>.markdown-preview.markdown-preview</code> 这段替换为：</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-class">.markdown-preview</span><span class="hljs-selector-class">.markdown-preview</span> &#123;<br>  <span class="hljs-comment">// modify your style here</span><br>  <span class="hljs-comment">// eg: background-color: blue;</span><br>  <span class="hljs-comment">// https://github.com/shd101wyy/vscode-markdown-preview-enhanced/issues/1654#issuecomment-2272565424</span><br>  <span class="hljs-comment">// 自动换行：预览用</span><br>  <span class="hljs-selector-tag">pre</span>, <span class="hljs-selector-tag">code</span> &#123;<br>    <span class="hljs-attribute">white-space</span>: pre-wrap;<br>    <span class="hljs-attribute">word-break</span>: break-word;<br>    <span class="hljs-attribute">overflow</span>: hidden;<br>  &#125;<br><br>  <span class="hljs-comment">// 自动换行：打印用</span><br>  <span class="hljs-keyword">@media</span> print &#123;<br>    <span class="hljs-selector-tag">pre</span>, <span class="hljs-selector-tag">code</span> &#123;<br>      <span class="hljs-attribute">break-inside</span>: initial; <span class="hljs-comment">// 不另起一页，来自 ChatGPT</span><br>      <span class="hljs-attribute">white-space</span>: pre-wrap;<br>      <span class="hljs-attribute">word-break</span>: break-word;<br>      <span class="hljs-attribute">overflow</span>: hidden;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>然后再使用 MPE 进行预览，在浏览器中打印为 PDF 时，发现可以自动换行，并且不会自动另起一页了。</p>
-<p><img src="https://zhaozihanzzh.github.io/images/mpe_code_line_break_no_new_page" srcset="/img/loading.gif" lazyload alt="过长的行不再显示滚动条而是折断，同时代码块紧靠上一个段落"></p>
+<p><img src="https://zhaozihanzzh.github.io/images/mpe_code_line_break_no_new_page.png" srcset="/img/loading.gif" lazyload alt="过长的行不再显示滚动条而是折断，同时代码块紧靠上一个段落"></p>
 
                 
               </div>
